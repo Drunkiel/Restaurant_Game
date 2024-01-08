@@ -66,8 +66,6 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
-  border: {fileID: 5976698174148282725, guid: 3416bd73ba8c9cf44bdb8a82fc307091, type: 3}
-  objectsTag: []
 --- !u!65 &6212833380741632926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,7 +85,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.165, y: 0.05, z: 0.11}
+  m_Size: {x: 0.165, y: 0.05, z: 0.12}
   m_Center: {x: 0, y: 0.024, z: 0}
 --- !u!1001 &8594961312238620385
 PrefabInstance:

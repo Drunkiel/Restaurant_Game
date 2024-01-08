@@ -7,7 +7,7 @@ public class BuildingSystem : MonoBehaviour
     public static bool inBuildingMode;
 
     [SerializeField] private Grid grid;
-    public Vector2 gridSize;
+    public Vector2 mapSize;
 
     public GameObject buildingMaterial;
     [SerializeField] private Material[] materials;
@@ -26,6 +26,7 @@ public class BuildingSystem : MonoBehaviour
         if (!_objectToPlace) return;
 
         ChangeMaterial(CanBePlaced());
+        if (Input.GetKeyDown(KeyCode.R)) _objectToPlace.Rotate();
 
 /*        if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -39,7 +40,8 @@ public class BuildingSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return hit.point;
-        else return Vector3.zero;
+        return hit.point;
+        //else return Vector3.zero;
     }
 
     public Vector3 SnapCoordinateToGrid(Vector3 position)
@@ -47,10 +49,10 @@ public class BuildingSystem : MonoBehaviour
         Vector3Int cellPosition = grid.WorldToCell(position);
 
         //Checking if object is out of bounds
-        if (position.x > gridSize.x ||
-            position.x < -gridSize.x ||
-            position.z > gridSize.y ||
-            position.z < -gridSize.y
+        if (position.x > mapSize.x ||
+            position.x < -mapSize.x ||
+            position.z > mapSize.y ||
+            position.z < -mapSize.y
             ) return SnapCoordinateToGrid(Vector3.zero);
 
         position = grid.GetCellCenterWorld(cellPosition);
@@ -109,7 +111,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void ChangeMaterial(bool itCanBePlaced)
     {
-        if (itCanBePlaced) _objectToPlace.transform.GetChild(_objectToPlace.transform.childCount - 1).GetComponent<MeshRenderer>().material = materials[0];
-        else _objectToPlace.transform.GetChild(_objectToPlace.transform.childCount - 1).GetComponent<MeshRenderer>().material = materials[1];
+        MeshRenderer meshRenderer = _objectToPlace.transform.GetChild(_objectToPlace.transform.childCount - 1).GetComponent<MeshRenderer>();
+        meshRenderer.material = itCanBePlaced ? materials[0] : materials[1];
     }
 }

@@ -34,6 +34,11 @@ public class PlacableObject : MonoBehaviour
         Instantiate(BuildingSystem.instance.buildingMaterial, transform);
     }
 
+    public void Rotate()
+    {
+        transform.RotateAround(transform.position, Vector3.up, 90f);
+    }
+
     private void GetColliderVertexPositionLocal()
     {
         BoxCollider collider = gameObject.GetComponent<BoxCollider>();
