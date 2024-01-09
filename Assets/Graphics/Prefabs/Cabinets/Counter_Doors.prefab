@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5578956918422870183}
-  - component: {fileID: 1372366327540820562}
   - component: {fileID: 8141184551174335023}
+  - component: {fileID: -5157630992441683882}
+  - component: {fileID: 1372366327540820562}
   m_Layer: 0
   m_Name: Counter_Doors
   m_TagString: Untagged
@@ -34,23 +35,6 @@ Transform:
   - {fileID: 4571523720413542336}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1372366327540820562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7662970251628652258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlaced: 0
-  size: {x: 0, y: 0, z: 0}
-  vertices: []
-  border: {fileID: 5976698174148282725, guid: 3416bd73ba8c9cf44bdb8a82fc307091, type: 3}
-  objectsTag: []
 --- !u!65 &8141184551174335023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +56,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.36, z: 0.36}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &-5157630992441683882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662970251628652258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74bada2d5508a841ad91a5c70ff7340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingName: Cabinet
+  requiredLvl: 0
+  price: 0
+  grid: 0
+  showcaseImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &1372366327540820562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662970251628652258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaced: 0
+  size: {x: 0, y: 0, z: 0}
+  vertices: []
 --- !u!1001 &4106132664484368427
 PrefabInstance:
   m_ObjectHideFlags: 0

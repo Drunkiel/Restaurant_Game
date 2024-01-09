@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464895329447527815}
-  - component: {fileID: 921216185081518037}
   - component: {fileID: 2526621999452742090}
+  - component: {fileID: -6792881972133675675}
+  - component: {fileID: 921216185081518037}
   m_Layer: 0
   m_Name: Counter_Sink
   m_TagString: Untagged
@@ -34,23 +35,6 @@ Transform:
   - {fileID: 4780872902832158903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &921216185081518037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3446870829565050220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlaced: 0
-  size: {x: 0, y: 0, z: 0}
-  vertices: []
-  border: {fileID: 5976698174148282725, guid: 3416bd73ba8c9cf44bdb8a82fc307091, type: 3}
-  objectsTag: []
 --- !u!65 &2526621999452742090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +56,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.36, z: 0.36}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &-6792881972133675675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446870829565050220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74bada2d5508a841ad91a5c70ff7340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingName: Cabinet
+  requiredLvl: 0
+  price: 0
+  grid: 0
+  showcaseImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &921216185081518037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446870829565050220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaced: 0
+  size: {x: 0, y: 0, z: 0}
+  vertices: []
 --- !u!1001 &5031554248721342300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,12 +104,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fb579e0f50c519b47b7ef03eccd2ee49,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb579e0f50c519b47b7ef03eccd2ee49,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.581
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb579e0f50c519b47b7ef03eccd2ee49,
         type: 3}

@@ -7,13 +7,14 @@ public class BuildingSystem : MonoBehaviour
     public static bool inBuildingMode;
 
     [SerializeField] private Grid grid;
+    [SerializeField] private Grid[] allGrids;
     public Vector2 mapSize;
 
     public GameObject buildingMaterial;
     [SerializeField] private Material[] materials;
 
     [SerializeField] private GameObject UI;
-   // public BuildingUI _buildingUI;
+    // public BuildingUI _buildingUI;
     public PlacableObject _objectToPlace;
 
     void Awake()
@@ -26,13 +27,14 @@ public class BuildingSystem : MonoBehaviour
         if (!_objectToPlace) return;
 
         ChangeMaterial(CanBePlaced());
-        if (Input.GetKeyDown(KeyCode.R)) _objectToPlace.Rotate();
+        if (Input.GetKeyDown(KeyCode.Q)) _objectToPlace.Rotate(90);
+        if (Input.GetKeyDown(KeyCode.E)) _objectToPlace.Rotate(-90);
 
-/*        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            PlaceButton();
+            _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
         }
-        else if (Input.GetKeyDown(KeyCode.Escape)) Destroy(_objectToPlace.gameObject);*/
+
     }
 
     public static Vector3 GetMouseWorldPosition()
@@ -40,8 +42,7 @@ public class BuildingSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return hit.point;
-        return hit.point;
-        //else return Vector3.zero;
+        return Vector3.zero;
     }
 
     public Vector3 SnapCoordinateToGrid(Vector3 position)
@@ -68,6 +69,7 @@ public class BuildingSystem : MonoBehaviour
 
         GameObject newObject = Instantiate(prefab, position, Quaternion.identity);
         _objectToPlace = newObject.GetComponent<PlacableObject>();
+        grid = allGrids[(int)newObject.GetComponent<BuildingID>().grid];
         Instantiate(buildingMaterial, newObject.transform);
         newObject.AddComponent<ObjectDrag>();
 
@@ -105,8 +107,7 @@ public class BuildingSystem : MonoBehaviour
     private bool CanBePlaced()
     {
         if (_objectToPlace == null) return false;
-        // return !_objectToPlace.transform.GetChild(1).GetComponent<MultiTriggerController>().isTriggered;
-        return false;
+        return _objectToPlace.transform.GetComponent<MultiTriggerController>().isTriggered;
     }
 
     private void ChangeMaterial(bool itCanBePlaced)

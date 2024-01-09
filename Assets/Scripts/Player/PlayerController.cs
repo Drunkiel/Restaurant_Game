@@ -2,29 +2,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public float rotationSpeed = 100f;
+    public float speed;
+    public float rotationSpeed;
 
     private Vector2 movement;
+    private bool isMoving; 
 
     [SerializeField] private Rigidbody rgBody;
 
     private void Update()
     {
-        // Obs³uga ruchu w p³aszczyŸnie poziomej
-        movement = new(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        isMoving = movement.magnitude > 0.1f;
+
+        if (rgBody.velocity.magnitude >= speed)
+            rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
     }
 
     private void FixedUpdate()
     {
-        // Ograniczenie prêdkoœci
-        if (rgBody.velocity.magnitude > speed) rgBody.velocity = rgBody.velocity.normalized * speed;
-
         Vector3 move = new Vector3(movement.x, 0, movement.y).normalized;
         rgBody.AddForce(move * speed);
 
-        // Obracanie postaci tylko w kierunku, w którym idzie
-        if (move != Vector3.zero)
+        if (isMoving)
         {
             Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
             toRotation.x = 0f;

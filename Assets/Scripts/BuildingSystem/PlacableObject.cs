@@ -15,6 +15,7 @@ public class PlacableObject : MonoBehaviour
     public virtual void Place()
     {
         Destroy(GetComponent<ObjectDrag>());
+        Destroy(GetComponent<MultiTriggerController>());
         transform.GetComponentInChildren<AutoSize>().AutoDestroy();
         BuildingSystem.instance._objectToPlace = null;
 
@@ -34,9 +35,9 @@ public class PlacableObject : MonoBehaviour
         Instantiate(BuildingSystem.instance.buildingMaterial, transform);
     }
 
-    public void Rotate()
+    public void Rotate(int angle)
     {
-        transform.RotateAround(transform.position, Vector3.up, 90f);
+        transform.RotateAround(transform.position, Vector3.up, angle);
     }
 
     private void GetColliderVertexPositionLocal()
