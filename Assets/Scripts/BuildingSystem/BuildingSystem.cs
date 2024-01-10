@@ -34,7 +34,6 @@ public class BuildingSystem : MonoBehaviour
         {
             _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
         }
-
     }
 
     public static Vector3 GetMouseWorldPosition()
@@ -65,11 +64,11 @@ public class BuildingSystem : MonoBehaviour
         if (inBuildingMode) return;
 
         inBuildingMode = true;
-        Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
-        GameObject newObject = Instantiate(prefab, position, Quaternion.identity);
+        GameObject newObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         _objectToPlace = newObject.GetComponent<PlacableObject>();
         grid = allGrids[(int)newObject.GetComponent<BuildingID>().grid];
+        newObject.transform.position = SnapCoordinateToGrid(transform.position);
         Instantiate(buildingMaterial, newObject.transform);
         newObject.AddComponent<ObjectDrag>();
 
