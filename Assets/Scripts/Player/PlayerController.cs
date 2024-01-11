@@ -6,15 +6,17 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
 
     private Vector2 movement;
-    private bool isMoving; 
+    public bool isMoving;
 
     [SerializeField] private Rigidbody rgBody;
+    [SerializeField] private Animator anim;
 
     private void Update()
     {
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         isMoving = movement.magnitude > 0.1f;
+        anim.SetFloat("Movement", movement.magnitude);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
