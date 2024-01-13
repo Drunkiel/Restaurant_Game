@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d17da1a8eba24cbe7078ef9484357, type: 3}
+  m_Name: BuildableObjects
+  m_EditorClassIdentifier: 
+  _furnituresIDList:
+  - {fileID: 6927736142560203533, guid: 6fa7918cef6b95241896011a545b121b, type: 3}
+  - {fileID: -1118254188586741202, guid: 3eb596b05d0911f4a983d16fac76d068, type: 3}
+  - {fileID: 8891578781035813697, guid: 4e1f217dda5d091468b1137863741837, type: 3}
+  - {fileID: 1498080674448733869, guid: 1f8c389be78d9ec4a8cbd389254d7d2e, type: 3}
+  - {fileID: -3465854229747622387, guid: 84415f188044a58469c19a83e205d512, type: 3}
+  - {fileID: 5687634673647627239, guid: 38fa9e3a4f15cce458ce395af15247d7, type: 3}
+  _wallsIDList:
+  - {fileID: 6312376825373977102, guid: b705ab1bdb2b40d45a19897fb001eb9e, type: 3}
+  - {fileID: -2501818932589907331, guid: b07a7739662d6f243a0ef7f0a43c06ee, type: 3}
+  - {fileID: 5702115710289546170, guid: 6c609e01d8cf7b044b5174cbc17acc57, type: 3}
+  - {fileID: -941170494129629210, guid: 1af6aa1c18f7f6340902cb72f0238882, type: 3}
+  - {fileID: -593316015062672481, guid: f012766ffea214d44b03b237da76c73a, type: 3}
+  - {fileID: 8745758053268761318, guid: 2e83da270da21814f8f4683585ed462e, type: 3}
+  - {fileID: 5167419517578421593, guid: ad49e3abcbf72f04c981581ba230e383, type: 3}
+  - {fileID: 3026791927110325348, guid: e68f2d1d7c9144d418f382737171586f, type: 3}
+  _floorsIDList:
+  - {fileID: -3865800940867886315, guid: 34d55c5bec0769c4cb196bfc348157e8, type: 3}
+  - {fileID: 1607666768302969103, guid: 99db4fad363e7d1458b1881612d0977e, type: 3}
+  - {fileID: 7138556257281196459, guid: 226ac1c6739d5c749bfb65f73a48b92e, type: 3}
+  - {fileID: 3939947731648940954, guid: 49a77fec4920a2641bfb8b5e5c29947d, type: 3}
+  - {fileID: 7776977713777968435, guid: 7eb3b9203b1bf0a4e91190ee7abe05ee, type: 3}
+  _decorationsIDList:
+  - {fileID: 7269175380850201933, guid: c5c34ded9c7d6044f95a5784a0702377, type: 3}
+  - {fileID: 1066107525019879361, guid: 05cea3fd24fc9c9499201e0fbea1689b, type: 3}
+  - {fileID: 2970818469147950696, guid: dd907367a7ad66b4cbc375ca2451a70a, type: 3}
+  - {fileID: -768938195932651657, guid: 9f86fab827d0ebb499abe4d9e25aabb6, type: 3}
+  - {fileID: 5891164367265508695, guid: 5e96bc5ad54b18941aba316e8308ef8c, type: 3}
+  - {fileID: -5157630992441683882, guid: 571015fe52d3de44e86115da21f63918, type: 3}
+  - {fileID: 2890370315423541952, guid: eefdc08523860bd42b1edf32db2dc0ef, type: 3}
+  - {fileID: -1355637260991921951, guid: 383305b8c26da6943830a277f7807701, type: 3}
+  - {fileID: -6792881972133675675, guid: 9b3504a9a89bf374a90bd6a6597306f7, type: 3}
+  - {fileID: 3729554813430675923, guid: a8918c4987ac5814da9eb14189f0ed46, type: 3}
+  - {fileID: 9059243195576279891, guid: efd0eb211980f434898a148bacfc16a9, type: 3}

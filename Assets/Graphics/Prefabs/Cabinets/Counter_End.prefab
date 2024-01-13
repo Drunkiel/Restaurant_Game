@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1001692802013611015}
   - component: {fileID: -1355637260991921951}
   - component: {fileID: 8002929514497093129}
+  - component: {fileID: -535019363679080056}
   m_Layer: 0
   m_Name: Counter_End
   m_TagString: Untagged
@@ -88,6 +89,21 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &-535019363679080056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8076758953943295403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  objectsTag:
+  - Furniture
 --- !u!1001 &3206057647498841579
 PrefabInstance:
   m_ObjectHideFlags: 0

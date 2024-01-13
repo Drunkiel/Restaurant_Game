@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5596993655438644263}
   - component: {fileID: 2890370315423541952}
   - component: {fileID: 8632388164190042224}
+  - component: {fileID: -8683063228476792269}
   m_Layer: 0
   m_Name: Counter_Drawers
   m_TagString: Untagged
@@ -88,6 +89,21 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &-8683063228476792269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713706263236734515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  objectsTag:
+  - Furniture
 --- !u!1001 &734958742225756018
 PrefabInstance:
   m_ObjectHideFlags: 0

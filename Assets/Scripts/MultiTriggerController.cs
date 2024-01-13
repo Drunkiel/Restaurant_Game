@@ -4,6 +4,7 @@ using UnityEngine;
 public class MultiTriggerController : MonoBehaviour
 {
     public bool isTriggered;
+    [SerializeField] private bool reverseReturn;
     public string[] objectsTag;
     public HashSet<string> objectsTagsSet;
 
@@ -33,7 +34,7 @@ public class MultiTriggerController : MonoBehaviour
 
         if (objectsTagsSet.Contains(colliderTag))
         {
-            isTriggered = enter;
+            isTriggered = reverseReturn ? !enter : enter;
             return;
         }
     }

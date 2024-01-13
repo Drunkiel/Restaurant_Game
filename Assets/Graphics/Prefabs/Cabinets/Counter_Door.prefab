@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4160043955265892867}
   - component: {fileID: 5891164367265508695}
   - component: {fileID: 2806208250274602238}
+  - component: {fileID: 5432168149669029597}
   m_Layer: 0
   m_Name: Counter_Door
   m_TagString: Untagged
@@ -88,6 +89,21 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &5432168149669029597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880340717884760257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  objectsTag:
+  - Furniture
 --- !u!1001 &4740041275629768844
 PrefabInstance:
   m_ObjectHideFlags: 0
