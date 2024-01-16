@@ -56,7 +56,7 @@ public class BuildingSystem : MonoBehaviour
             ) return SnapCoordinateToGrid(Vector3.zero);
 
         position = grid.GetCellCenterWorld(cellPosition);
-        return position;
+        return new(position.x, _objectToPlace.transform.position.y, position.z);
     }
 
     public void InitializeWithObject(GameObject prefab)
@@ -65,7 +65,7 @@ public class BuildingSystem : MonoBehaviour
 
         inBuildingMode = true;
 
-        GameObject newObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        GameObject newObject = Instantiate(prefab, prefab.transform.position, Quaternion.identity);
         _objectToPlace = newObject.GetComponent<PlacableObject>();
         grid = allGrids[(int)newObject.GetComponent<BuildingID>().grid];
         newObject.transform.position = SnapCoordinateToGrid(transform.position);

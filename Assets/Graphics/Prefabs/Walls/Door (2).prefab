@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5887819464141466284}
   - component: {fileID: -2501818932589907331}
   - component: {fileID: 4976207667205209047}
+  - component: {fileID: 8854031406824705939}
   m_Layer: 6
   m_Name: Door (2)
   m_TagString: Wall
@@ -139,6 +140,22 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &8854031406824705939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813897815131228188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  reverseReturn: 0
+  objectsTag:
+  - Wall
 --- !u!1001 &265257690913487339
 PrefabInstance:
   m_ObjectHideFlags: 0

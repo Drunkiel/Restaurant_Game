@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4301383251025802429}
   - component: {fileID: 7157980320264814886}
+  - component: {fileID: 430908541196158542}
   - component: {fileID: 1066107525019879361}
   - component: {fileID: 5186730034235897153}
   - component: {fileID: 3399780459888309651}
@@ -57,6 +58,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.28, z: 0.35}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &430908541196158542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3086009605841043803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1066107525019879361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
+  reverseReturn: 0
   objectsTag:
   - Furniture
 --- !u!1001 &3122839884240776028

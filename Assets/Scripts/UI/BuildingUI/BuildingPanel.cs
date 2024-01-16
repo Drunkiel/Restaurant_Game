@@ -9,12 +9,23 @@ public class BuildingPanel : MonoBehaviour
 
     public void SpawnCards(int i)
     {
+        DestroyCard();
         List<BuildingID> list = GetList(i);
 
         for (int j = 0; j < list.Count; j++)
         {
             GameObject newCard = Instantiate(cardPrefab, content);
             newCard.GetComponent<BuildingCard>().SetData(list[j]);
+        }
+    }
+
+    private void DestroyCard()
+    {
+        if (content.childCount <= 0) return;
+
+        for (int i = 0; i < content.childCount; i++)
+        {
+            Destroy(content.GetChild(i).gameObject);
         }
     }
 

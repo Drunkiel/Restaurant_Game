@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4181952813171698144}
   - component: {fileID: 5167419517578421593}
   - component: {fileID: 77677995956889047}
+  - component: {fileID: 4137013268643151021}
   m_Layer: 6
   m_Name: Shoji_Interior
   m_TagString: Wall
@@ -138,6 +139,22 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &4137013268643151021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709122983566038104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  reverseReturn: 0
+  objectsTag:
+  - Wall
 --- !u!1001 &2362109231006969089
 PrefabInstance:
   m_ObjectHideFlags: 0

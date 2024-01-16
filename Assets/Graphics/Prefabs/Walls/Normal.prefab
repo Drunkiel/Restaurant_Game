@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3667912136097538269}
   - component: {fileID: 5702115710289546170}
   - component: {fileID: 8833187622517167424}
+  - component: {fileID: -7596701009713239182}
   m_Layer: 6
   m_Name: Normal
   m_TagString: Wall
@@ -138,6 +139,22 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+--- !u!114 &-7596701009713239182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645105117767058816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 0
+  reverseReturn: 0
+  objectsTag:
+  - Wall
 --- !u!1001 &2544453693223391686
 PrefabInstance:
   m_ObjectHideFlags: 0

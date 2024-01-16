@@ -9,13 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2986045665397376407}
+  - component: {fileID: -7752197378309343655}
   - component: {fileID: 3058592359351370479}
+  - component: {fileID: -4232380974405237608}
   - component: {fileID: 9059243195576279891}
   - component: {fileID: 6013596915573885176}
   - component: {fileID: -614626611326813844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Counter_Straight_2
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +38,33 @@ Transform:
   - {fileID: 5630525993539866963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-7752197378309343655
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461519283592797824}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &3058592359351370479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,8 +84,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 0.36, z: 0.46}
-  m_Center: {x: 0, y: 0.2, z: 0.1}
+  m_Size: {x: 0.79, y: 0.37, z: 0.5}
+  m_Center: {x: 0, y: 0.2, z: 0.09}
+--- !u!65 &-4232380974405237608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461519283592797824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79, y: 0.37, z: 0.5}
+  m_Center: {x: 0, y: 0.2, z: 0.09}
 --- !u!114 &9059243195576279891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74bada2d5508a841ad91a5c70ff7340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Cabinet
+  buildingName: Counter with seating
   requiredLvl: 0
   price: 0
   grid: 0
@@ -101,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTriggered: 0
+  isTriggered: 1
+  reverseReturn: 1
   objectsTag:
   - Furniture
 --- !u!1001 &5307805462902699704
