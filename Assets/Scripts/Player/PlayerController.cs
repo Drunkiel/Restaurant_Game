@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     {
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
+
         isMoving = movement.magnitude > 0.1f;
         anim.SetFloat("Movement", movement.magnitude);
 
@@ -24,8 +26,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
+
         Vector3 move = new Vector3(movement.x, 0, movement.y).normalized;
-        rgBody.AddForce(move * speed);
+        rgBody.AddForce(move * speed, ForceMode.Acceleration);
 
         if (isMoving)
         {

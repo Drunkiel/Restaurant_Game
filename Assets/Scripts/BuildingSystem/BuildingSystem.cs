@@ -14,7 +14,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Material[] materials;
 
     [SerializeField] private GameObject UI;
-    // public BuildingUI _buildingUI;
+    [SerializeField] private GameObject buildingUI;
     public PlacableObject _objectToPlace;
 
     void Awake()
