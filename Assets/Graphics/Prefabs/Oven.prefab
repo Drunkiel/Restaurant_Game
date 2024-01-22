@@ -155,6 +155,7 @@ MonoBehaviour:
   reverseReturn: 1
   objectsTag:
   - Furniture
+  - Wall
 --- !u!1001 &6417728719559368865
 PrefabInstance:
   m_ObjectHideFlags: 0

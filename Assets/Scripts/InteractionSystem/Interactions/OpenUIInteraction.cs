@@ -3,12 +3,12 @@ using UnityEngine;
 public class OpenUIInteraction : MonoBehaviour
 {
     [SerializeField] private bool isOpen;
-    [SerializeField] private GameObject UI;
+    [SerializeField] private int indexOfUI;
 
     public void OpenUI()
     {
         isOpen = !isOpen;
-        UI.SetActive(isOpen);
+        InteractionSystem.instance.allUI[indexOfUI].SetActive(isOpen);
         InteractionSystem.isInteracting = isOpen;
     }
 }

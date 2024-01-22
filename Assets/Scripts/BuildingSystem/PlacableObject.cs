@@ -5,6 +5,7 @@ public class PlacableObject : MonoBehaviour
     public bool isPlaced;
     [HideInInspector] public Vector3 size;
     [SerializeField] private Vector3[] vertices;
+    [SerializeField] InteractableObject _interactableObject;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class PlacableObject : MonoBehaviour
         Destroy(GetComponent<MultiTriggerController>());
         transform.GetComponentInChildren<AutoSize>().AutoDestroy();
         BuildingSystem.instance._objectToPlace = null;
+        if(_interactableObject != null) _interactableObject.gameObject.SetActive(true);
 
         isPlaced = true;
     }
@@ -30,6 +32,7 @@ public class PlacableObject : MonoBehaviour
         isPlaced = false;
         BuildingSystem.instance._objectToPlace = this;
         BuildingSystem.instance.OpenUI(false);
+        if (_interactableObject != null) _interactableObject.gameObject.SetActive(false);
 
         gameObject.AddComponent<ObjectDrag>();
         Instantiate(BuildingSystem.instance.buildingMaterial, transform);
