@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerNearby: 0
-  hint: {fileID: 0}
+  hint: {fileID: 1614478375254708094}
   someFunctionalities:
     m_PersistentCalls:
       m_Calls: []
