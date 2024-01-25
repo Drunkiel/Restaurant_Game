@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PickItemInteraction : MonoBehaviour
 {
-    public GameObject objectToPick;
+    public ItemID _objectsID;
 
     public void PickItem()
     {
-        ItemHolder.instance.PickItem(objectToPick);
+        ItemHolder.instance.PickItem(_objectsID);
     }
 }

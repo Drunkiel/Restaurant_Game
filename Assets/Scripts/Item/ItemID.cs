@@ -2,5 +2,6 @@ using UnityEngine;
 
 public class ItemID : MonoBehaviour
 {
-    [SerializeField] private string itemName;
+    public string itemName;
+    public bool isStackable;
 }
