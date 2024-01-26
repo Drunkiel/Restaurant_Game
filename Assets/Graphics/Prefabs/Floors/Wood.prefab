@@ -84,8 +84,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 0.1, z: 0.8}
-  m_Center: {x: 0, y: -0.05, z: 0}
+  m_Size: {x: 0.8, y: 0.12, z: 0.8}
+  m_Center: {x: 0, y: -0.04, z: 0}
 --- !u!65 &-2254216056419271812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
   vertices: []
+  _interactableObject: {fileID: 0}
 --- !u!114 &6897216354586045171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
+  reverseReturn: 0
   objectsTag:
   - Floor
 --- !u!1001 &4658877563211515006

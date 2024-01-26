@@ -7,7 +7,7 @@ public class ItemHolder : MonoBehaviour
 
     public bool isHoldingItem;
     public bool isHoldingStackableItem;
-    private readonly int maxItemsStack = 5;
+    private static readonly int maxItemsStack = 5;
 
     [SerializeField] private ItemID holdingItem;
     [SerializeField] private List<ItemID> holdingStackableItems = new();
@@ -16,6 +16,8 @@ public class ItemHolder : MonoBehaviour
     [SerializeField] private Transform holderTransform;
     [SerializeField] private Transform itemPlaceTransform;
 
+    private bool canDrop = true;
+
     private void Awake()
     {
         instance = this;
@@ -23,9 +25,12 @@ public class ItemHolder : MonoBehaviour
 
     private void Update()
     {
-        if (isHoldingItem)
+        if (isHoldingItem || isHoldingStackableItem)
         {
-            if (Input.GetKeyDown(KeyCode.Q)) DropItem();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (canDrop) DropItem();
+            }
         }
     }
 
@@ -33,16 +38,22 @@ public class ItemHolder : MonoBehaviour
     {
         if (!_itemID.isStackable)
         {
+            //Holding single item
             if (!isHoldingItem)
             {
+                //Checks if is holding stackable item like plate to add it to it
                 if (isHoldingStackableItem && holdingStackableItems.Count < maxItemsStack)
                 {
+                    //Checks if stacking the same type
+                    if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
+
                     Pick(_itemID, holdingStackableItems[0].transform, false);
                     holdingStackableItems.Add(lastPickedObject);
+                    holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                     Destroy(_itemID.gameObject);
                     return;
                 }
-                else if (holdingStackableItems.Count <= 1)
+                else if (holdingStackableItems.Count <= 1) //if not just pick it
                 {
                     Pick(_itemID, itemPlaceTransform);
                     holdingItem = lastPickedObject;
@@ -54,18 +65,25 @@ public class ItemHolder : MonoBehaviour
         }
         else
         {
+            //Checks if holding stackable item to add it to it
             if (isHoldingStackableItem && holdingStackableItems.Count < maxItemsStack)
             {
+                if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
+
                 Pick(_itemID, holdingStackableItems[0].transform, false);
                 holdingStackableItems.Add(lastPickedObject);
+                holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                 isHoldingStackableItem = true;
                 Destroy(_itemID.gameObject);
                 return;
             }
             else
             {
+                //Checking if is holding no stackable item then recreates it 
                 if (isHoldingItem)
                 {
+                    if (_itemID.stackedItems.Count >= maxItemsStack - 1) return;
+
                     //Spawn stackable item
                     Pick(_itemID, holderTransform);
                     holdingStackableItems.Add(lastPickedObject);
@@ -75,15 +93,17 @@ public class ItemHolder : MonoBehaviour
                     //Then recreate holding item
                     holdingItem.transform.localScale = Vector3.one; 
                     Pick(holdingItem, holdingStackableItems[0].transform, false);
-                    holdingStackableItems.Add(lastPickedObject);
+                    holdingStackableItems[0].stackedItems.Add(lastPickedObject);
+                    holdingStackableItems.AddRange(lastPickedObject.stackedItems);
                     Destroy(holdingItem.gameObject);
                     isHoldingItem = false;
                     return;
                 }
-                else
+                else //if not just pick item
                 {
                     Pick(_itemID, holderTransform);
                     holdingStackableItems.Add(lastPickedObject);
+                    holdingStackableItems.AddRange(lastPickedObject.stackedItems);
                     isHoldingStackableItem = true;
                     Destroy(_itemID.gameObject);
                     return;
@@ -116,6 +136,9 @@ public class ItemHolder : MonoBehaviour
             //Unfreezing position
             newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
+            canDrop = false;
+            Invoke(nameof(ResetDrop), 2f);
+
             Destroy(holdingItem.gameObject);
             isHoldingItem = false;
             return;
@@ -123,7 +146,28 @@ public class ItemHolder : MonoBehaviour
 
         if (isHoldingStackableItem)
         {
+            holderTransform.GetChild(1).GetChild(1).gameObject.SetActive(true);
+            Vector3 spawnPosition = transform.position + transform.forward * 1 / 4;
+            GameObject newItem = Instantiate(holdingStackableItems[0].gameObject, new Vector3(spawnPosition.x, holderTransform.position.y, spawnPosition.z), holdingStackableItems[0].transform.rotation);
+            newItem.transform.localScale *= 100;
+            newItem.name = holdingStackableItems[0].name;
 
+            //Unfreezing position
+            newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+            Destroy(holdingStackableItems[0].gameObject);
+
+            canDrop = false;
+            Invoke(nameof(ResetDrop), 1f);
+
+            holdingStackableItems.Clear();
+            isHoldingStackableItem = false;
+            return;
         }
+    }
+
+    private void ResetDrop()
+    {
+        canDrop = true;
     }
 }
