@@ -9,12 +9,12 @@ public class ItemHolder : MonoBehaviour
     public bool isHoldingStackableItem;
     private static readonly int maxItemsStack = 5;
 
-    [SerializeField] private ItemID holdingItem;
-    [SerializeField] private List<ItemID> holdingStackableItems = new();
+    public ItemID holdingItem;
+    public List<ItemID> holdingStackableItems = new();
     private ItemID lastPickedObject;
 
-    [SerializeField] private Transform holderTransform;
-    [SerializeField] private Transform itemPlaceTransform;
+    public Transform holderTransform;
+    public Transform itemPlaceTransform;
 
     private bool canDrop = true;
 
@@ -90,11 +90,12 @@ public class ItemHolder : MonoBehaviour
                     Destroy(_itemID.gameObject);
                     isHoldingStackableItem = true;
 
-                    //Then recreate holding item
-                    holdingItem.transform.localScale = Vector3.one; 
+                    //Then recreate holding item and reset position
+                    holdingItem.transform.localScale = Vector3.one;
                     Pick(holdingItem, holdingStackableItems[0].transform, false);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
-                    holdingStackableItems.AddRange(lastPickedObject.stackedItems);
+                    holdingStackableItems.AddRange(holdingStackableItems[0].stackedItems);
+                    lastPickedObject.transform.localPosition = Vector3.zero + new Vector3(0, 0.05f * (holdingStackableItems.Count - 1), 0);
                     Destroy(holdingItem.gameObject);
                     isHoldingItem = false;
                     return;

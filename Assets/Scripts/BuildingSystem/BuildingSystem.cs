@@ -30,10 +30,7 @@ public class BuildingSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) _objectToPlace.Rotate(90);
         if (Input.GetKeyDown(KeyCode.E)) _objectToPlace.Rotate(-90);
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
-        }
+        if (Input.GetKey(KeyCode.Space)) _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
     }
 
     public static Vector3 GetMouseWorldPosition()
