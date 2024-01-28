@@ -47,7 +47,7 @@ public class ItemHolder : MonoBehaviour
                     //Checks if stacking the same type
                     if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
 
-                    Pick(_itemID, holdingStackableItems[0].transform, false);
+                    Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems.Add(lastPickedObject);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                     Destroy(_itemID.gameObject);
@@ -55,7 +55,7 @@ public class ItemHolder : MonoBehaviour
                 }
                 else if (holdingStackableItems.Count <= 1) //if not just pick it
                 {
-                    Pick(_itemID, itemPlaceTransform);
+                    Pick(_itemID, itemPlaceTransform, holdingStackableItems.Count);
                     holdingItem = lastPickedObject;
                     isHoldingItem = true;
                     Destroy(_itemID.gameObject);
@@ -70,7 +70,7 @@ public class ItemHolder : MonoBehaviour
             {
                 if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
 
-                Pick(_itemID, holdingStackableItems[0].transform, false);
+                Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                 holdingStackableItems.Add(lastPickedObject);
                 holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                 isHoldingStackableItem = true;
@@ -85,14 +85,14 @@ public class ItemHolder : MonoBehaviour
                     if (_itemID.stackedItems.Count >= maxItemsStack - 1) return;
 
                     //Spawn stackable item
-                    Pick(_itemID, holderTransform);
+                    Pick(_itemID, holderTransform, holdingStackableItems.Count);
                     holdingStackableItems.Add(lastPickedObject);
                     Destroy(_itemID.gameObject);
                     isHoldingStackableItem = true;
 
                     //Then recreate holding item and reset position
                     holdingItem.transform.localScale = Vector3.one;
-                    Pick(holdingItem, holdingStackableItems[0].transform, false);
+                    Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(holdingStackableItems[0].stackedItems);
                     lastPickedObject.transform.localPosition = Vector3.zero + new Vector3(0, 0.05f * (holdingStackableItems.Count - 1), 0);
@@ -102,7 +102,7 @@ public class ItemHolder : MonoBehaviour
                 }
                 else //if not just pick item
                 {
-                    Pick(_itemID, holderTransform);
+                    Pick(_itemID, holderTransform, holdingStackableItems.Count);
                     holdingStackableItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(lastPickedObject.stackedItems);
                     isHoldingStackableItem = true;
@@ -113,11 +113,11 @@ public class ItemHolder : MonoBehaviour
         }
     }
 
-    private void Pick(ItemID _itemID, Transform transform, bool shrinkObject = true)
+    public void Pick(ItemID _itemID, Transform transform, int multiplier, bool shrinkObject = true)
     {
         GameObject newItem = Instantiate(_itemID.gameObject, transform);
         if (shrinkObject) newItem.transform.localScale /= 100;
-        newItem.transform.SetLocalPositionAndRotation(Vector3.zero + new Vector3(0, 0.05f * holdingStackableItems.Count, 0), _itemID.transform.rotation);
+        newItem.transform.SetLocalPositionAndRotation(Vector3.zero + new Vector3(0, 0.05f * multiplier, 0), _itemID.transform.rotation);
         newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newItem.name = _itemID.gameObject.name;
         newItem.transform.GetChild(1).gameObject.SetActive(false);
