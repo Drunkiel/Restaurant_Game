@@ -36,6 +36,7 @@ public class ItemHolder : MonoBehaviour
 
     public void PickItem(ItemID _itemID)
     {
+        if (!_itemID.isPickable) return;
         if (!_itemID.isStackable)
         {
             //Holding single item

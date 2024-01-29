@@ -15,14 +15,11 @@ public class PlaceItemInteraction : MonoBehaviour
         if (_itemHolder.isHoldingItem)
         {
             if (isHoldingStackableItem) AddToHolder();
-            else return;
+            return;
         }
 
-        if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem)
-        {
+        if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem) 
             PlaceOnPlayer();
-            StartCoroutine(nameof(ResetBool));
-        }
 
         if (!isHoldingStackableItem) PlaceOnHolder();
     }
@@ -34,6 +31,7 @@ public class PlaceItemInteraction : MonoBehaviour
         _itemHolder.Pick(_itemHolder.holdingStackableItems[0], itemHolder, holdingItems.Count, false);
         ItemID placedObject = itemHolder.GetChild(0).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
+        holdingItems.AddRange(placedObject.stackedItems);
         placedObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         placedObject.transform.localScale = Vector3.one;
         _itemHolder.isHoldingStackableItem = false;
@@ -51,6 +49,7 @@ public class PlaceItemInteraction : MonoBehaviour
         _itemHolder.Pick(_itemHolder.holdingItem, holdingItems[0].transform, holdingItems.Count, false);
         ItemID placedObject = holdingItems[0].transform.GetChild(holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
+        holdingItems[0].stackedItems.Add(placedObject);
         placedObject.transform.localScale = Vector3.one;
         _itemHolder.isHoldingItem = false;
         Destroy(_itemHolder.holdingItem.gameObject);
@@ -62,8 +61,19 @@ public class PlaceItemInteraction : MonoBehaviour
     {
         ItemHolder _itemHolder = ItemHolder.instance;
 
-        _itemHolder.PickItem(holdingItems[0]);
-        holdingItems = new();
+        if (holdingItems.Count > 1)
+        {
+            _itemHolder.PickItem(holdingItems[holdingItems.Count - 1]);
+            holdingItems[0].stackedItems.RemoveAt(holdingItems[0].stackedItems.Count - 1);
+            holdingItems.RemoveAt(holdingItems.Count - 1);
+        }
+        else
+        {
+            if (!holdingItems[0].isPickable) return;
+            _itemHolder.PickItem(holdingItems[0]);
+            holdingItems = new();
+            StartCoroutine(nameof(ResetBool));
+        }
 
         return;
     }
