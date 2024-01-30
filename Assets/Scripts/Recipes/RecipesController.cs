@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public enum MakingProcess
@@ -33,31 +34,43 @@ public class RecipesController : MonoBehaviour
         switch (process)
         {
             case MakingProcess.Chopping:
-                for (int i = 0; i < processedRecipes.Count; i++)
-                {
-                    if (processedRecipes[i].requiredItems.Count != holdingItems.Count - 1) break;
-
-                    List<bool> isHavingItem = new();
-                    for (int j = 1; j < holdingItems.Count; j++)
-                    {
-                        isHavingItem.Add(processedRecipes[i].requiredItems[j - 1].itemName.Equals(holdingItems[j].itemName));
-                    }
-                }
-                break;
+                return LookForRecipe(processedRecipes, holdingItems);
 
             case MakingProcess.Cooking:
-                for (int i = 0; i < processedRecipes.Count; i++)
-                {
-
-                }
-                break;
+                return LookForRecipe(processedRecipes, holdingItems);
 
             case MakingProcess.Combining:
-                for (int i = 0; i < finishedRecipes.Count; i++)
-                {
+                return LookForRecipe(finishedRecipes, holdingItems);
 
+            default:
+                return -1;
+        }
+    }
+
+    private int LookForRecipe(List<Recipe> recipes, List<ItemID> holding)
+    {
+        for (int i = 0; i < recipes.Count; i++)
+        {
+            if (recipes[i].requiredItems.Count == holding.Count - 1)
+            {
+                List<bool> isHavingItem = new();
+                for (int j = 1; j < holding.Count; j++)
+                {
+                    isHavingItem.Add(recipes[i].requiredItems[j - 1].itemName.Equals(holding[j].itemName));
                 }
-                break;
+
+                for (int j = 0; j < isHavingItem.Count; j++)
+                {
+                    if (!isHavingItem[j])
+                    {
+                        isHavingItem.Clear();
+                        return -1;
+                    }
+                }
+
+                isHavingItem.Clear();
+                return i;
+            }
         }
 
         return -1;

@@ -7,6 +7,6 @@ public class ChopItemInteraction : MonoBehaviour
 
     public void Chop()
     {
-        RecipesController.instance.FindRecipe(makingProcess, _placeItem.holdingItems);
+        print(RecipesController.instance.FindRecipe(makingProcess, _placeItem.holdingItems));
     }
 }
