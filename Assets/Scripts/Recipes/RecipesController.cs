@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public enum MakingProcess
@@ -17,6 +16,14 @@ public class Recipe
     public ItemID resultItem;
 }
 
+[System.Serializable]
+public class RecipeData
+{
+    [Range(0, 1)]
+    public int recipeList; //Between 0 and 1
+    public int indexOfRecipe;
+}
+
 public class RecipesController : MonoBehaviour
 {
     public static RecipesController instance;
@@ -29,25 +36,18 @@ public class RecipesController : MonoBehaviour
         instance = this;
     }
 
-    public int FindRecipe(MakingProcess process, List<ItemID> holdingItems)
+    public RecipeData FindRecipe(MakingProcess process, List<ItemID> holdingItems)
     {
-        switch (process)
+        return process switch
         {
-            case MakingProcess.Chopping:
-                return LookForRecipe(processedRecipes, holdingItems);
-
-            case MakingProcess.Cooking:
-                return LookForRecipe(processedRecipes, holdingItems);
-
-            case MakingProcess.Combining:
-                return LookForRecipe(finishedRecipes, holdingItems);
-
-            default:
-                return -1;
-        }
+            MakingProcess.Chopping => LookForRecipe(processedRecipes, 0, holdingItems),
+            MakingProcess.Cooking => LookForRecipe(processedRecipes, 0, holdingItems),
+            MakingProcess.Combining => LookForRecipe(finishedRecipes, 1, holdingItems),
+            _ => new RecipeData() { recipeList = 0, indexOfRecipe = -1 },
+        };
     }
 
-    private int LookForRecipe(List<Recipe> recipes, List<ItemID> holding)
+    private RecipeData LookForRecipe(List<Recipe> recipes, int listIndex, List<ItemID> holding)
     {
         for (int i = 0; i < recipes.Count; i++)
         {
@@ -64,15 +64,15 @@ public class RecipesController : MonoBehaviour
                     if (!isHavingItem[j])
                     {
                         isHavingItem.Clear();
-                        return -1;
+                        return new RecipeData() { recipeList = listIndex, indexOfRecipe = -1 };
                     }
                 }
 
                 isHavingItem.Clear();
-                return i;
+                return new RecipeData() { recipeList = listIndex, indexOfRecipe = i };
             }
         }
 
-        return -1;
+        return new RecipeData() { recipeList = listIndex, indexOfRecipe = -1 };
     }
 }
