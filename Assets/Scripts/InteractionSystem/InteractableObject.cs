@@ -31,7 +31,7 @@ public class InteractableObject : MonoBehaviour
         if (InteractionSystem.isInteracting) return;
 
         isPlayerNearby = GetComponent<MultiTriggerController>().isTriggered;
-        hint.SetActive(isPlayerNearby);
+        //hint.SetActive(isPlayerNearby);
     }
 
     private void StartOnClickInteraction()

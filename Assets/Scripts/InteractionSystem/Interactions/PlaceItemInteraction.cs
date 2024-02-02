@@ -18,10 +18,13 @@ public class PlaceItemInteraction : MonoBehaviour
             return;
         }
 
-        if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem) 
-            PlaceOnPlayer();
+        if (holdingItems.Count > 0)
+        {
+            if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem)
+                PlaceOnPlayer();
+        }
 
-        if (!isHoldingStackableItem) PlaceOnHolder();
+        if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem) PlaceOnHolder();
     }
 
     private void PlaceOnHolder()
