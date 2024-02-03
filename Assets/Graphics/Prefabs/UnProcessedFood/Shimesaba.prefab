@@ -171,11 +171,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
-      propertyPath: hint
-      value: 
-      objectReference: {fileID: 1379054086897927423}
-    - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
-        type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -339,12 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 1753948767136196740}
---- !u!1 &1379054086897927423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 379610675481234305}
-  m_PrefabAsset: {fileID: 0}
+  destroy: 1
 --- !u!4 &6058078565823909392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,

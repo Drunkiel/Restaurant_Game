@@ -53,23 +53,11 @@ public class RecipesController : MonoBehaviour
         {
             if (recipes[i].requiredItems.Count == holding.Count - 1)
             {
-                List<bool> isHavingItem = new();
-                for (int j = 1; j < holding.Count; j++)
+                for (int j = 0; j < recipes[i].requiredItems.Count; j++)
                 {
-                    isHavingItem.Add(recipes[i].requiredItems[j - 1].itemName.Equals(holding[j].itemName));
+                    if (recipes[i].requiredItems[j].itemName.Contains(holding[j + 1].itemName))
+                        return new RecipeData() { recipeList = listIndex, indexOfRecipe = i };
                 }
-
-                for (int j = 0; j < isHavingItem.Count; j++)
-                {
-                    if (!isHavingItem[j])
-                    {
-                        isHavingItem.Clear();
-                        return new RecipeData() { recipeList = listIndex, indexOfRecipe = -1 };
-                    }
-                }
-
-                isHavingItem.Clear();
-                return new RecipeData() { recipeList = listIndex, indexOfRecipe = i };
             }
         }
 

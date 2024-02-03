@@ -171,11 +171,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
-      propertyPath: hint
-      value: 
-      objectReference: {fileID: 2795933218232862771}
-    - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
-        type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -299,12 +294,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3771650090938716281}
   m_SourcePrefab: {fileID: 100100000, guid: 93b50f299eeaf664ca7f98ad96611839, type: 3}
---- !u!1 &2795933218232862771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 3506863704776329037}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4600179569517140116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
@@ -345,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 3587447541656376661}
+  destroy: 1
 --- !u!4 &7060758334532584156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,

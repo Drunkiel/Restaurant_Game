@@ -99,6 +99,7 @@ MonoBehaviour:
   itemName: SlicedCucumber
   isStackable: 0
   isPickable: 1
+  heightPlacement: 0.02
   itemType: 0
   stackedItems: []
 --- !u!1001 &1289549509224781370
@@ -245,11 +246,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
-      propertyPath: hint
-      value: 
-      objectReference: {fileID: 2730350652405737924}
-    - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
-        type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -373,12 +369,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8748957641503889649}
   m_SourcePrefab: {fileID: 100100000, guid: 93b50f299eeaf664ca7f98ad96611839, type: 3}
---- !u!1 &2730350652405737924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 3712057858783520442}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4394985414974142819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
@@ -419,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 8281379175096785120}
+  destroy: 1
 --- !u!4 &7121839499485373227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,

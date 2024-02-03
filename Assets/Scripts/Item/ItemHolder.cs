@@ -34,7 +34,7 @@ public class ItemHolder : MonoBehaviour
         }
     }
 
-    public void PickItem(ItemID _itemID)
+    public void PickItem(ItemID _itemID, bool destroy = true)
     {
         if (!_itemID.isPickable) return;
         if (!_itemID.isStackable)
@@ -51,7 +51,7 @@ public class ItemHolder : MonoBehaviour
                     Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems.Add(lastPickedObject);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
-                    Destroy(_itemID.gameObject);
+                    if (destroy) Destroy(_itemID.gameObject);
                     return;
                 }
                 else if (holdingStackableItems.Count <= 1) //if not just pick it
@@ -59,7 +59,7 @@ public class ItemHolder : MonoBehaviour
                     Pick(_itemID, itemPlaceTransform, holdingStackableItems.Count);
                     holdingItem = lastPickedObject;
                     isHoldingItem = true;
-                    Destroy(_itemID.gameObject);
+                    if (destroy) Destroy(_itemID.gameObject);
                     return;
                 }
             }
@@ -75,7 +75,7 @@ public class ItemHolder : MonoBehaviour
                 holdingStackableItems.Add(lastPickedObject);
                 holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                 isHoldingStackableItem = true;
-                Destroy(_itemID.gameObject);
+                if (destroy) Destroy(_itemID.gameObject);
                 return;
             }
             else
@@ -88,7 +88,7 @@ public class ItemHolder : MonoBehaviour
                     //Spawn stackable item
                     Pick(_itemID, holderTransform, holdingStackableItems.Count);
                     holdingStackableItems.Add(lastPickedObject);
-                    Destroy(_itemID.gameObject);
+                    if (destroy) Destroy(_itemID.gameObject);
                     isHoldingStackableItem = true;
 
                     //Then recreate holding item and reset position
@@ -96,8 +96,8 @@ public class ItemHolder : MonoBehaviour
                     Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(holdingStackableItems[0].stackedItems);
-                    lastPickedObject.transform.localPosition = Vector3.zero + new Vector3(0, 0.05f * (holdingStackableItems.Count - 1), 0);
-                    Destroy(holdingItem.gameObject);
+                    lastPickedObject.transform.localPosition = new Vector3(0, _itemID.heightPlacement + holdingStackableItems[^1].transform.position.y, 0);
+                    if (destroy) Destroy(holdingItem.gameObject);
                     isHoldingItem = false;
                     return;
                 }
@@ -107,7 +107,7 @@ public class ItemHolder : MonoBehaviour
                     holdingStackableItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(lastPickedObject.stackedItems);
                     isHoldingStackableItem = true;
-                    Destroy(_itemID.gameObject);
+                    if (destroy) Destroy(_itemID.gameObject);
                     return;
                 }
             }
@@ -118,7 +118,7 @@ public class ItemHolder : MonoBehaviour
     {
         GameObject newItem = Instantiate(_itemID.gameObject, transform);
         if (shrinkObject) newItem.transform.localScale /= 100;
-        newItem.transform.SetLocalPositionAndRotation(Vector3.zero + new Vector3(0, 0.05f * multiplier, 0), _itemID.transform.rotation);
+        newItem.transform.SetLocalPositionAndRotation(new Vector3(0, _itemID.heightPlacement * multiplier, 0), _itemID.transform.rotation);
         newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newItem.name = _itemID.gameObject.name;
         newItem.transform.GetChild(1).gameObject.SetActive(false);

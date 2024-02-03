@@ -99,6 +99,7 @@ MonoBehaviour:
   itemName: Fish Fillet
   isStackable: 0
   isPickable: 1
+  heightPlacement: 0.02
   itemType: 0
   stackedItems: []
 --- !u!1001 &3207423504882646278
@@ -169,11 +170,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
-        type: 3}
-      propertyPath: hint
-      value: 
-      objectReference: {fileID: 4243737924041962104}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
@@ -338,12 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 965618203600971403}
---- !u!1 &4243737924041962104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 3207423504882646278}
-  m_PrefabAsset: {fileID: 0}
+  destroy: 1
 --- !u!4 &9067211772927309975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,

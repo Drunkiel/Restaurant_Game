@@ -4,9 +4,15 @@ using UnityEngine.UI;
 public class ChopItemInteraction : MonoBehaviour
 {
     public MakingProcess makingProcess;
-    public Slider progressSlider;
+    public GameObject hint;
+    private Slider progressSlider;
     public PlaceItemInteraction _placeItem;
     RecipeData recipeData;
+
+    private void Start()
+    {
+        progressSlider = hint.GetComponentInChildren<Slider>();
+    }
 
     public void Chop()
     {
@@ -44,7 +50,7 @@ public class ChopItemInteraction : MonoBehaviour
         _placeItem.holdingItems[0].stackedItems.Clear();
         ItemHolder.instance.Pick(_itemID, _placeItem.holdingItems[0].transform, _placeItem.holdingItems.Count, false);
         ItemID placedObject = _placeItem.holdingItems[0].transform.GetChild(_placeItem.holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
-        placedObject.transform.localPosition = Vector3.zero;
+        placedObject.transform.localPosition = new Vector3(0, _itemID.heightPlacement, 0);
         _placeItem.holdingItems.Add(placedObject);
         _placeItem.holdingItems[0].stackedItems.Add(placedObject);
     }
@@ -53,11 +59,11 @@ public class ChopItemInteraction : MonoBehaviour
     {
         recipeData = RecipesController.instance.FindRecipe(makingProcess, _placeItem.holdingItems);
 
-        if (recipeData.indexOfRecipe == -1) progressSlider.gameObject.SetActive(false);
+        if (recipeData.indexOfRecipe == -1) hint.gameObject.SetActive(false);
         else
         {
             progressSlider.value = progressSlider.minValue;
-            progressSlider.gameObject.SetActive(true);
+            hint.gameObject.SetActive(true);
         }
     }
 }

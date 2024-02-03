@@ -244,6 +244,7 @@ MonoBehaviour:
   itemName: Plate
   isStackable: 1
   isPickable: 0
+  heightPlacement: 0.05
   itemType: 1
   stackedItems: []
 --- !u!1 &5726880904580832067
