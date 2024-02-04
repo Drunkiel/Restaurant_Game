@@ -96,7 +96,10 @@ public class ItemHolder : MonoBehaviour
                     Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems[0].stackedItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(holdingStackableItems[0].stackedItems);
-                    lastPickedObject.transform.localPosition = new Vector3(0, _itemID.heightPlacement + holdingStackableItems[^1].transform.position.y, 0);
+                    lastPickedObject.transform.localPosition = new Vector3(
+                        0,
+                        holdingStackableItems[^1].transform.localPosition.y + (holdingStackableItems.Count > 1 ? holdingItem.heightPlacement : 0),
+                        0);
                     if (destroy) Destroy(holdingItem.gameObject);
                     isHoldingItem = false;
                     return;

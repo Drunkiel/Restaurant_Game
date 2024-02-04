@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 7138556257281196459, guid: 226ac1c6739d5c749bfb65f73a48b92e, type: 3}
   - {fileID: 3939947731648940954, guid: 49a77fec4920a2641bfb8b5e5c29947d, type: 3}
   - {fileID: 7776977713777968435, guid: 7eb3b9203b1bf0a4e91190ee7abe05ee, type: 3}
+  - {fileID: 2147610592377487323, guid: 6b300b7da83176745ad8e411aeffd774, type: 3}
   _decorationsIDList:
   - {fileID: 7269175380850201933, guid: c5c34ded9c7d6044f95a5784a0702377, type: 3}
   - {fileID: 1066107525019879361, guid: 05cea3fd24fc9c9499201e0fbea1689b, type: 3}

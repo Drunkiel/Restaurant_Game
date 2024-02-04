@@ -99,6 +99,7 @@ MonoBehaviour:
   itemName: Plate
   isStackable: 1
   isPickable: 1
+  heightPlacement: 0
   itemType: 1
   stackedItems: []
 --- !u!1001 &2001074909813384097
@@ -247,7 +248,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hint
       value: 
-      objectReference: {fileID: 8977378534369405567}
+      objectReference: {fileID: 0}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
@@ -418,9 +419,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 3176471035497800593}
---- !u!1 &8977378534369405567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 7706162200491418881}
-  m_PrefabAsset: {fileID: 0}
+  destroy: 1

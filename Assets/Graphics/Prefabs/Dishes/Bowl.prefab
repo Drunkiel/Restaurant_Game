@@ -99,6 +99,7 @@ MonoBehaviour:
   itemName: Bowl
   isStackable: 1
   isPickable: 1
+  heightPlacement: 0
   itemType: 1
   stackedItems: []
 --- !u!1001 &3801701277214695879
@@ -173,7 +174,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hint
       value: 
-      objectReference: {fileID: 2496573831466757817}
+      objectReference: {fileID: 0}
     - target: {fileID: 7382345717415362651, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: someFunctionalities.m_PersistentCalls.m_Calls.Array.size
@@ -299,12 +300,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3241192966918488757}
   m_SourcePrefab: {fileID: 100100000, guid: 93b50f299eeaf664ca7f98ad96611839, type: 3}
---- !u!1 &2496573831466757817 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1614478375254708094, guid: 93b50f299eeaf664ca7f98ad96611839,
-    type: 3}
-  m_PrefabInstance: {fileID: 3801701277214695879}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4305340281239420446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
@@ -345,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsID: {fileID: 4324960303679572746}
+  destroy: 1
 --- !u!4 &7319581489510818902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,
