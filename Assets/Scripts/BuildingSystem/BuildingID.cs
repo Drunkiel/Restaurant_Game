@@ -9,8 +9,6 @@ public enum BuildGrid
 public class BuildingID : MonoBehaviour
 {
     public string buildingName;
-    public int requiredLvl;
-    public int price;
     public BuildGrid grid;
     public Sprite showcaseImage;
 }

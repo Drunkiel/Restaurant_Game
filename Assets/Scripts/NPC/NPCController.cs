@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class NPCController : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed;
@@ -14,11 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
-
         isMoving = movement.magnitude > 0.1f;
-        anim.SetFloat("Movement", movement.magnitude);
-        anim.SetBool("isHolding", ItemHolder.instance.isHoldingItem ||  ItemHolder.instance.isHoldingStackableItem);
+        anim.SetFloat("Movement", movement.magnitude * Time.deltaTime);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
@@ -26,8 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
-
         Vector3 move = new Vector3(movement.x, 0, movement.y).normalized;
         rgBody.AddForce(move * speed, ForceMode.Acceleration);
 
@@ -38,10 +32,5 @@ public class PlayerController : MonoBehaviour
             toRotation.z = 0f;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
-    }
-
-    public void Movement(InputAction.CallbackContext context)
-    {
-        movement = context.ReadValue<Vector2>();
     }
 }

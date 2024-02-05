@@ -171,6 +171,16 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_Name
