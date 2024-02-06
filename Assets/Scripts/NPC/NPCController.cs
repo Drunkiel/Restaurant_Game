@@ -5,7 +5,7 @@ public class NPCController : MonoBehaviour
     public float speed;
     public float rotationSpeed;
 
-    private Vector2 movement;
+    public Vector2 movement;
     public bool isMoving;
 
     [SerializeField] private Rigidbody rgBody;
@@ -13,8 +13,8 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        isMoving = movement.magnitude > 0.1f;
-        anim.SetFloat("Movement", movement.magnitude * Time.deltaTime);
+        isMoving = movement.magnitude > 0.01f;
+        anim.SetFloat("Movement", movement.magnitude);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);

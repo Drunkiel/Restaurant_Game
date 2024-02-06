@@ -20618,9 +20618,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   rotationSpeed: 600
+  movement: {x: 0, y: 0}
   isMoving: 0
-  points:
-  - {x: 0, y: -1.704}
   rgBody: {fileID: 1692780650}
   anim: {fileID: 1692780647}
 --- !u!136 &1692780649
@@ -25655,6 +25654,8 @@ GameObject:
   - component: {fileID: 1692780649}
   - component: {fileID: 1692780648}
   - component: {fileID: 1692780647}
+  - component: {fileID: 919132149302038372}
+  - component: {fileID: 919132149302038371}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -25662,6 +25663,66 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149302038371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149302038370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3b9dcc49e9f0048a555a4ebf3b9eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions:
+  - {x: 0, y: 0, z: -1.704}
+  - {x: 0, y: 0, z: -0.5}
+--- !u!114 &919132149302038372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149302038370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcbcfd2abb947c448425360fee1e63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingsToAchieve:
+  - actions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919132149302038371}
+          m_TargetAssemblyTypeName: GoToPositionAction, Assembly-CSharp
+          m_MethodName: GoToPosition
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isActionDone: 0
+  - actions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919132149302038371}
+          m_TargetAssemblyTypeName: GoToPositionAction, Assembly-CSharp
+          m_MethodName: GoToPosition
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    isActionDone: 0
 --- !u!4 &952076726210325772
 Transform:
   m_ObjectHideFlags: 0
