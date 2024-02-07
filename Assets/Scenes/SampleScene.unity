@@ -6753,8 +6753,12 @@ MonoBehaviour:
   targets:
   - {fileID: 543450651984672067}
   - {fileID: 1607093119}
-  relativePositions:
+  cameraToPlayer:
   - {x: 0, y: 2, z: -3}
+  - {x: -3, y: 2, z: 0}
+  - {x: 0, y: 2, z: 3}
+  - {x: 3, y: 2, z: 0}
+  cameraToMap:
   - {x: 0, y: 5, z: 0}
   _camera: {fileID: 1340249015}
 --- !u!1 &496374755
