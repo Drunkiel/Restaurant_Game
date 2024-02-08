@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
         isMoving = movement.magnitude > 0.1f;
         anim.SetFloat("Movement", movement.magnitude);
-        anim.SetBool("isHolding", ItemHolder.instance.isHoldingItem ||  ItemHolder.instance.isHoldingStackableItem);
+        anim.SetBool("isHolding", ItemHolder.instance.isHoldingItem || ItemHolder.instance.isHoldingStackableItem);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
@@ -42,6 +42,34 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
+        Vector2 inputValue = context.ReadValue<Vector2>();
+
+        switch (CameraController.instance.currentTarget)
+        {
+            case 0:
+                switch (CameraController.instance.state)
+                {
+                    case 0:
+                        movement = inputValue;
+                        break;
+
+                    case 1:
+                        movement = new Vector2(inputValue.y, -inputValue.x);
+                        break;
+
+                    case 2:
+                        movement = -inputValue;
+                        break;
+
+                    case 3:
+                        movement = new Vector2(-inputValue.y, inputValue.x);
+                        break;
+                }
+                break;
+
+            case 1:
+                movement = inputValue;
+                break;
+        }
     }
 }

@@ -6,26 +6,30 @@ using UnityEngine.Events;
 public class ThingsToAchieve
 {
     public UnityEvent actions;
+    public float distance = 0.1f;
     public bool isActionDone;
 }
 
 public class ActionController : MonoBehaviour
 {
     public List<ThingsToAchieve> thingsToAchieve = new();
-    private bool finishedAllActions;
-    private int lastThing = 0;
+    [SerializeField] private bool finishedAllActions;
+    public int actionIndex = 0;
 
     // Update is called once per frame
     void Update()
     {
         if (!finishedAllActions)
-            thingsToAchieve[lastThing].actions.Invoke();
+            thingsToAchieve[actionIndex].actions.Invoke();
     }
 
     public void EndAction()
     {
-        lastThing += 1;
-        if (thingsToAchieve.Count == lastThing) finishedAllActions = true;
-        else thingsToAchieve[lastThing].actions.Invoke();
+        actionIndex += 1;
+
+        if (thingsToAchieve.Count <= actionIndex)
+            finishedAllActions = true;
+        else
+            thingsToAchieve[actionIndex].actions.Invoke();
     }
 }

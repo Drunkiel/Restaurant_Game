@@ -5,16 +5,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform[] targets;
+    [HideInInspector] public int currentTarget = 0;
+    public int state;
     [SerializeField] private List<Vector3> cameraToPlayer = new();
     [SerializeField] private List<Vector3> cameraToMap = new();
-    private int state;
+
+    public static CameraController instance;
 
     [SerializeField] private CinemachineVirtualCamera _camera;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            ChangeState(0);
+            ChangeState(currentTarget);
     }
 
     public void ChangeCameraTarget(int i)
@@ -25,7 +33,9 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        _camera.m_LookAt = targets[i];
+        currentTarget = i;
+        ChangeState(currentTarget);
+        _camera.m_LookAt = targets[currentTarget];
     }
 
     private void ChangeState(int i)

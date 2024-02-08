@@ -117,18 +117,18 @@ public class ItemHolder : MonoBehaviour
         }
     }
 
-    public void Pick(ItemID _itemID, Transform transform, int multiplier, bool shrinkObject = true)
+    public void Pick(ItemID _itemID, Transform transform, int multiplier, bool shrinkObject = true, bool deactivateInteractions = true)
     {
         GameObject newItem = Instantiate(_itemID.gameObject, transform);
         if (shrinkObject) newItem.transform.localScale /= 100;
         newItem.transform.SetLocalPositionAndRotation(new Vector3(0, _itemID.heightPlacement * multiplier, 0), _itemID.transform.rotation);
         newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newItem.name = _itemID.gameObject.name;
-        newItem.transform.GetChild(1).gameObject.SetActive(false);
+        if(deactivateInteractions) newItem.transform.GetChild(1).gameObject.SetActive(false);
         lastPickedObject = newItem.GetComponent<ItemID>();
     }
 
-    public void DropItem()
+    public void DropItem(bool freezeRotation = false)
     {
         if (isHoldingItem)
         {
@@ -140,6 +140,7 @@ public class ItemHolder : MonoBehaviour
 
             //Unfreezing position
             newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            if (freezeRotation) newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
             canDrop = false;
             Invoke(nameof(ResetDrop), 2f);

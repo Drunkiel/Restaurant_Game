@@ -5,7 +5,7 @@ public class PlacableObject : MonoBehaviour
     public bool isPlaced;
     [HideInInspector] public Vector3 size;
     [SerializeField] private Vector3[] vertices;
-    [SerializeField] InteractableObject _interactableObject;
+    public InteractableObject _interactableObject;
 
     private void Start()
     {
