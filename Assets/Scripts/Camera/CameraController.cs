@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+
     [SerializeField] private Transform[] targets;
     [HideInInspector] public int currentTarget = 0;
     public int state;
     [SerializeField] private List<Vector3> cameraToPlayer = new();
     [SerializeField] private List<Vector3> cameraToMap = new();
-
-    public static CameraController instance;
 
     [SerializeField] private CinemachineVirtualCamera _camera;
 
@@ -54,5 +54,7 @@ public class CameraController : MonoBehaviour
                 _camera.transform.position = cameraToMap[state];
                 break;
         }
+
+        RestaurantManager.instance.ChangeWallsVisibility(_camera.transform.position);
     }
 }
