@@ -383,7 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef65ae4bd67e6e46aef187e900557cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHoldingStackableItem: 0
+  isHoldingStackableItem: 1
+  pickAll: 1
   itemHolder: {fileID: 7952260376364533892}
   holdingItems: []
 --- !u!1 &2621365400712010155
@@ -973,7 +974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef65ae4bd67e6e46aef187e900557cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHoldingStackableItem: 0
+  isHoldingStackableItem: 1
+  pickAll: 1
   itemHolder: {fileID: 2108812841378344636}
   holdingItems: []
 --- !u!1 &6384818076051410459

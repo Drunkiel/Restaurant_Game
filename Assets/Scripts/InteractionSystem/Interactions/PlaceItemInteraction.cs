@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaceItemInteraction : MonoBehaviour
 {
     [SerializeField] private bool isHoldingStackableItem;
+    [SerializeField] private bool pickAll;
     [SerializeField] private Transform itemHolder;
     public List<ItemID> holdingItems = new();
 
@@ -64,7 +65,7 @@ public class PlaceItemInteraction : MonoBehaviour
     {
         ItemHolder _itemHolder = ItemHolder.instance;
 
-        if (holdingItems.Count > 1)
+        if (holdingItems.Count > 1 && !pickAll)
         {
             _itemHolder.PickItem(holdingItems[^1]);
             holdingItems[0].stackedItems.RemoveAt(holdingItems[0].stackedItems.Count - 1);

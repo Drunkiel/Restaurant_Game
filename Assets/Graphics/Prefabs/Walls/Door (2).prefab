@@ -121,8 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: Wall
-  requiredLvl: 0
-  price: 0
   grid: 1
   showcaseImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &4976207667205209047
@@ -178,7 +176,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 744cafa226c887d42ac2217148895b3e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.035
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 744cafa226c887d42ac2217148895b3e,
         type: 3}

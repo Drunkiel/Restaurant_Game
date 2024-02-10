@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour
@@ -10,6 +11,12 @@ public class NPCController : MonoBehaviour
 
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
+    [SerializeField] private Transform hint;
+
+    private void Start()
+    {
+        UpdateName();
+    }
 
     private void Update()
     {
@@ -32,5 +39,10 @@ public class NPCController : MonoBehaviour
             toRotation.z = 0f;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    private void UpdateName()
+    {
+        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = GetComponent<ItemID>().itemName; 
     }
 }
