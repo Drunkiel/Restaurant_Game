@@ -1,11 +1,10 @@
-using UnityEditor.Build;
 using UnityEngine;
 
 public class AnimationInteraction : MonoBehaviour
 {
+    public bool isOpen;
     public string[] animationNames;
 
-    private bool isOpen;
     [SerializeField] private Animator animator;
 
     public void ChangeAnimation()

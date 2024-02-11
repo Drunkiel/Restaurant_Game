@@ -23,7 +23,7 @@ public class ActionController : MonoBehaviour
             thingsToAchieve[actionIndex].actions.Invoke();
     }
 
-    public void EndAction()
+    public void NextAction()
     {
         actionIndex += 1;
 
@@ -31,5 +31,12 @@ public class ActionController : MonoBehaviour
             finishedAllActions = true;
         else
             thingsToAchieve[actionIndex].actions.Invoke();
+
+    }
+
+    public void EndAction()
+    {
+        thingsToAchieve[actionIndex].isActionDone = true;
+        NextAction();
     }
 }

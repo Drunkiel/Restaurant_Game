@@ -14,14 +14,26 @@ public class GoToAction : MonoBehaviour
         _actionController = GetComponent<ActionController>();
     }
 
-    public void GoToPosition(int whichPosition)
+    public void GoToPositionIndex(int whichPosition)
     {
-        if (Vector3.Distance(transform.position, positions[whichPosition]) < _actionController.thingsToAchieve[_actionController.actionIndex].distance)
-            _actionController.thingsToAchieve[_actionController.actionIndex].isActionDone = true;
+        GoTo(positions[whichPosition]);
+    }
 
-        if (!_actionController.thingsToAchieve[_actionController.actionIndex].isActionDone)
+    public void GoToPosition(Vector3 position)
+    {
+        GoTo(position);
+    }
+
+    private void GoTo(Vector3 position)
+    {
+        bool isNearby = false;
+
+        if (Vector3.Distance(transform.position, position) < _actionController.thingsToAchieve[_actionController.actionIndex].distance)
+            isNearby = true;
+
+        if (!isNearby)
         {
-            Vector3 direction = positions[whichPosition] - transform.position;
+            Vector3 direction = position - transform.position;
             _NPCController.movement = new Vector3(direction.x * _NPCController.speed, transform.position.y, direction.z * _NPCController.speed);
         }
         else
@@ -29,18 +41,5 @@ public class GoToAction : MonoBehaviour
             _NPCController.movement = Vector2.zero;
             _actionController.EndAction();
         }
-    }
-
-    public void GetSitPosition()
-    {
-        RestaurantManager _manager = RestaurantManager.instance;
-        int sitIndex = _manager.LookForAvailableSit();
-        if (sitIndex == -1) return;
-        _manager.allSits[sitIndex].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID = GetComponent<ItemID>();
-
-        Transform sit = _manager.allSits[sitIndex].transform;
-        positions.Add(sit.position);
-        _actionController.thingsToAchieve[_actionController.actionIndex].isActionDone = true;
-        _actionController.EndAction();
     }
 }
