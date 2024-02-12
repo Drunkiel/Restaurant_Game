@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChopItemInteraction : MonoBehaviour
+public class MakingItemInteraction : MonoBehaviour
 {
     public MakingProcess makingProcess;
     public GameObject hint;
@@ -14,7 +14,7 @@ public class ChopItemInteraction : MonoBehaviour
         progressSlider = hint.GetComponentInChildren<Slider>();
     }
 
-    public void Chop()
+    public void Make()
     {
         if (recipeData.indexOfRecipe == -1) return;
 
@@ -63,7 +63,7 @@ public class ChopItemInteraction : MonoBehaviour
         else
         {
             progressSlider.value = progressSlider.minValue;
-            hint.gameObject.SetActive(true);
+            hint.SetActive(true);
         }
     }
 }

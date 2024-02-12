@@ -100,7 +100,7 @@ public class ItemHolder : MonoBehaviour
                         0,
                         holdingStackableItems[^1].transform.localPosition.y + (holdingStackableItems.Count > 1 ? holdingItem.heightPlacement : 0),
                         0);
-                    if (destroy) Destroy(holdingItem.gameObject);
+                    Destroy(holdingItem.gameObject);
                     isHoldingItem = false;
                     return;
                 }

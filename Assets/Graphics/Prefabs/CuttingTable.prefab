@@ -349,8 +349,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 29128730729557873}
-        m_TargetAssemblyTypeName: ChopItemInteraction, Assembly-CSharp
-        m_MethodName: Chop
+        m_TargetAssemblyTypeName: MakingItemInteraction, Assembly-CSharp
+        m_MethodName: Make
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHoldingStackableItem: 1
+  pickAll: 0
   itemHolder: {fileID: 8839251756213148092}
   holdingItems:
   - {fileID: 664361234521050761}
@@ -408,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   makingProcess: 0
-  progressSlider: {fileID: 8069337203310020395}
+  hint: {fileID: 0}
   _placeItem: {fileID: 4017638806043063894}
 --- !u!1 &6457570572127979745
 GameObject:

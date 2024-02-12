@@ -9,6 +9,7 @@ public class NPCController : MonoBehaviour
     public Vector2 movement;
     public bool isMoving;
 
+    [SerializeField] private NPCNamesData _NPCNames;
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
     [SerializeField] private Transform hint;
@@ -43,6 +44,6 @@ public class NPCController : MonoBehaviour
 
     private void UpdateName()
     {
-        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = GetComponent<ItemID>().itemName; 
+        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _NPCNames.RandomName(); 
     }
 }
