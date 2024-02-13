@@ -127,6 +127,74 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Action Controls",
+            "id": "824c44bf-54c9-4e2f-a5ec-3f912df46f03",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "8aa5dbc3-dde3-496c-afdc-55a2cf9d62a5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hold",
+                    "type": "Button",
+                    "id": "421331ca-c052-45b8-8017-b6961bc49eb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "End",
+                    "type": "Button",
+                    "id": "0f70fc4a-1b5a-435c-b2e6-c47498577954",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "41c95fd4-c921-4b88-9d38-a663d8bccd14",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36d30b77-d75e-409a-ba8e-516689b50604",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "851227e2-64ac-4b1e-a283-6a992c9d1324",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "End",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

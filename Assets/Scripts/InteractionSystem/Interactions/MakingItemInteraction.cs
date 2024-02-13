@@ -18,9 +18,27 @@ public class MakingItemInteraction : MonoBehaviour
     {
         if (recipeData.indexOfRecipe == -1) return;
 
-        progressSlider.value += 1;
+        MakeManually();
 
-        if (progressSlider.value < progressSlider.maxValue) return;
+        FinishProcess();
+        Check();
+    }
+
+    private void MakeManually()
+    {
+        InteractionSystem.isInteracting = true;
+
+        
+    }
+
+    private void DoProgress()
+    {
+        progressSlider.value += 1;
+    }
+
+    private void FinishProcess()
+    {
+        if (InteractionSystem.isInteracting) InteractionSystem.isInteracting = false;
 
         switch (recipeData.recipeList)
         {
@@ -34,7 +52,6 @@ public class MakingItemInteraction : MonoBehaviour
                 ReplaceHoldingItem(RecipesController.instance.finishedRecipes[recipeData.indexOfRecipe].resultItem);
                 break;
         }
-        Check();
     }
 
     public void ReplaceHoldingItem(ItemID _itemID)
@@ -59,7 +76,7 @@ public class MakingItemInteraction : MonoBehaviour
     {
         recipeData = RecipesController.instance.FindRecipe(makingProcess, _placeItem.holdingItems);
 
-        if (recipeData.indexOfRecipe == -1) hint.gameObject.SetActive(false);
+        if (recipeData.indexOfRecipe == -1) hint.SetActive(false);
         else
         {
             progressSlider.value = progressSlider.minValue;

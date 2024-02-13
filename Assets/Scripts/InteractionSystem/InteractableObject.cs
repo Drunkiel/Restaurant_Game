@@ -1,37 +1,37 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+
+//HOLD: functions are disabled until I find way to make them work with the new Input system or find the other way
 
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private bool isPlayerNearby;
     [SerializeField] private GameObject hint;
-    public UnityEvent onClickFunctionalities;    
-    public UnityEvent onHoldClickFunctionalities;    
-    public UnityEvent onEndClickFunctionalities;    
+    public UnityEvent onClickFunctionalities;
+    //public UnityEvent onHoldClickFunctionalities;
+    public UnityEvent onEndClickFunctionalities;
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
-        {
-            StartOnClickInteraction();
-            return;
-        }
-
-        if (isPlayerNearby && Input.GetMouseButton(0))
-        {
-            StartOnHoldInteraction();
-        }
-
-        if (isPlayerNearby && Input.GetKeyUp(KeyCode.F))
-        {
-            StartOnEndInteraction();
-            return;
-        }
-
         if (InteractionSystem.isInteracting) return;
 
         isPlayerNearby = GetComponent<MultiTriggerController>().isTriggered;
-        //hint.SetActive(isPlayerNearby);
+    }
+
+    public void Click(InputAction.CallbackContext context)
+    {
+        if (isPlayerNearby && context.performed) StartOnClickInteraction();
+    }
+
+/*    public void Hold(InputAction.CallbackContext context)
+    {
+        if (isPlayerNearby) StartOnHoldInteraction();
+    }*/
+
+    public void End(InputAction.CallbackContext context)
+    {
+        if (isPlayerNearby && context.canceled) StartOnEndInteraction();
     }
 
     private void StartOnClickInteraction()
@@ -39,10 +39,10 @@ public class InteractableObject : MonoBehaviour
         onClickFunctionalities.Invoke();
     }
 
-    private void StartOnHoldInteraction()
+/*    private void StartOnHoldInteraction()
     {
         onHoldClickFunctionalities.Invoke();
-    }
+    }*/
 
     private void StartOnEndInteraction()
     {

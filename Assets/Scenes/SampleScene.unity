@@ -4508,6 +4508,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &265779884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7408045304892336368, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+    type: 3}
+  m_PrefabInstance: {fileID: 8580405308455999784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882505300719d984fb001ece2437c35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &265779885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1619014693646736919, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+    type: 3}
+  m_PrefabInstance: {fileID: 8580405308455999784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef65ae4bd67e6e46aef187e900557cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &273874637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,9 +6333,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -10637,9 +10658,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -15849,9 +15867,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -18434,9 +18449,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -19248,9 +19260,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -21972,9 +21981,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -25704,9 +25710,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -25828,9 +25831,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -27113,9 +27113,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHoldClickFunctionalities:
-    m_PersistentCalls:
-      m_Calls: []
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -28843,6 +28840,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4d7eec1d-8955-43f5-954f-596e2c3f414b
     m_ActionName: Player Controls/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8aa5dbc3-dde3-496c-afdc-55a2cf9d62a5
+    m_ActionName: Action Controls/Click[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 421331ca-c052-45b8-8017-b6961bc49eb6
+    m_ActionName: Action Controls/Hold[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f70fc4a-1b5a-435c-b2e6-c47498577954
+    m_ActionName: Action Controls/End[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls
@@ -31815,6 +31824,71 @@ PrefabInstance:
         type: 3}
       propertyPath: onHoldClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MakingItemInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 265779885}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 265779884}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 265779884}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaceItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Make
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlaceItemInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MakingItemInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MakingItemInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486071218892049022, guid: 9bc97b1d4df2a3d41a533dd04f076236,
+        type: 3}
+      propertyPath: onClickFunctionalities.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8118967459780130685, guid: 9bc97b1d4df2a3d41a533dd04f076236,
         type: 3}
