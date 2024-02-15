@@ -14,6 +14,8 @@ public class Recipe
     public MakingProcess process;
     public List<ItemID> requiredItems = new();
     public ItemID resultItem;
+    public int timeToMake; //In seconds
+    public bool needInteraction;
 }
 
 [System.Serializable]

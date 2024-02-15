@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         isMoving = movement.magnitude > 0.1f;
         anim.SetFloat("Movement", movement.magnitude);
         anim.SetBool("isHolding", ItemHolder.instance.isHoldingItem || ItemHolder.instance.isHoldingStackableItem);
+        anim.SetBool("isMaking", InteractionSystem.isInteracting);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);

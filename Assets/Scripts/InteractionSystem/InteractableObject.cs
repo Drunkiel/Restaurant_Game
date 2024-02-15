@@ -2,14 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-//HOLD: functions are disabled until I find way to make them work with the new Input system or find the other way
-
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private bool isPlayerNearby;
     [SerializeField] private GameObject hint;
     public UnityEvent onClickFunctionalities;
-    //public UnityEvent onHoldClickFunctionalities;
+    public UnityEvent onHoldFunctionalities;
     public UnityEvent onEndClickFunctionalities;
 
     private void Update()
@@ -24,10 +22,10 @@ public class InteractableObject : MonoBehaviour
         if (isPlayerNearby && context.performed) StartOnClickInteraction();
     }
 
-/*    public void Hold(InputAction.CallbackContext context)
+    public void Hold(InputAction.CallbackContext context)
     {
-        if (isPlayerNearby) StartOnHoldInteraction();
-    }*/
+        if (isPlayerNearby && context.performed) StartOnHoldInteraction();
+    }
 
     public void End(InputAction.CallbackContext context)
     {
@@ -39,10 +37,10 @@ public class InteractableObject : MonoBehaviour
         onClickFunctionalities.Invoke();
     }
 
-/*    private void StartOnHoldInteraction()
+    private void StartOnHoldInteraction()
     {
-        onHoldClickFunctionalities.Invoke();
-    }*/
+        onHoldFunctionalities.Invoke();
+    }
 
     private void StartOnEndInteraction()
     {

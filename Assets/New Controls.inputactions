@@ -174,6 +174,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c40af39f-7458-4ecb-a7b0-0b4759f2c07f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "36d30b77-d75e-409a-ba8e-516689b50604",
                     "path": "<Mouse>/leftButton",
                     "interactions": "Hold",
@@ -185,8 +196,30 @@
                 },
                 {
                     "name": "",
+                    "id": "f5d783df-c882-4bbf-829a-686c12a39011",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "851227e2-64ac-4b1e-a283-6a992c9d1324",
                     "path": "<Keyboard>/f",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "End",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9267e44d-fac1-4d22-aa57-3c27ef3e0f0c",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
