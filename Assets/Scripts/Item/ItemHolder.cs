@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ItemHolder : MonoBehaviour
 {
@@ -21,17 +22,6 @@ public class ItemHolder : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Update()
-    {
-        if (isHoldingItem || isHoldingStackableItem)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (canDrop) DropItem();
-            }
-        }
     }
 
     public void PickItem(ItemID _itemID, bool destroy = true)
@@ -128,7 +118,13 @@ public class ItemHolder : MonoBehaviour
         lastPickedObject = newItem.GetComponent<ItemID>();
     }
 
-    public void DropItem(bool freezeRotation = false)
+    public void DropItemAction(InputAction.CallbackContext context)
+    {
+        if (context.performed && canDrop)
+            DropItem();
+    }
+
+    private void DropItem(bool freezeRotation = false)
     {
         if (isHoldingItem)
         {

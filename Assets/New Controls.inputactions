@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "DropItem",
+                    "type": "Button",
+                    "id": "970cf6a0-f5ca-4c07-81aa-38ea93e50975",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -125,6 +134,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2b4533c3-470e-4278-b152-9748f26b9f58",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d0aef97-ba8c-455f-8067-459f5ce5e8bb",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -147,7 +178,7 @@
                     "id": "421331ca-c052-45b8-8017-b6961bc49eb6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -156,7 +187,7 @@
                     "id": "0f70fc4a-1b5a-435c-b2e6-c47498577954",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 }
             ],
@@ -187,7 +218,7 @@
                     "name": "",
                     "id": "36d30b77-d75e-409a-ba8e-516689b50604",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Hold",
@@ -198,7 +229,7 @@
                     "name": "",
                     "id": "f5d783df-c882-4bbf-829a-686c12a39011",
                     "path": "<Gamepad>/buttonNorth",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Hold",
@@ -209,7 +240,7 @@
                     "name": "",
                     "id": "851227e2-64ac-4b1e-a283-6a992c9d1324",
                     "path": "<Keyboard>/f",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "End",
@@ -220,7 +251,7 @@
                     "name": "",
                     "id": "9267e44d-fac1-4d22-aa57-3c27ef3e0f0c",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "End",
