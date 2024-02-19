@@ -8,10 +8,15 @@ public class BuildingCard : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private Button button;
 
-    public void SetData(BuildingID _buildingID)
+    public void SetBuildingData(BuildingID _buildingID)
     {
-        image.sprite = _buildingID.showcaseImage;
-        text.text = _buildingID.buildingName;
+        SetCardData(_buildingID.showcaseImage, _buildingID.buildingName);
         button.onClick.AddListener(() => BuildingSystem.instance.InitializeWithObject(_buildingID.gameObject));
+    }
+
+    public void SetCardData(Sprite sprite, string text)
+    {
+        image.sprite = sprite;
+        this.text.text = text;
     }
 }

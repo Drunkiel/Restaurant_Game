@@ -12,11 +12,11 @@ public class NPCController : MonoBehaviour
     [SerializeField] private NPCNamesData _NPCNames;
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
-    [SerializeField] private Transform hint;
 
     private void Start()
     {
-        UpdateName();
+        if (!_NPCNames.isNPCNamed)
+            UpdateName();
     }
 
     private void Update()
@@ -47,6 +47,6 @@ public class NPCController : MonoBehaviour
 
     private void UpdateName()
     {
-        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _NPCNames.RandomName(); 
+        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _NPCNames.RandomName();
     }
 }

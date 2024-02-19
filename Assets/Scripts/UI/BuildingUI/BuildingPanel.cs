@@ -15,7 +15,7 @@ public class BuildingPanel : MonoBehaviour
         for (int j = 0; j < list.Count; j++)
         {
             GameObject newCard = Instantiate(cardPrefab, content);
-            newCard.GetComponent<BuildingCard>().SetData(list[j]);
+            newCard.GetComponent<BuildingCard>().SetBuildingData(list[j]);
         }
     }
 
