@@ -20,10 +20,15 @@ public class RestaurantManager : MonoBehaviour
 
     public int LookForAvailableSit()
     {
+        List<ItemID> avalaibleSeats = new();
+
         for (int i = 0; i < allSits.Count; i++)
         {
-            if (allSits[i].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID == null) return i;
+            if (allSits[i].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID == null) avalaibleSeats.Add(allSits[i]);
         }
+
+        if (avalaibleSeats.Count != 0)
+            return Random.Range(0, avalaibleSeats.Count);
 
         return -1;
     }

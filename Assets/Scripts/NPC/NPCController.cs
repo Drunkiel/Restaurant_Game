@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
+    public bool isNPCNamed;
+
     public float speed;
     public float rotationSpeed;
 
@@ -15,8 +17,11 @@ public class NPCController : MonoBehaviour
 
     private void Start()
     {
-        if (!_NPCNames.isNPCNamed)
+        if (!isNPCNamed)
+        {
             UpdateName();
+            isNPCNamed = true;
+        }
     }
 
     private void Update()
@@ -47,6 +52,8 @@ public class NPCController : MonoBehaviour
 
     private void UpdateName()
     {
-        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _NPCNames.RandomName();
+        ItemID _itemID = GetComponent<ItemID>();
+        _itemID.itemName = _NPCNames.RandomName();
+        transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _itemID.itemName;
     }
 }

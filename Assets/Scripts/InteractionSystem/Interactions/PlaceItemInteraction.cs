@@ -25,7 +25,8 @@ public class PlaceItemInteraction : MonoBehaviour
                 PlaceOnPlayer();
         }
 
-        if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem) PlaceOnHolder();
+        if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem) 
+            PlaceOnHolder();
     }
 
     private void PlaceOnHolder()

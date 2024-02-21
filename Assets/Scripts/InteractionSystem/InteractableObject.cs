@@ -5,16 +5,22 @@ using UnityEngine.InputSystem;
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private bool isPlayerNearby;
-    [SerializeField] private GameObject hint;
     public UnityEvent onClickFunctionalities;
     public UnityEvent onHoldFunctionalities;
     public UnityEvent onEndClickFunctionalities;
+
+    private MultiTriggerController _triggerController;
+
+    private void Start()
+    {
+        _triggerController = GetComponent<MultiTriggerController>();
+    }
 
     private void Update()
     {
         if (InteractionSystem.isInteracting) return;
 
-        isPlayerNearby = GetComponent<MultiTriggerController>().isTriggered;
+        isPlayerNearby = _triggerController.isTriggered;
     }
 
     public void Click(InputAction.CallbackContext context)
