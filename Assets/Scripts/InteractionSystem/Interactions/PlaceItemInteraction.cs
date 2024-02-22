@@ -9,10 +9,31 @@ public class PlaceItemInteraction : MonoBehaviour
     [SerializeField] private Transform itemHolder;
     public List<ItemID> holdingItems = new();
 
+    private InteractableObject _interactableObject;
+    private ItemHolder _itemHolder;
+
+    private HintEvent _hintEvent;
+
+    private void Start()
+    {
+        _interactableObject = GetComponent<InteractableObject>();
+        _itemHolder = ItemHolder.instance;
+
+        if (TryGetComponent(out HintEvent _hintEvent))
+            this._hintEvent = _hintEvent;
+    }
+
+    private void Update()
+    {
+        if (_interactableObject.isPlayerNearby && _hintEvent != null)
+        {
+            _hintEvent.addOne = _itemHolder.isHoldingItem || (_itemHolder.isHoldingStackableItem && isHoldingStackableItem);
+            print(_itemHolder.isHoldingItem || (_itemHolder.isHoldingStackableItem && isHoldingStackableItem));
+        }
+    }
+
     public void PlaceItem()
     {
-        ItemHolder _itemHolder = ItemHolder.instance;
-
         if (_itemHolder.isHoldingItem)
         {
             if (isHoldingStackableItem) AddToHolder();
@@ -25,14 +46,12 @@ public class PlaceItemInteraction : MonoBehaviour
                 PlaceOnPlayer();
         }
 
-        if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem) 
+        if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem)
             PlaceOnHolder();
     }
 
     private void PlaceOnHolder()
     {
-        ItemHolder _itemHolder = ItemHolder.instance;
-
         _itemHolder.Pick(_itemHolder.holdingStackableItems[0], itemHolder, holdingItems.Count, false);
         ItemID placedObject = itemHolder.GetChild(0).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
@@ -49,8 +68,6 @@ public class PlaceItemInteraction : MonoBehaviour
 
     private void AddToHolder()
     {
-        ItemHolder _itemHolder = ItemHolder.instance;
-
         _itemHolder.Pick(_itemHolder.holdingItem, holdingItems[0].transform, holdingItems.Count, false);
         ItemID placedObject = holdingItems[0].transform.GetChild(holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
@@ -64,8 +81,6 @@ public class PlaceItemInteraction : MonoBehaviour
 
     private void PlaceOnPlayer()
     {
-        ItemHolder _itemHolder = ItemHolder.instance;
-
         if (holdingItems.Count > 1 && !pickAll)
         {
             _itemHolder.PickItem(holdingItems[^1]);

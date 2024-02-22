@@ -1017,7 +1017,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1032,7 +1032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1069,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3537812ece71aea4bbd860de53b7e8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addOne: 0
 --- !u!4 &6486857116273842236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,
@@ -1378,6 +1379,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2088170841109631289, guid: b5fc544f589b0ba449d1f409b73cf527,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 3806105760431920635, guid: b5fc544f589b0ba449d1f409b73cf527,
         type: 3}
       propertyPath: m_Name
@@ -1483,6 +1489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088170841109631289, guid: b5fc544f589b0ba449d1f409b73cf527,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3806105760431920635, guid: b5fc544f589b0ba449d1f409b73cf527,
         type: 3}
@@ -1710,9 +1721,9 @@ MonoBehaviour:
   enterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6761231729156670377}
+      - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1725,9 +1736,9 @@ MonoBehaviour:
   stayEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6761231729156670377}
+      - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1740,9 +1751,9 @@ MonoBehaviour:
   exitEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6761231729156670377}
+      - m_Target: {fileID: 5904299683261036510}
         m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
-        m_MethodName: UseHint
+        m_MethodName: ChangeHint
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1764,6 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3537812ece71aea4bbd860de53b7e8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addOne: 0
 --- !u!1001 &8981053142974732448
 PrefabInstance:
   m_ObjectHideFlags: 0

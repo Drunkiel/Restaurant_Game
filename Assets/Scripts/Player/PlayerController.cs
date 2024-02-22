@@ -12,14 +12,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
 
+    private HintEvent _hintEvent;
+
+    private void Start()
+    {
+        if (TryGetComponent(out HintEvent _hintEvent))
+            this._hintEvent = _hintEvent;
+    }
+
     private void Update()
     {
+        ItemHolder _itemHolder = ItemHolder.instance;
+
+        //Movement control and animations
         anim.SetBool("isMaking", InteractionSystem.isInteracting);
         if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
 
         isMoving = movement.magnitude > 0.1f;
         anim.SetFloat("Movement", movement.magnitude);
-        anim.SetBool("isHolding", ItemHolder.instance.isHoldingItem || ItemHolder.instance.isHoldingStackableItem);
+        anim.SetBool("isHolding", _itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem);
 
         if (rgBody.velocity.magnitude >= speed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);

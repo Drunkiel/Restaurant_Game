@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] private bool isPlayerNearby;
+    public bool isPlayerNearby;
     public UnityEvent onClickFunctionalities;
     public UnityEvent onHoldFunctionalities;
     public UnityEvent onEndClickFunctionalities;
