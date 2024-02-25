@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 2583733292280792705}
   - component: {fileID: 1244966240230972237}
   - component: {fileID: 8353463802798587043}
+  - component: {fileID: 4744385602066617165}
   m_Layer: 6
   m_Name: Counter_Straight_2
   m_TagString: Furniture
@@ -262,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 2022312146192651180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.55, y: 0, z: 0.45000002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,6 +371,22 @@ MonoBehaviour:
   isPlaced: 1
   size: {x: 0.79, y: 0.37, z: 0.5}
   _interactableObject: {fileID: 0}
+--- !u!114 &4744385602066617165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022312146192651180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 1
+  reverseReturn: 1
+  objectsTag:
+  - Furniture
 --- !u!1 &3261010989116351475
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +773,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6384818076051410459}
-  m_Mesh: {fileID: 3365474841506982145, guid: 6746bc1ba4c6b4d4088097b24a091998, type: 3}
+  m_Mesh: {fileID: 3365474841506982145, guid: 0a98043b5cf78bf4591a95175f6a61c2, type: 3}
 --- !u!23 &8707046783728084817
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -777,7 +794,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4586444591600750072, guid: 6746bc1ba4c6b4d4088097b24a091998, type: 3}
+  - {fileID: -4586444591600750072, guid: 0a98043b5cf78bf4591a95175f6a61c2, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -996,9 +1013,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHoldingStackableItem: 1
   pickAll: 1
-  itemHolder: {fileID: 7952260376364533892}
+  itemHolder: {fileID: 600579442562714730}
   holdingItems:
-  - {fileID: 583351751784402029}
+  - {fileID: 4911490026830868}
 --- !u!114 &7882924159120516431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1542,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fc544f589b0ba449d1f409b73cf527, type: 3}
+--- !u!114 &4911490026830868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6896061511819025278, guid: b5fc544f589b0ba449d1f409b73cf527,
+    type: 3}
+  m_PrefabInstance: {fileID: 6891292004897695594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37539b9b0fdd46c4abed1e61314e6b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4908900427374716685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1998792838929989735, guid: b5fc544f589b0ba449d1f409b73cf527,

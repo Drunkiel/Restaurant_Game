@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class EventTriggerController : MonoBehaviour
 {
     public string objectTag;
+    public bool canBeShown = true;
 
     public UnityEvent enterEvent;
     public UnityEvent stayEvent;
@@ -11,17 +12,20 @@ public class EventTriggerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        CheckCollision(collider, enterEvent);
+        if (canBeShown)
+            CheckCollision(collider, enterEvent);
     }
 
     void OnTriggerStay(Collider collider)
     {
-        CheckCollision(collider, stayEvent);
+        if (canBeShown)
+            CheckCollision(collider, stayEvent);
     }
 
     void OnTriggerExit(Collider collider)
     {
-        CheckCollision(collider, exitEvent);
+        if (canBeShown)
+            CheckCollision(collider, exitEvent);
     }
 
     void CheckCollision(Collider collider, UnityEvent events)

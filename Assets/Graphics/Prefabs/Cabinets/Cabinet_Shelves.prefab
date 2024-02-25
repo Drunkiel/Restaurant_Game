@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: Cabinet
-  requiredLvl: 0
-  price: 0
   grid: 0
   showcaseImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &5186730034235897153
@@ -110,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
-  vertices: []
+  _interactableObject: {fileID: 0}
 --- !u!114 &3399780459888309651
 MonoBehaviour:
   m_ObjectHideFlags: 0

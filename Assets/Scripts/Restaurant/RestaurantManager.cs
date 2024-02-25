@@ -24,7 +24,8 @@ public class RestaurantManager : MonoBehaviour
 
         for (int i = 0; i < allSits.Count; i++)
         {
-            if (allSits[i].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID == null) avalaibleSeats.Add(allSits[i]);
+            if (allSits[i].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID == null)
+                avalaibleSeats.Add(allSits[i]);
         }
 
         if (avalaibleSeats.Count != 0)

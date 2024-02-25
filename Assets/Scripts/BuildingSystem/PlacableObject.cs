@@ -4,6 +4,7 @@ public class PlacableObject : MonoBehaviour
 {
     public bool isPlaced;
     [HideInInspector] public Vector3 size;
+    public GameObject objectToManipulate;
     public InteractableObject _interactableObject;
 
     private void Start()
@@ -17,7 +18,9 @@ public class PlacableObject : MonoBehaviour
         Destroy(GetComponent<MultiTriggerController>());
         transform.GetComponentInChildren<AutoSize>().AutoDestroy();
         BuildingSystem.instance._objectToPlace = null;
-        if(_interactableObject != null) _interactableObject.gameObject.SetActive(true);
+
+        if (objectToManipulate != null)
+            objectToManipulate.SetActive(true);
 
         isPlaced = true;
     }
@@ -31,8 +34,8 @@ public class PlacableObject : MonoBehaviour
         BuildingSystem.instance._objectToPlace = this;
         BuildingSystem.instance.OpenUI(false);
 
-        if (_interactableObject != null) 
-            _interactableObject.gameObject.SetActive(false);
+        if (objectToManipulate != null)
+            objectToManipulate.SetActive(false);
 
         gameObject.AddComponent<ObjectDrag>();
         Instantiate(BuildingSystem.instance.buildingMaterial, transform);

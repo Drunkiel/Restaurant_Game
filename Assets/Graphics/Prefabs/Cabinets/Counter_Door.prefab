@@ -120,8 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: Counter doors
-  requiredLvl: 0
-  price: 0
   grid: 0
   showcaseImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &2806208250274602238
@@ -138,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
-  vertices: []
+  _interactableObject: {fileID: 0}
 --- !u!114 &5432168149669029597
 MonoBehaviour:
   m_ObjectHideFlags: 0

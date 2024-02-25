@@ -25,11 +25,16 @@ public class PlaceItemInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (_interactableObject.isPlayerNearby && _hintEvent != null)
-        {
-            _hintEvent.addOne = _itemHolder.isHoldingItem || (_itemHolder.isHoldingStackableItem && isHoldingStackableItem);
-            print(_itemHolder.isHoldingItem || (_itemHolder.isHoldingStackableItem && isHoldingStackableItem));
-        }
+        if (_hintEvent == null) 
+            return;
+
+        if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem && !isHoldingStackableItem)
+            _hintEvent.GetComponent<EventTriggerController>().canBeShown = false;
+        else
+            _hintEvent.GetComponent<EventTriggerController>().canBeShown = true;
+
+        if (_interactableObject.isPlayerNearby)
+            _hintEvent.addOne = _itemHolder.isHoldingItem || (_itemHolder.isHoldingStackableItem && !isHoldingStackableItem);
     }
 
     public void PlaceItem()
