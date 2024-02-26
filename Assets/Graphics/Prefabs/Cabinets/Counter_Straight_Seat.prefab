@@ -163,7 +163,6 @@ GameObject:
   - component: {fileID: 3986243638324398193}
   - component: {fileID: 8851453976804990900}
   - component: {fileID: 692631656927172240}
-  - component: {fileID: 8941997989173063467}
   m_Layer: 6
   m_Name: Counter_Straight_Seat
   m_TagString: Furniture
@@ -288,22 +287,6 @@ MonoBehaviour:
   size: {x: 0.79, y: 0.37, z: 0.5}
   objectToManipulate: {fileID: 2695659886524082920}
   _interactableObject: {fileID: 0}
---- !u!114 &8941997989173063467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323232589137150085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTriggered: 1
-  reverseReturn: 1
-  objectsTag:
-  - Furniture
 --- !u!1 &5562477116921114328
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +861,7 @@ PrefabInstance:
     - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
@@ -1059,6 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectTag: Player
+  canBeShown: 1
   enterEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1117,3 +1101,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addOne: 0
+  reverse: 0
