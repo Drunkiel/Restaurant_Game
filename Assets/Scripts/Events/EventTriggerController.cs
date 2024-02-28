@@ -3,12 +3,17 @@ using UnityEngine.Events;
 
 public class EventTriggerController : MonoBehaviour
 {
-    public string objectTag;
+    private string objectTag;
     public bool canBeShown = true;
 
     public UnityEvent enterEvent;
     public UnityEvent stayEvent;
     public UnityEvent exitEvent;
+
+    private void Start()
+    {
+        objectTag = GetComponent<MultiTriggerController>().objectsTag[0];
+    }
 
     void OnTriggerEnter(Collider collider)
     {

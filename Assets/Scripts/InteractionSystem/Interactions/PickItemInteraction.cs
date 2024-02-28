@@ -7,6 +7,9 @@ public class PickItemInteraction : MonoBehaviour
 
     public void PickItem()
     {
+        if (TryGetComponent(out HintEvent _hintEvent))
+            _hintEvent.ChangeHint(0);
+
         ItemHolder.instance.PickItem(_objectsID, destroy);
     }
 }

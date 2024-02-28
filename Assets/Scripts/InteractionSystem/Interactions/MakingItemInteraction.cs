@@ -18,7 +18,8 @@ public class MakingItemInteraction : MonoBehaviour
 
     public void Make()
     {
-        if (_recipeData.indexOfRecipe == -1) return;
+        if (_recipeData == null || _recipeData.indexOfRecipe == -1) 
+            return;
 
         MakeManually(_recipe.needInteraction);
     }
