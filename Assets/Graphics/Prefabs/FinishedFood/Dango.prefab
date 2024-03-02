@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37539b9b0fdd46c4abed1e61314e6b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 24
   itemName: Dango
-  isStackable: 1
+  isStackable: 0
   isPickable: 1
   heightPlacement: 0.05
   itemType: 0

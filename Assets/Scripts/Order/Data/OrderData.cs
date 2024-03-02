@@ -6,5 +6,5 @@ public class OrderData : ScriptableObject
 {
     public int price;
     public Sprite sprite;
-    public ItemID itemID;
+    public ItemID _itemID;
 }

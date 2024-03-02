@@ -4,7 +4,7 @@ public class SitAction : MonoBehaviour
 {
     private ActionController _actionController;
 
-    private ItemID _seatID;
+    public ItemID _seatID;
     private int sitIndex;
 
     private void Start()

@@ -27,11 +27,12 @@ public class OrderController : MonoBehaviour
 
     private void Update()
     {
+        //TEST ONLY
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) 
-            NewOrder(new ItemID());
+            NewOrder(new ItemID(), new OrderAction());
     }
 
-    public void NewOrder(ItemID _itemID)
+    public void NewOrder(ItemID _itemID, OrderAction _orderAction)
     {
         GameObject newCard = Instantiate(cardPrefab, parent);
 
@@ -43,6 +44,7 @@ public class OrderController : MonoBehaviour
         };
 
         _newOrder._card.SetCardData(_newOrder._order.sprite, $"{_newOrder._order.price}$ - {_newOrder._NPCID.itemName}");
+        _orderAction._currentOrder = _newOrder._order;
         _ordersToDo.Add(_newOrder);
     }
 }

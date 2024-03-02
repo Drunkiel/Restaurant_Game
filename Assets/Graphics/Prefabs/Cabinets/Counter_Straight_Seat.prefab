@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 3986243638324398193}
   - component: {fileID: 8851453976804990900}
   - component: {fileID: 692631656927172240}
+  - component: {fileID: -9068812819297971287}
   m_Layer: 6
   m_Name: Counter_Straight_Seat
   m_TagString: Furniture
@@ -283,10 +284,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaced: 1
+  isPlaced: 0
   size: {x: 0.79, y: 0.37, z: 0.5}
   objectToManipulate: {fileID: 2695659886524082920}
   _interactableObject: {fileID: 0}
+--- !u!114 &-9068812819297971287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323232589137150085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: 1
+  reverseReturn: 1
+  objectsTag:
+  - Furniture
+  - Wall
 --- !u!1 &5562477116921114328
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37539b9b0fdd46c4abed1e61314e6b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 0
   itemName: 
   isStackable: 0
   isPickable: 0
@@ -1041,7 +1060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectTag: Player
   canBeShown: 1
   enterEvent:
     m_PersistentCalls:
@@ -1101,4 +1119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addOne: 0
-  reverse: 0
+  dontAdd: 0

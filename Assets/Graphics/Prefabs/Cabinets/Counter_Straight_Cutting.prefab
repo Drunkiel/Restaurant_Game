@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaced: 1
+  isPlaced: 0
   size: {x: 0.79, y: 0.37, z: 0.36}
   objectToManipulate: {fileID: 0}
   _interactableObject: {fileID: 5486071218892049022}
@@ -238,6 +238,7 @@ MonoBehaviour:
   reverseReturn: 1
   objectsTag:
   - Furniture
+  - Wall
 --- !u!1001 &440497635183840831
 PrefabInstance:
   m_ObjectHideFlags: 0

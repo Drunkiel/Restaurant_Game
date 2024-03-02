@@ -368,8 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaced: 1
+  isPlaced: 0
   size: {x: 0.79, y: 0.37, z: 0.5}
+  objectToManipulate: {fileID: 0}
   _interactableObject: {fileID: 0}
 --- !u!114 &4744385602066617165
 MonoBehaviour:
@@ -387,6 +388,7 @@ MonoBehaviour:
   reverseReturn: 1
   objectsTag:
   - Furniture
+  - Wall
 --- !u!1 &3261010989116351475
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 1
   size: {x: 0.24, y: 0.2, z: 0.24}
+  objectToManipulate: {fileID: 0}
   _interactableObject: {fileID: 8229514990770686217}
 --- !u!114 &5687396666993724678
 MonoBehaviour:
@@ -537,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37539b9b0fdd46c4abed1e61314e6b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 0
   itemName: 
   isStackable: 0
   isPickable: 0
@@ -714,6 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 1
   size: {x: 0.24, y: 0.2, z: 0.24}
+  objectToManipulate: {fileID: 0}
   _interactableObject: {fileID: 1932115085497555195}
 --- !u!114 &6071821358272707189
 MonoBehaviour:
@@ -727,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37539b9b0fdd46c4abed1e61314e6b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 0
   itemName: 
   isStackable: 0
   isPickable: 0
@@ -1028,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectTag: Player
+  canBeShown: 1
   enterEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1087,6 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addOne: 0
+  dontAdd: 0
 --- !u!4 &6486857116273842236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860937652841661841, guid: 93b50f299eeaf664ca7f98ad96611839,
@@ -1746,7 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectTag: Player
+  canBeShown: 1
   enterEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1805,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addOne: 0
+  dontAdd: 0
 --- !u!1001 &8981053142974732448
 PrefabInstance:
   m_ObjectHideFlags: 0

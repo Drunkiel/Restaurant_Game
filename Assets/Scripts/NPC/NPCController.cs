@@ -41,11 +41,12 @@ public class NPCController : MonoBehaviour
         Vector3 move = new Vector3(movement.x, 0, movement.y).normalized;
         rgBody.AddForce(move * speed, ForceMode.Acceleration);
 
-        if (isMoving)
+        if (isMoving && move != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
             toRotation.x = 0f;
             toRotation.z = 0f;
+
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }

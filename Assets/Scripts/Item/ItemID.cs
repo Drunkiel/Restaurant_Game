@@ -9,6 +9,7 @@ public enum ItemType
 
 public class ItemID : MonoBehaviour
 {
+    public short itemID;
     public string itemName;
     public bool isStackable;
     public bool isPickable = true;

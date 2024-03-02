@@ -108,4 +108,12 @@ public class PlaceItemInteraction : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         isHoldingStackableItem = false;
     }
+
+    public ItemID HoldingItem()
+    {
+        if (holdingItems.Count < 2) 
+            return null;
+
+        return holdingItems[1];
+    }
 }
