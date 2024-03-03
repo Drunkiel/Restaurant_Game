@@ -15,7 +15,6 @@ public class OrderController : MonoBehaviour
 
     [SerializeField] private OrderData[] _possibleOrders;
     public List<SingleOrder> _ordersToDo = new();
-    private int allDoneOrders;
 
     [SerializeField] private Transform parent;
     [SerializeField] private GameObject cardPrefab;
@@ -23,13 +22,6 @@ public class OrderController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Update()
-    {
-        //TEST ONLY
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) 
-            NewOrder(new ItemID(), new OrderAction());
     }
 
     public void NewOrder(ItemID _itemID, OrderAction _orderAction)

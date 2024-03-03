@@ -163,7 +163,6 @@ GameObject:
   - component: {fileID: 3986243638324398193}
   - component: {fileID: 8851453976804990900}
   - component: {fileID: 692631656927172240}
-  - component: {fileID: -9068812819297971287}
   m_Layer: 6
   m_Name: Counter_Straight_Seat
   m_TagString: Furniture
@@ -284,27 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaced: 0
+  isPlaced: 1
   size: {x: 0.79, y: 0.37, z: 0.5}
   objectToManipulate: {fileID: 2695659886524082920}
   _interactableObject: {fileID: 0}
---- !u!114 &-9068812819297971287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323232589137150085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTriggered: 1
-  reverseReturn: 1
-  objectsTag:
-  - Furniture
-  - Wall
 --- !u!1 &5562477116921114328
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player Controls/DropItem[/Keyboard/q,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180602497839640578, guid: b5fc544f589b0ba449d1f409b73cf527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

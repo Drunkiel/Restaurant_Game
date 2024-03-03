@@ -4,15 +4,31 @@ public class OrderAction : MonoBehaviour
 {
     public OrderData _currentOrder;
     private ActionController _actionController;
+    private Animator anim;
 
     private void Start()
     {
         _actionController = GetComponent<ActionController>();
+        anim = GetComponent<Animator>();
     }
 
     public void MakeOrder()
     {
         OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
+        _actionController.EndAction();
+    }
+
+    public void EatMeal()
+    {
+        if (!anim.GetBool("isEating"))
+            Invoke(nameof(FinishMeal), 5f);
+
+        anim.SetBool("isEating", true);
+    }
+
+    private void FinishMeal()
+    {
+        anim.SetBool("isEating", false);
         _actionController.EndAction();
     }
 

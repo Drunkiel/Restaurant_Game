@@ -27,9 +27,9 @@ public class NPCController : MonoBehaviour
     private void Update()
     {
         isMoving = movement.magnitude > 0.01f;
-        if (rgBody.velocity.magnitude <= 0.01f)
-            rgBody.AddForce(movement * speed, ForceMode.Acceleration);
-
+/*        if (rgBody.velocity.magnitude <= 0.01f)
+            rgBody.AddForce(2 * speed * movement, ForceMode.Acceleration);
+*/
         anim.SetFloat("Movement", movement.magnitude);
 
         if (rgBody.velocity.magnitude >= speed)

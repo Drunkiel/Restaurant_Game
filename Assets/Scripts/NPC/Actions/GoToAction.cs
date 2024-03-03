@@ -34,7 +34,10 @@ public class GoToAction : MonoBehaviour
         if (!isNearby)
         {
             Vector3 direction = position - transform.position;
-            _NPCController.movement = new Vector3(direction.x * _NPCController.speed, transform.position.y, direction.z * _NPCController.speed);
+            _NPCController.movement = new Vector2(
+                direction.x * _NPCController.speed,
+                direction.z * _NPCController.speed
+                );
         }
         else
         {

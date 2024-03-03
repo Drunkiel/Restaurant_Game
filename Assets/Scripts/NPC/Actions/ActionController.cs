@@ -31,7 +31,6 @@ public class ActionController : MonoBehaviour
             finishedAllActions = true;
         else
             thingsToAchieve[actionIndex].actions.Invoke();
-
     }
 
     public void EndAction()

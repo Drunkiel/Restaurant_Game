@@ -41,7 +41,8 @@ public class PlaceItemInteraction : MonoBehaviour
     {
         if (_itemHolder.isHoldingItem)
         {
-            if (isHoldingStackableItem) AddToHolder();
+            if (isHoldingStackableItem) 
+                AddToHolder();
             return;
         }
 
@@ -94,7 +95,8 @@ public class PlaceItemInteraction : MonoBehaviour
         }
         else
         {
-            if (!holdingItems[0].isPickable) return;
+            if (!holdingItems[0].isPickable) 
+                return;
             _itemHolder.PickItem(holdingItems[0]);
             holdingItems = new();
             StartCoroutine(nameof(ResetBool));

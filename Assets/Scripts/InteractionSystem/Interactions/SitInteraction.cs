@@ -9,7 +9,6 @@ public class SitInteraction : MonoBehaviour
     public void Sit()
     {
         _actionController = _objectsID.GetComponent<ActionController>();
-        _actionController.thingsToAchieve[_actionController.actionIndex].isActionDone = true;
         _actionController.EndAction();
 
         GameObject newItem = Instantiate(_objectsID.gameObject, transform);
@@ -19,5 +18,21 @@ public class SitInteraction : MonoBehaviour
         newItem.GetComponent<Animator>().SetBool("isSitting", true);
         Destroy(_objectsID.gameObject);
         _objectsID = newItem.GetComponent<ItemID>();
+    }
+
+    public void GetUpFromSeat()
+    {
+        _actionController = _objectsID.GetComponent<ActionController>();
+        _actionController.EndAction();
+
+        GameObject newItem = Instantiate(_objectsID.gameObject);
+
+        Rigidbody rgBody = newItem.GetComponent<Rigidbody>();
+        rgBody.constraints = RigidbodyConstraints.None;
+        rgBody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        newItem.transform.position = transform.position + new Vector3(0, 0, -0.265f);
+        newItem.name = _objectsID.gameObject.name;
+        Destroy(_objectsID.gameObject);
     }
 }

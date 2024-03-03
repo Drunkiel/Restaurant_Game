@@ -31,4 +31,9 @@ public class SitAction : MonoBehaviour
     {
         _seatID.GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>().Sit();
     }
+
+    public void GetUp()
+    {
+        _seatID.GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>().GetUpFromSeat();
+    }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 10
   sprite: {fileID: 21300000, guid: d86ad076becb6534fbbbd733ab59fdc9, type: 3}
-  _itemID: {fileID: 68427438661750581, guid: f3473a2f3fc133b48a6b01f720b7e939, type: 3}
+  _itemID: {fileID: 195210446118789843, guid: 6567ef8abb4078645ac64f83d85dc6c9, type: 3}
