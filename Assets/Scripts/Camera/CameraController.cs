@@ -55,6 +55,6 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        RestaurantManager.instance.ChangeWallsVisibility(_camera.transform.position);
+        RestaurantManager.instance.ChangeWallsVisibility();
     }
 }

@@ -5,6 +5,7 @@ public class RestaurantManager : MonoBehaviour
 {
     public static RestaurantManager instance;
 
+    public BuildingID _doorID;
     public List<ItemID> allSits = new();
     public List<BuildingID> frontWalls = new();
     public List<BuildingID> backWalls = new();
@@ -15,7 +16,7 @@ public class RestaurantManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        ChangeWallsVisibility(Camera.main.transform.position);
+        ChangeWallsVisibility();
     }
 
     public int LookForAvailableSit()
@@ -34,7 +35,7 @@ public class RestaurantManager : MonoBehaviour
         return -1;
     }
 
-    public void ChangeWallsVisibility(Vector3 position)
+    public void ChangeWallsVisibility()
     {
         switch (CameraController.instance.state)
         {

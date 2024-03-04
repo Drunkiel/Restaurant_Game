@@ -48,7 +48,7 @@ public class PlaceItemInteraction : MonoBehaviour
 
         if (holdingItems.Count > 0)
         {
-            if (!_itemHolder.isHoldingItem && !_itemHolder.isHoldingStackableItem)
+            if (!_itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem)
                 PlaceOnPlayer();
         }
 
@@ -74,6 +74,10 @@ public class PlaceItemInteraction : MonoBehaviour
 
     private void AddToHolder()
     {
+        if (holdingItems.Count > 1)
+            if (holdingItems[^1].isStackable)
+                return;
+
         _itemHolder.Pick(_itemHolder.holdingItem, holdingItems[0].transform, holdingItems.Count, false);
         ItemID placedObject = holdingItems[0].transform.GetChild(holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
         holdingItems.Add(placedObject);

@@ -6,6 +6,7 @@ public class NPCController : MonoBehaviour
     public bool isNPCNamed;
 
     public float speed;
+    private float maxSpeed = 0.4f;
     public float rotationSpeed;
 
     public Vector2 movement;
@@ -27,13 +28,11 @@ public class NPCController : MonoBehaviour
     private void Update()
     {
         isMoving = movement.magnitude > 0.01f;
-/*        if (rgBody.velocity.magnitude <= 0.01f)
-            rgBody.AddForce(2 * speed * movement, ForceMode.Acceleration);
-*/
+
         anim.SetFloat("Movement", movement.magnitude);
 
-        if (rgBody.velocity.magnitude >= speed)
-            rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
+        if (rgBody.velocity.magnitude > maxSpeed)
+            rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, maxSpeed);
     }
 
     private void FixedUpdate()

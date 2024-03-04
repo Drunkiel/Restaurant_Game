@@ -24,6 +24,27 @@ public class GoToAction : MonoBehaviour
         GoTo(position);
     }
 
+    public void GoToDoors(int index)
+    {
+        RestaurantManager _manager = RestaurantManager.instance;
+
+        switch (index)
+        {
+            case 0:
+                GoTo(_manager._doorID.transform.position + new Vector3(0, 0, -1f));
+                break;
+
+            case 1:
+                GoTo(_manager._doorID.transform.position + new Vector3(0, 0, 0.3f));
+                break;
+        }
+    }
+
+    public void GoToSeat()
+    {
+        GoTo(GetComponent<SitAction>()._seatID.transform.position);
+    }
+
     private void GoTo(Vector3 position)
     {
         bool isNearby = false;

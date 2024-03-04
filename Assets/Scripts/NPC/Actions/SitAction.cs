@@ -24,7 +24,7 @@ public class SitAction : MonoBehaviour
         //Seat reservation
         _manager.allSits[sitIndex].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID = GetComponent<ItemID>();
         _seatID = _manager.allSits[sitIndex];
-        _actionController.GetComponent<GoToAction>().GoToPosition(_seatID.transform.position);
+        _actionController.GetComponent<GoToAction>().GoToPosition(_seatID.transform.position - new Vector3(0, 0, 0.5f));
     }
 
     public void UseSeat()
