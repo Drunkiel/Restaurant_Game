@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class OrderAction : MonoBehaviour
 {
-    public OrderData _currentOrder;
+    public SingleOrder _currentOrder;
     private ActionController _actionController;
+    private PlaceItemInteraction _itemInteraction;
     private Animator anim;
 
     private void Start()
@@ -15,29 +16,47 @@ public class OrderAction : MonoBehaviour
     public void MakeOrder()
     {
         OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
+        _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         _actionController.EndAction();
     }
 
     public void EatMeal()
     {
+        _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         if (!anim.GetBool("isEating"))
             Invoke(nameof(FinishMeal), 5f);
 
+        _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
         anim.SetBool("isEating", true);
     }
 
     private void FinishMeal()
     {
+        OrderController _orderController = OrderController.instance;
+        DestroyFood();
+
         anim.SetBool("isEating", false);
+        _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
+
+        _orderController.finishedOrders += 1;
+        _orderController._ordersToDo.RemoveAt(_currentOrder.orderIndex);
+        Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
+    }
+
+    private void DestroyFood()
+    {
+        ItemID _itemID = _itemInteraction.HoldingItem();
+        _itemInteraction.holdingItems.RemoveAt(_itemInteraction.holdingItems.Count - 1);
+        Destroy(_itemID.gameObject);
     }
 
     public void CheckForOrder()
     {
-        PlaceItemInteraction _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
+        _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         ItemID _itemID = _itemInteraction.HoldingItem();
 
-        if (_itemID != null && _itemID.itemID.Equals(_currentOrder._itemID.itemID))
+        if (_itemID != null && _itemID.itemID.Equals(_currentOrder._orderData._itemID.itemID))
             _actionController.EndAction();
     }
 }

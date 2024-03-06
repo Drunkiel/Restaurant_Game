@@ -8,7 +8,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private int minutes;
     [SerializeField] private float seconds;
 
-    [SerializeField] private TMP_Text clockHour;
+    public TMP_Text clockText;
 
     private void FixedUpdate()
     {
@@ -21,7 +21,7 @@ public class TimeController : MonoBehaviour
         seconds += Time.fixedDeltaTime;
 
         //Minutes
-        if (seconds >= 10)
+        if (seconds >= 2)
         {
             minutes += 10;
             seconds = 0;
@@ -48,13 +48,19 @@ public class TimeController : MonoBehaviour
 
     private void UpdateClock()
     {
-        string NewTime;
+        string GetMeridiem()
+        {
+            return (hours < 12) ? "AM" : "PM";
+        }
 
-        if (minutes == 0)
-            NewTime = hours.ToString() + "," + "00";
-        else
-            NewTime = hours.ToString() + "," + minutes.ToString();
+        int GetHour()
+        {
+            return (hours % 12 == 0) ? 12 : hours % 12;
+        }
 
-        clockHour.text = NewTime;
+        string newTime;
+        newTime = $"{GetHour()}:{(minutes == 0 ? "00" : minutes.ToString())} {GetMeridiem()}";
+
+        clockText.text = newTime;
     }
 }
