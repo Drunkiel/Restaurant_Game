@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
             StartNewDay();
             isGameStarted = true;
         }
-        else
+        else if (CheckIfCanEndShift())
         {
             EndDay();
             isGameStarted = false;
@@ -26,13 +26,28 @@ public class GameController : MonoBehaviour
     {
         _doorsAnimation.ChangeAnimation();
         _timeController.NewDay();
+        Invoke(nameof(SpawnNPC), Random.Range(2, 8));
         _timeController.clockText.gameObject.SetActive(true);
         OrderController.instance.DestroyOrders();
+    }
+
+    private void SpawnNPC()
+    {
+        _spawnController.SpawnNewNPC();
     }
 
     private void EndDay()
     {
         _doorsAnimation.ChangeAnimation();
         _timeController.clockText.gameObject.SetActive(false);
+    }
+
+    private bool CheckIfCanEndShift()
+    {
+        //Check if all customers were served
+        if (!OrderController.instance.finishedOrders.Equals(_spawnController.NPCsToSpawn))
+            return false;
+
+        return true;
     }
 }

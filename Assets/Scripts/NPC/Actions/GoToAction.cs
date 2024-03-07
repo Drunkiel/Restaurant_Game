@@ -4,6 +4,7 @@ using UnityEngine;
 public class GoToAction : MonoBehaviour
 {
     public List<Vector3> positions = new();
+    private int randomPositionIndex;
 
     private NPCController _NPCController;
     private ActionController _actionController;
@@ -12,11 +13,16 @@ public class GoToAction : MonoBehaviour
     {
         _NPCController = GetComponent<NPCController>();
         _actionController = GetComponent<ActionController>();
+        randomPositionIndex = Random.Range(0, positions.Count);
     }
 
     public void GoToPositionIndex(int whichPosition)
     {
-        GoTo(positions[whichPosition]);
+        if (whichPosition == -1)
+            GoTo(positions[randomPositionIndex]);
+        else
+            GoTo(positions[whichPosition]);
+
     }
 
     public void GoToPosition(Vector3 position)

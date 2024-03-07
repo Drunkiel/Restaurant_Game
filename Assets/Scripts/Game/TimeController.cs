@@ -3,12 +3,19 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
+    public static TimeController instance;
+
     [SerializeField] private int days;
     [SerializeField] private int hours;
     [SerializeField] private int minutes;
     [SerializeField] private float seconds;
 
     public TMP_Text clockText;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void FixedUpdate()
     {
@@ -33,9 +40,11 @@ public class TimeController : MonoBehaviour
             minutes -= 60;
             hours++;
         }
+    }
 
-        //Add something like end shift
-        //if (hours == 16)
+    public Vector3 GetTime()
+    {
+        return new Vector3(hours, minutes, seconds);
     }
 
     public void NewDay()
