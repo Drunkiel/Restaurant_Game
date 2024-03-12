@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498e4ab94a514d6409309c5be3b78e56, type: 3}
+  m_Name: Gyoza
+  m_EditorClassIdentifier: 
+  process: 2
+  requiredItems:
+  - {fileID: 965618203600971403, guid: b64245b4779c8264c81a74b2aea627b9, type: 3}
+  - {fileID: 6988962338854909694, guid: 103ae4ca36141f243851e59f3e2bb978, type: 3}
+  - {fileID: 5764960895330960729, guid: a40d70b9363df49428cbc0cf7145eec3, type: 3}
+  - {fileID: 8281379175096785120, guid: c0d2b40c1a56cbf41a9a1c05523d8f0c, type: 3}
+  resultItem: {fileID: 4541870512642755985, guid: f00a09a18ef0f7c4ca6a253b2e5904aa,
+    type: 3}
+  timeToMake: 4
+  needInteraction: 1

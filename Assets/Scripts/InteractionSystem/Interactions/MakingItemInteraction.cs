@@ -8,8 +8,8 @@ public class MakingItemInteraction : MonoBehaviour
     public GameObject hint;
     private Slider progressSlider;
     public PlaceItemInteraction _placeItem;
-    private RecipeData _recipeData;
     private Recipe _recipe;
+    private RecipeData _recipeData;
 
     private void Start()
     {
@@ -18,17 +18,17 @@ public class MakingItemInteraction : MonoBehaviour
 
     public void Make()
     {
-        if (_recipeData == null || _recipeData.indexOfRecipe == -1) 
+        if (_recipe == null || _recipe.indexOfRecipe == -1) 
             return;
 
-        MakeManually(_recipe.needInteraction);
+        MakeManually(_recipeData.needInteraction);
     }
 
     private void MakeManually(bool startInteraction)
     {
         if (startInteraction) InteractionSystem.isInteracting = true;
 
-        progressSlider.maxValue = _recipe.timeToMake;
+        progressSlider.maxValue = _recipeData.timeToMake;
         StartCoroutine(nameof(Wait));
     }
 
@@ -50,16 +50,16 @@ public class MakingItemInteraction : MonoBehaviour
     {
         if (InteractionSystem.isInteracting) InteractionSystem.isInteracting = false;
 
-        switch (_recipeData.recipeList)
+        switch (_recipe.recipeList)
         {
             //ProcessedFood
             case 0:
-                ReplaceHoldingItem(_recipe.resultItem);
+                ReplaceHoldingItem(_recipeData.resultItem);
                 break;
 
             //FinishedFood
             case 1:
-                ReplaceHoldingItem(_recipe.resultItem);
+                ReplaceHoldingItem(_recipeData.resultItem);
                 break;
         }
     }
@@ -85,28 +85,33 @@ public class MakingItemInteraction : MonoBehaviour
     public void Check()
     {
         RecipesController _recipesController = RecipesController.instance;
-        _recipeData = _recipesController.FindRecipe(makingProcess, _placeItem.holdingItems);
+        _recipe = _recipesController.FindRecipe(makingProcess, _placeItem.holdingItems);
 
-        if (_recipeData.indexOfRecipe == -1)
+        if (_recipe.indexOfRecipe == -1)
         {
             hint.SetActive(false);
-            _recipe = new();
+            _recipeData = null;
         }
         else
         {
             progressSlider.value = progressSlider.minValue;
             hint.SetActive(true);
 
-            switch (_recipeData.recipeList)
+            switch (_recipe.recipeList)
             {
-                //ProcessedFood
+                //Chopped
                 case 0:
-                    _recipe = _recipesController.processedRecipes[_recipeData.indexOfRecipe];
+                    _recipeData = _recipesController._recipes.choppingRecipes[_recipe.indexOfRecipe];
                     break;
 
-                //FinishedFood
+                //Cooked
                 case 1:
-                    _recipe = _recipesController.finishedRecipes[_recipeData.indexOfRecipe];
+                    _recipeData = _recipesController._recipes.cookingRecipes[_recipe.indexOfRecipe];
+                    break;
+
+                //Combined
+                case 2:
+                    _recipeData = _recipesController._recipes.combiningRecipes[_recipe.indexOfRecipe];
                     break;
             }
         }

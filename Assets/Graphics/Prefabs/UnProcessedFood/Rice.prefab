@@ -100,7 +100,7 @@ MonoBehaviour:
   itemName: Rice
   isStackable: 0
   isPickable: 1
-  heightPlacement: 0.05
+  heightPlacement: 0.02
   itemType: 0
   stackedItems: []
 --- !u!1001 &2454160572162669008

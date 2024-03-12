@@ -100,7 +100,7 @@ MonoBehaviour:
   itemName: TamagoNigiri
   isStackable: 0
   isPickable: 1
-  heightPlacement: 0.05
+  heightPlacement: 0.01
   itemType: 0
   stackedItems: []
 --- !u!1001 &3196709468195904831

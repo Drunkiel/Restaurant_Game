@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498e4ab94a514d6409309c5be3b78e56, type: 3}
+  m_Name: Salmon Roll
+  m_EditorClassIdentifier: 
+  process: 2
+  requiredItems:
+  - {fileID: 95125740312564340, guid: 4bf02ed101c908244bb46f419149f162, type: 3}
+  - {fileID: 6010791527390264579, guid: c568ff08d1f4fd148aeef77e054c6af8, type: 3}
+  - {fileID: 8281379175096785120, guid: c0d2b40c1a56cbf41a9a1c05523d8f0c, type: 3}
+  - {fileID: 3485500837917859016, guid: 51c0fea9ac802174592377efde010e5d, type: 3}
+  resultItem: {fileID: 4910331946155299156, guid: 5bb9ebea2d2f92f4fa12ff1e0e2fa729,
+    type: 3}
+  timeToMake: 4
+  needInteraction: 1

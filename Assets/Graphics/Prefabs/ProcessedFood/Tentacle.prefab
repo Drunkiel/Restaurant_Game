@@ -82,8 +82,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.05}
-  m_Center: {x: 0, y: 0, z: -0.02}
+  m_Size: {x: 0.1, y: 0.08, z: 0.07}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4050368197058862413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   itemName: Tentacle
   isStackable: 0
   isPickable: 1
-  heightPlacement: 0.05
+  heightPlacement: 0.06
   itemType: 0
   stackedItems: []
 --- !u!1001 &686904592038163044

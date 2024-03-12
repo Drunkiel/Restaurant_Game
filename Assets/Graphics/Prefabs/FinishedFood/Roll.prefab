@@ -83,7 +83,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.09, y: 0.09, z: 0.06}
-  m_Center: {x: 0, y: 0.045, z: 0.03}
+  m_Center: {x: 0, y: 0.045, z: 0.005}
 --- !u!114 &638743876218406509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   itemName: Roll
   isStackable: 0
   isPickable: 1
-  heightPlacement: 0.05
+  heightPlacement: 0.01
   itemType: 0
   stackedItems: []
 --- !u!1001 &4316406699411886448
@@ -124,7 +124,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 11373077056632e4e8c9a80a0c043b50,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.025
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11373077056632e4e8c9a80a0c043b50,
         type: 3}

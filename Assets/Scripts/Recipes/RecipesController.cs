@@ -11,16 +11,6 @@ public enum MakingProcess
 [System.Serializable]
 public class Recipe
 {
-    public MakingProcess process;
-    public List<ItemID> requiredItems = new();
-    public ItemID resultItem;
-    public int timeToMake; //In seconds
-    public bool needInteraction;
-}
-
-[System.Serializable]
-public class RecipeData
-{
     [Range(0, 1)]
     public int recipeList; //Between 0 and 1
     public int indexOfRecipe;
@@ -30,26 +20,25 @@ public class RecipesController : MonoBehaviour
 {
     public static RecipesController instance;
 
-    public List<Recipe> processedRecipes = new();
-    public List<Recipe> finishedRecipes = new();
+    public Recipes _recipes;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public RecipeData FindRecipe(MakingProcess process, List<ItemID> holdingItems)
+    public Recipe FindRecipe(MakingProcess process, List<ItemID> holdingItems)
     {
         return process switch
         {
-            MakingProcess.Chopping => LookForRecipe(processedRecipes, 0, holdingItems),
-            MakingProcess.Cooking => LookForRecipe(processedRecipes, 0, holdingItems),
-            MakingProcess.Combining => LookForRecipe(finishedRecipes, 1, holdingItems),
-            _ => new RecipeData() { recipeList = 0, indexOfRecipe = -1 },
+            MakingProcess.Chopping => LookForRecipe(_recipes.choppingRecipes, 0, holdingItems),
+            MakingProcess.Cooking => LookForRecipe(_recipes.cookingRecipes, 1, holdingItems),
+            MakingProcess.Combining => LookForRecipe(_recipes.combiningRecipes, 2, holdingItems),
+            _ => new Recipe() { recipeList = 0, indexOfRecipe = -1 },
         };
     }
 
-    private RecipeData LookForRecipe(List<Recipe> recipes, int listIndex, List<ItemID> holding)
+    private Recipe LookForRecipe(List<RecipeData> recipes, int listIndex, List<ItemID> holding)
     {
         for (int i = 0; i < recipes.Count; i++)
         {
@@ -58,11 +47,11 @@ public class RecipesController : MonoBehaviour
                 for (int j = 0; j < recipes[i].requiredItems.Count; j++)
                 {
                     if (recipes[i].requiredItems[j].itemID.Equals(holding[j + 1].itemID))
-                        return new RecipeData() { recipeList = listIndex, indexOfRecipe = i };
+                        return new Recipe() { recipeList = listIndex, indexOfRecipe = i };
                 }
             }
         }
 
-        return new RecipeData() { recipeList = listIndex, indexOfRecipe = -1 };
+        return new Recipe() { recipeList = listIndex, indexOfRecipe = -1 };
     }
 }
