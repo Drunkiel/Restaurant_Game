@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 8
   itemName: Rice
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.02
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &2454160572162669008
 PrefabInstance:
   m_ObjectHideFlags: 0

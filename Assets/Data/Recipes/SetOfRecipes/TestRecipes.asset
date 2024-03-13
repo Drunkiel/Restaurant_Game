@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce3690b93a3cc847b5537b24c592449, type: 3}
   m_Name: TestRecipes
   m_EditorClassIdentifier: 
-  processedRecipes:
-  - {fileID: 11400000, guid: 52ec67700eb3a464e9465f535313fba2, type: 2}
+  choppingRecipes:
   - {fileID: 11400000, guid: fa57e9f94bb7f9e43ac9f57e445280fc, type: 2}
   - {fileID: 11400000, guid: 2df6f70fb0afb434c97586a89d948fe1, type: 2}
   - {fileID: 11400000, guid: b3aea979e187dcf44aa5ffb8242b5861, type: 2}
   - {fileID: 11400000, guid: 601eb76beada4934da8d09b1b499ca6a, type: 2}
   - {fileID: 11400000, guid: 0b39804fbeee18848a3aaf04e8ae3564, type: 2}
-  finishedRecipes:
+  cookingRecipes:
+  - {fileID: 11400000, guid: 52ec67700eb3a464e9465f535313fba2, type: 2}
+  combiningRecipes:
   - {fileID: 11400000, guid: fcd0e365d89d9304981ca14d80d57ca6, type: 2}
   - {fileID: 11400000, guid: 920db57473b22054a87f502989dfde18, type: 2}
   - {fileID: 11400000, guid: cae863989edc96e4aa852596508d3e9d, type: 2}

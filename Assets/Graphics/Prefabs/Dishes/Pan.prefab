@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2990672439694895071}
   - component: {fileID: 3233304393439804016}
   - component: {fileID: 3176471035497800593}
+  - component: {fileID: 534492881502526753}
   m_Layer: 6
   m_Name: Pan
   m_TagString: Furniture
@@ -98,10 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 40
   itemName: Plate
-  isStackable: 1
   isPickable: 1
+  isStackable: 1
   heightPlacement: 0.025
-  itemType: 1
+  _dishItem: {fileID: 534492881502526753}
+--- !u!114 &534492881502526753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724549562257995231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0a9b332d295c44c93a84c9002a4c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  process: 1
+  maxStackCount: 5
   stackedItems: []
 --- !u!1001 &2001074909813384097
 PrefabInstance:

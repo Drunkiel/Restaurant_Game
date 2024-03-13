@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 7
   itemName: Octopus
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.2
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &5550640517405572781
 PrefabInstance:
   m_ObjectHideFlags: 0

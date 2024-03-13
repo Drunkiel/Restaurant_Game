@@ -36,11 +36,11 @@ public class ItemHolder : MonoBehaviour
                 if (isHoldingStackableItem && holdingStackableItems.Count < maxItemsStack)
                 {
                     //Checks if stacking the same type
-                    if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
+                    //if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
 
                     Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                     holdingStackableItems.Add(lastPickedObject);
-                    holdingStackableItems[0].stackedItems.Add(lastPickedObject);
+                    holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
                     if (destroy) Destroy(_itemID.gameObject);
                     return;
                 }
@@ -59,11 +59,20 @@ public class ItemHolder : MonoBehaviour
             //Checks if holding stackable item to add it to it
             if (isHoldingStackableItem && holdingStackableItems.Count < maxItemsStack)
             {
-                if (holdingStackableItems.Count >= 2 && !holdingStackableItems[1].itemType.Equals(_itemID.itemType)) return;
-
+                //Checks if stacking the same type
+                if (holdingStackableItems.Count >= 2 && holdingStackableItems[1]._dishItem != null) return;
+                
                 Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                 holdingStackableItems.Add(lastPickedObject);
-                holdingStackableItems[0].stackedItems.Add(lastPickedObject);
+                holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
+
+                //Adding items from the picked item
+                for (int i = 1; i < holdingStackableItems.Count; i++)
+                {
+                    if (holdingStackableItems[i]._dishItem.stackedItems.Count > 0)
+                        holdingStackableItems.AddRange(holdingStackableItems[i]._dishItem.stackedItems);
+                }
+
                 isHoldingStackableItem = true;
                 if (destroy) Destroy(_itemID.gameObject);
                 return;
@@ -73,7 +82,7 @@ public class ItemHolder : MonoBehaviour
                 //Checking if is holding no stackable item then recreates it 
                 if (isHoldingItem)
                 {
-                    if (_itemID.stackedItems.Count >= maxItemsStack - 1) return;
+                    if (_itemID._dishItem.stackedItems.Count >= maxItemsStack - 1) return;
 
                     //Spawn stackable item
                     Pick(_itemID, holderTransform, holdingStackableItems.Count);
@@ -84,8 +93,8 @@ public class ItemHolder : MonoBehaviour
                     //Then recreate holding item and reset position
                     holdingItem.transform.localScale = Vector3.one;
                     Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
-                    holdingStackableItems[0].stackedItems.Add(lastPickedObject);
-                    holdingStackableItems.AddRange(holdingStackableItems[0].stackedItems);
+                    holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
+                    holdingStackableItems.AddRange(holdingStackableItems[0]._dishItem.stackedItems);
                     lastPickedObject.transform.localPosition = new Vector3(
                         0,
                         holdingStackableItems[^1].transform.localPosition.y + (holdingStackableItems.Count > 1 ? holdingItem.heightPlacement : 0),
@@ -98,7 +107,7 @@ public class ItemHolder : MonoBehaviour
                 {
                     Pick(_itemID, holderTransform, holdingStackableItems.Count);
                     holdingStackableItems.Add(lastPickedObject);
-                    holdingStackableItems.AddRange(lastPickedObject.stackedItems);
+                    holdingStackableItems.AddRange(lastPickedObject._dishItem.stackedItems);
                     isHoldingStackableItem = true;
                     if (destroy) Destroy(_itemID.gameObject);
                     return;

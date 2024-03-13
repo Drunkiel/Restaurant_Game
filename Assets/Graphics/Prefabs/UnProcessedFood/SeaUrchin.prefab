@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 10
   itemName: SeaUrchin
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.1
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &4698795650622107029
 PrefabInstance:
   m_ObjectHideFlags: 0

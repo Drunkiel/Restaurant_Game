@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 5
   itemName: Flounder
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.04
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &8590906694289464
 PrefabInstance:
   m_ObjectHideFlags: 0

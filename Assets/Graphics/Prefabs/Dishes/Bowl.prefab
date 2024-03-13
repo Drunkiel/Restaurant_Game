@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2632863229235468584}
   - component: {fileID: 5772791543859461407}
   - component: {fileID: 4324960303679572746}
+  - component: {fileID: 5439195778023731764}
   m_Layer: 6
   m_Name: Bowl
   m_TagString: Furniture
@@ -98,10 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 39
   itemName: Bowl
-  isStackable: 1
   isPickable: 1
+  isStackable: 1
   heightPlacement: 0.075
-  itemType: 1
+  _dishItem: {fileID: 5439195778023731764}
+--- !u!114 &5439195778023731764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287963081330043754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0a9b332d295c44c93a84c9002a4c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  process: 2
+  maxStackCount: 5
   stackedItems: []
 --- !u!1001 &2449271417472988428
 PrefabInstance:

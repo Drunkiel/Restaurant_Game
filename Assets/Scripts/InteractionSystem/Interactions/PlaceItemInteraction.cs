@@ -49,11 +49,17 @@ public class PlaceItemInteraction : MonoBehaviour
         if (holdingItems.Count > 0)
         {
             if (!_itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem)
+            {
                 PlaceOnPlayer();
+                return;
+            }
         }
 
         if (!isHoldingStackableItem && _itemHolder.isHoldingStackableItem)
+        {
             PlaceOnHolder();
+            return;
+        }
     }
 
     private void PlaceOnHolder()
@@ -61,7 +67,7 @@ public class PlaceItemInteraction : MonoBehaviour
         _itemHolder.Pick(_itemHolder.holdingStackableItems[0], itemHolder, holdingItems.Count, false);
         ItemID placedObject = itemHolder.GetChild(0).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
-        holdingItems.AddRange(placedObject.stackedItems);
+        holdingItems.AddRange(placedObject._dishItem.stackedItems);
         placedObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         placedObject.transform.localScale = Vector3.one;
         _itemHolder.isHoldingStackableItem = false;
@@ -81,7 +87,7 @@ public class PlaceItemInteraction : MonoBehaviour
         _itemHolder.Pick(_itemHolder.holdingItem, holdingItems[0].transform, holdingItems.Count, false);
         ItemID placedObject = holdingItems[0].transform.GetChild(holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
         holdingItems.Add(placedObject);
-        holdingItems[0].stackedItems.Add(placedObject);
+        holdingItems[0]._dishItem.stackedItems.Add(placedObject);
         placedObject.transform.localScale = Vector3.one;
         _itemHolder.isHoldingItem = false;
         Destroy(_itemHolder.holdingItem.gameObject);
@@ -94,10 +100,10 @@ public class PlaceItemInteraction : MonoBehaviour
         if (holdingItems.Count > 1 && !pickAll)
         {
             _itemHolder.PickItem(holdingItems[^1]);
-            holdingItems[0].stackedItems.RemoveAt(holdingItems[0].stackedItems.Count - 1);
+            holdingItems[0]._dishItem.stackedItems.RemoveAt(holdingItems[0]._dishItem.stackedItems.Count - 1);
             holdingItems.RemoveAt(holdingItems.Count - 1);
         }
-        else
+        else if (_itemHolder.holdingStackableItems.Count <= 1)
         {
             if (!holdingItems[0].isPickable) 
                 return;

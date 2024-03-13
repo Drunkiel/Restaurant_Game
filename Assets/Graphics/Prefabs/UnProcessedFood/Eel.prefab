@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 3
   itemName: Eel
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.04
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &196457676509651943
 PrefabInstance:
   m_ObjectHideFlags: 0

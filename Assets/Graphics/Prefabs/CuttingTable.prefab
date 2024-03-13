@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 8230501790651135868}
   - component: {fileID: 3304959863407783326}
   - component: {fileID: 664361234521050761}
+  - component: {fileID: -3154965506860675193}
   m_Layer: 6
   m_Name: CuttingTable
   m_TagString: Furniture
@@ -243,10 +244,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 43
   itemName: Cutting table
-  isStackable: 1
   isPickable: 0
   heightPlacement: 0.05
-  itemType: 1
+  _dishItem: {fileID: -3154965506860675193}
+--- !u!114 &-3154965506860675193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157869596321109608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0a9b332d295c44c93a84c9002a4c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStackable: 1
   stackedItems: []
 --- !u!1 &6457570572127979745
 GameObject:

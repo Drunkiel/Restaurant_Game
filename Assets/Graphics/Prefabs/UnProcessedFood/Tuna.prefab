@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 13
   itemName: Tuna
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.05
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &3916594689297562827
 PrefabInstance:
   m_ObjectHideFlags: 0

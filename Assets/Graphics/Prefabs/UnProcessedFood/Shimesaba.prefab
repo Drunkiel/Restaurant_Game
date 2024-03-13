@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 11
   itemName: Shimesaba
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.02
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &787856214582420391
 PrefabInstance:
   m_ObjectHideFlags: 0

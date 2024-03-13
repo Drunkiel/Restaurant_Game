@@ -39,7 +39,7 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
 
         _orderController.finishedOrders += 1;
-        _orderController._ordersToDo.RemoveAt(_currentOrder.orderIndex);
+        //_orderController._ordersToDo.RemoveAt(_currentOrder.orderIndex);
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }

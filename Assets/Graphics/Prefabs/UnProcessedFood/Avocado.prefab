@@ -98,11 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Avocado
-  isStackable: 0
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.03
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &6595927494069572717
 PrefabInstance:
   m_ObjectHideFlags: 0
