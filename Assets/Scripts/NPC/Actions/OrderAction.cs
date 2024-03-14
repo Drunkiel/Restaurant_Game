@@ -4,7 +4,7 @@ public class OrderAction : MonoBehaviour
 {
     public SingleOrder _currentOrder;
     private ActionController _actionController;
-    private PlaceItemInteraction _itemInteraction;
+    [HideInInspector] public PlaceItemInteraction _itemInteraction; //DONT MAKE PRIVATE | THROWS ERRORS FOR SOME REASON
     private Animator anim;
 
     private void Start()
@@ -22,7 +22,6 @@ public class OrderAction : MonoBehaviour
 
     public void EatMeal()
     {
-        _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         if (!anim.GetBool("isEating"))
             Invoke(nameof(FinishMeal), 5f);
 
@@ -39,7 +38,6 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
 
         _orderController.finishedOrders += 1;
-        //_orderController._ordersToDo.RemoveAt(_currentOrder.orderIndex);
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
@@ -48,12 +46,12 @@ public class OrderAction : MonoBehaviour
     {
         ItemID _itemID = _itemInteraction.HoldingItem();
         _itemInteraction.holdingItems.RemoveAt(_itemInteraction.holdingItems.Count - 1);
+        _itemInteraction.holdingItems[0].GetComponent<DishItem>().stackedItems.Clear();
         Destroy(_itemID.gameObject);
     }
 
     public void CheckForOrder()
     {
-        _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         ItemID _itemID = _itemInteraction.HoldingItem();
 
         if (_itemID != null && _itemID.itemID.Equals(_currentOrder._orderData._itemID.itemID))

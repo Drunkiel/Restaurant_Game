@@ -19,9 +19,10 @@ public class RestaurantManager : MonoBehaviour
         ChangeWallsVisibility();
     }
 
-    public int LookForAvailableSit()
+    public ItemID LookForAvailableSit()
     {
         List<ItemID> avalaibleSeats = new();
+        avalaibleSeats.Clear();
 
         for (int i = 0; i < allSits.Count; i++)
         {
@@ -30,9 +31,9 @@ public class RestaurantManager : MonoBehaviour
         }
 
         if (avalaibleSeats.Count != 0)
-            return Random.Range(0, avalaibleSeats.Count);
+            return avalaibleSeats[Random.Range(0, avalaibleSeats.Count)];
 
-        return -1;
+        return null;
     }
 
     public void ChangeWallsVisibility()

@@ -5,7 +5,7 @@ public class SitAction : MonoBehaviour
     private ActionController _actionController;
 
     public ItemID _seatID;
-    private int sitIndex;
+    public SitInteraction _sitInteraction;
 
     private void Start()
     {
@@ -15,25 +15,27 @@ public class SitAction : MonoBehaviour
     public void GetSeat()
     {
         RestaurantManager _manager = RestaurantManager.instance;
-        if (_seatID == null) 
-        {
-            sitIndex = _manager.LookForAvailableSit();
-            if (sitIndex == -1) return;
-        }
 
         //Seat reservation
-        _manager.allSits[sitIndex].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID = GetComponent<ItemID>();
-        _seatID = _manager.allSits[sitIndex];
+        if (_seatID == null) 
+        {
+            _seatID = _manager.LookForAvailableSit();
+            if (_seatID == null) 
+                return;
+        }
+
+        _sitInteraction = _seatID.GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>();
+        _sitInteraction._objectsID = GetComponent<ItemID>();
         _actionController.GetComponent<GoToAction>().GoToPosition(_seatID.transform.position - new Vector3(0, 0, 0.5f));
     }
 
     public void UseSeat()
     {
-        _seatID.GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>().Sit();
+        _sitInteraction.Sit();
     }
 
     public void GetUp()
     {
-        _seatID.GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>().GetUpFromSeat();
+        _sitInteraction.GetUpFromSeat();
     }
 }
