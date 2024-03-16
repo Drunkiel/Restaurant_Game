@@ -40,6 +40,13 @@ public class TimeController : MonoBehaviour
             minutes -= 60;
             hours++;
         }
+
+        //Days
+        if (hours >= 24)
+        {
+            hours -= 24;
+            days++;
+        }
     }
 
     public Vector3 GetTime()

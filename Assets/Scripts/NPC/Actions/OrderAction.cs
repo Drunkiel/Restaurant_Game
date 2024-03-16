@@ -23,21 +23,24 @@ public class OrderAction : MonoBehaviour
     public void EatMeal()
     {
         if (!anim.GetBool("isEating"))
+        {
             Invoke(nameof(FinishMeal), 5f);
-
-        _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
-        anim.SetBool("isEating", true);
+            _itemInteraction.holdingItems[0].isPickable = false;
+            _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
+            anim.SetBool("isEating", true);
+        }
     }
 
     private void FinishMeal()
     {
-        OrderController _orderController = OrderController.instance;
         DestroyFood();
 
         anim.SetBool("isEating", false);
+        ProgressMetricController.instance._moneyManager.AddMoney(_currentOrder._orderData.price);
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
+        _itemInteraction.holdingItems[0].isPickable = true;
 
-        _orderController.finishedOrders += 1;
+        OrderController.instance.finishedOrders += 1;
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
