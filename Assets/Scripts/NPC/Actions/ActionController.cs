@@ -23,14 +23,22 @@ public class ActionController : MonoBehaviour
             thingsToAchieve[actionIndex].actions.Invoke();
     }
 
-    public void NextAction()
+    public void NextAction(int amount = 1)
     {
-        actionIndex += 1;
+        actionIndex += amount;
 
         if (thingsToAchieve.Count <= actionIndex)
             finishedAllActions = true;
         else
             thingsToAchieve[actionIndex].actions.Invoke();
+    }
+
+    public void SkipAction()
+    {
+        thingsToAchieve[actionIndex].isActionDone = true;
+        thingsToAchieve[actionIndex + 1].isActionDone = true;
+
+        NextAction(2);
     }
 
     public void EndAction()

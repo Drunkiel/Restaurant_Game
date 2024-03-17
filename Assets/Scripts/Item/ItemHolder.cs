@@ -106,7 +106,6 @@ public class ItemHolder : MonoBehaviour
                 }
                 else //if not just pick item
                 {
-
                     Pick(_itemID, holderTransform, holdingStackableItems.Count);
                     holdingStackableItems.Add(lastPickedObject);
                     holdingStackableItems.AddRange(lastPickedObject._dishItem.stackedItems);
@@ -150,7 +149,7 @@ public class ItemHolder : MonoBehaviour
             if (freezeRotation) newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
             canDrop = false;
-            Invoke(nameof(ResetDrop), 2f);
+            Invoke(nameof(ResetDrop), 1f);
 
             Destroy(holdingItem.gameObject);
             isHoldingItem = false;

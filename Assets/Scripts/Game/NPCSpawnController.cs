@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class NPCSpawnController : MonoBehaviour
 {
-    public int NPCsToSpawn = 1;
     public int spawnedNPCCounter;
 
     [SerializeField] private List<Vector3> spawnPoints = new();
@@ -13,15 +12,13 @@ public class NPCSpawnController : MonoBehaviour
     {
         int actualHour = (int)TimeController.instance.GetTime().x;
 
-        if (NPCsToSpawn > spawnedNPCCounter && actualHour < 15)
+        if (actualHour < 15)
             Invoke(nameof(SpawnNewNPC), Random.Range(8, 30));
-        else if (actualHour >= 15)
-        {
-            NPCsToSpawn = spawnedNPCCounter;
+        else
             return;
-        }
 
-        spawnedNPCCounter++;
+        OrderController.instance.countOfOrdersToEnd += 1;
+        spawnedNPCCounter += 1;
         Instantiate(npcPrefab, GetSpawnPoint(), Quaternion.identity);
     }
 

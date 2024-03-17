@@ -6,6 +6,7 @@ public class OrderAction : MonoBehaviour
     private ActionController _actionController;
     [HideInInspector] public PlaceItemInteraction _itemInteraction; //DONT MAKE PRIVATE | THROWS ERRORS FOR SOME REASON
     private Animator anim;
+    public NPCPatience _patienceController;
 
     private void Start()
     {
@@ -15,6 +16,9 @@ public class OrderAction : MonoBehaviour
 
     public void MakeOrder()
     {
+        _patienceController.waitingSlider.maxValue = _patienceController.maxWaitingTime;
+        _patienceController.waitingSlider.gameObject.SetActive(true);
+
         OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
         _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         _actionController.EndAction();
@@ -41,6 +45,7 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].isPickable = true;
 
         OrderController.instance.finishedOrders += 1;
+        ProgressMetricController.instance._ordersManager.finishedOrders += 1;
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
@@ -56,8 +61,21 @@ public class OrderAction : MonoBehaviour
     public void CheckForOrder()
     {
         ItemID _itemID = _itemInteraction.HoldingItem();
+        _patienceController.waitingTime += Time.deltaTime;
+        _patienceController.waitingSlider.value = Mathf.RoundToInt(_patienceController.waitingTime);
+
+        if (_patienceController.waitingTime > _patienceController.maxWaitingTime)
+        {
+            OrderController.instance.countOfOrdersToEnd -= 1;
+            Destroy(_currentOrder._card.gameObject);
+            _patienceController.waitingSlider.gameObject.SetActive(false);
+            _actionController.SkipAction();
+        }
 
         if (_itemID != null && _itemID.itemID.Equals(_currentOrder._orderData._itemID.itemID))
+        {
+            _patienceController.waitingSlider.gameObject.SetActive(false);
             _actionController.EndAction();
+        }
     }
 }

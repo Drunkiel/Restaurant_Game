@@ -17,6 +17,7 @@ public class OrderController : MonoBehaviour
     [SerializeField] private OrderData[] _possibleOrders;
     public List<SingleOrder> _ordersToDo = new();
     public int finishedOrders;
+    public int countOfOrdersToEnd;
 
     [SerializeField] private Transform parent;
     [SerializeField] private GameObject cardPrefab;

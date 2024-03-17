@@ -44,8 +44,10 @@ public class GameController : MonoBehaviour
 
     private bool CheckIfCanEndShift()
     {
+        OrderController _orderController = OrderController.instance;
+
         //Check if all customers were served
-        if (!OrderController.instance.finishedOrders.Equals(_spawnController.NPCsToSpawn))
+        if (_timeController.GetTime().x >= 15 && !_orderController.finishedOrders.Equals(_orderController.countOfOrdersToEnd))
             return false;
 
         return true;
