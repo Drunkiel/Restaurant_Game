@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public static bool isGamePaused;
     public static bool isGameStarted;
 
     [SerializeField] private AnimationInteraction _doorsAnimation;

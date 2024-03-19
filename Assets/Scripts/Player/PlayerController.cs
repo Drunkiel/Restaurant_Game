@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    private float maxSpeed = 1.2f;
     public float rotationSpeed;
 
     private Vector2 movement;
@@ -32,8 +33,8 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Movement", movement.magnitude);
         anim.SetBool("isHolding", _itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem);
 
-        if (rgBody.velocity.magnitude >= speed)
-            rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, speed);
+        if (rgBody.velocity.magnitude > maxSpeed)
+            rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, maxSpeed);
     }
 
     private void FixedUpdate()
