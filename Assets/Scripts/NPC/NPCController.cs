@@ -6,7 +6,7 @@ public class NPCController : MonoBehaviour
     public bool isNPCNamed;
 
     public float speed;
-    private float maxSpeed = 0.4f;
+    private readonly float maxSpeed = 0.4f;
     public float rotationSpeed;
 
     public Vector2 movement;

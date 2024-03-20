@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private float maxSpeed = 1.2f;
+    private readonly float maxSpeed = 1.2f;
     public float rotationSpeed;
 
     private Vector2 movement;
@@ -12,14 +12,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
-
-    private HintEvent _hintEvent;
-
-    private void Start()
-    {
-        if (TryGetComponent(out HintEvent _hintEvent))
-            this._hintEvent = _hintEvent;
-    }
 
     private void Update()
     {

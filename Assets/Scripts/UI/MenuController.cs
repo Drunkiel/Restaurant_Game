@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -7,8 +8,16 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
+        if (pauseMenuUI == null)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePauseState();
+    }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
     public void ChangePauseState()
