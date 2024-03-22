@@ -13,6 +13,11 @@ public class MoneyManager
         moneyText.text = money + "$";
     }
 
+    public int GetAmount()
+    {
+        return money;
+    }
+
     public void RemoveMoney(int amount)
     {
         if (money - amount < 0)

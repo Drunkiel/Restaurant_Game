@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +20,12 @@ public class ActionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (thingsToAchieve.Count == 0)
+        {
+            Debug.LogWarning($"NPC: {GetComponent<ItemID>().itemName} has no action to perform");
+            return;
+        }
+
         if (!finishedAllActions)
             thingsToAchieve[actionIndex].actions.Invoke();
     }

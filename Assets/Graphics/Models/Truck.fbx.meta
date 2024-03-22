@@ -3,7 +3,22 @@ guid: 80e9a6961fdbd6f4fa75923ce663d0d0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas
+    second: {fileID: 2100000, guid: 3aa6d1059a51bc84b80c59e7731efc2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 9d2e52ee97b211c459bb75345f33eb70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lights
+    second: {fileID: 2100000, guid: 4220c23393a6a7f47aa9e0f07aee9b6f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
