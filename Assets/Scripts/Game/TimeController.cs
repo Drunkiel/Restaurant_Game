@@ -11,6 +11,8 @@ public class TimeController : MonoBehaviour
     [SerializeField] private float seconds;
 
     public TMP_Text clockText;
+    [SerializeField] private TMP_Text dayText;
+    [SerializeField] private Animator dayTextAnimator;
 
     private void Awake()
     {
@@ -19,6 +21,9 @@ public class TimeController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameController.isGameStarted)
+            return;
+
         Timer();
         UpdateClock();
     }
@@ -52,6 +57,12 @@ public class TimeController : MonoBehaviour
     public Vector3 GetTime()
     {
         return new Vector3(hours, minutes, seconds);
+    }
+
+    public void ShowDay()
+    {
+        dayText.text = $"Day {days}";
+        dayTextAnimator.SetTrigger("Trigger");
     }
 
     public void NewDay()

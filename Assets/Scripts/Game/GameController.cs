@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour
         _doorsAnimation.ChangeAnimation();
         _timeController.NewDay();
         Invoke(nameof(SpawnNPC), Random.Range(2, 8));
-        _timeController.clockText.gameObject.SetActive(true);
+        _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", false);
+        _timeController.ShowDay();
         OrderController.instance.DestroyOrders();
     }
 
@@ -40,7 +41,7 @@ public class GameController : MonoBehaviour
     private void EndDay()
     {
         _doorsAnimation.ChangeAnimation();
-        _timeController.clockText.gameObject.SetActive(false);
+        _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", true);
     }
 
     private bool CheckIfCanEndShift()
