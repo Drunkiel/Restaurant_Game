@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour
     {
         _doorsAnimation.ChangeAnimation();
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", true);
+        SummaryController.instance._summaryUI.OpenClose();
     }
 
     private bool CheckIfCanEndShift()
