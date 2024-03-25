@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", false);
         _timeController.ShowDay();
         OrderController.instance.DestroyOrders();
+        SummaryController.instance.ResetSummary();
     }
 
     private void SpawnNPC()
@@ -42,7 +43,7 @@ public class GameController : MonoBehaviour
     {
         _doorsAnimation.ChangeAnimation();
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", true);
-        SummaryController.instance._summaryUI.OpenClose();
+        SummaryController.instance.MakeSummary();
     }
 
     private bool CheckIfCanEndShift()

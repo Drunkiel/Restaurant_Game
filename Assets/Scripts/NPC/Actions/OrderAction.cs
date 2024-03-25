@@ -44,8 +44,7 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
         _itemInteraction.holdingItems[0].isPickable = true;
 
-        OrderController.instance.finishedOrders += 1;
-        ProgressMetricController.instance._ordersManager.finishedOrders += 1;
+        ProgressMetricController.instance._ordersManager.IncreaseFinishedOrdersCounter();
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
@@ -66,10 +65,7 @@ public class OrderAction : MonoBehaviour
 
         if (_patienceController.waitingTime > _patienceController.maxWaitingTime)
         {
-            OrderController.instance.countOfOrdersToEnd -= 1;
-            Destroy(_currentOrder._card.gameObject);
-            _patienceController.waitingSlider.gameObject.SetActive(false);
-            _actionController.SkipAction();
+            CancelOrder();
         }
 
         if (_itemID != null && _itemID.itemID.Equals(_currentOrder._orderData._itemID.itemID))
@@ -77,5 +73,14 @@ public class OrderAction : MonoBehaviour
             _patienceController.waitingSlider.gameObject.SetActive(false);
             _actionController.EndAction();
         }
+    }
+
+    public void CancelOrder()
+    {
+        OrderController.instance.countOfOrdersToEnd -= 1;
+        SummaryController.instance.unSatisfiedCostomers += 1;
+        Destroy(_currentOrder._card.gameObject);
+        _patienceController.waitingSlider.gameObject.SetActive(false);
+        _actionController.SkipAction();
     }
 }

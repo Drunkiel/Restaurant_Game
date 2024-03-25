@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8351437035907011845}
   - component: {fileID: -5157630992441683882}
   - component: {fileID: 1372366327540820562}
-  - component: {fileID: -1119295501114481094}
   m_Layer: 6
   m_Name: Counter_Doors
   m_TagString: Furniture
@@ -139,23 +138,6 @@ MonoBehaviour:
   size: {x: 0, y: 0, z: 0}
   objectToManipulate: {fileID: 8599853355412150484}
   _interactableObject: {fileID: 2186060316533770070}
---- !u!114 &-1119295501114481094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7662970251628652258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTriggered: 1
-  reverseReturn: 1
-  objectsTag:
-  - Furniture
-  - Wall
 --- !u!1001 &4106132664484368427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,17 +223,17 @@ PrefabInstance:
     - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.7
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 347185417112353447, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
@@ -261,7 +243,7 @@ PrefabInstance:
     - target: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4077627531055249725, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
@@ -432,6 +414,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 507598421240211092}
+    - targetCorrespondingSourceObject: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 258380823844507777}
+    - targetCorrespondingSourceObject: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8942525518763270577}
   m_SourcePrefab: {fileID: 100100000, guid: 93b50f299eeaf664ca7f98ad96611839, type: 3}
 --- !u!114 &2186060316533770070 stripped
 MonoBehaviour:
@@ -471,3 +461,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   indexOfUI: 1
+--- !u!114 &258380823844507777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599853355412150484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeShown: 1
+  enterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8942525518763270577}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  stayEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8942525518763270577}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8942525518763270577}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8942525518763270577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599853355412150484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3537812ece71aea4bbd860de53b7e8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addOne: 0
+  dontAdd: 0

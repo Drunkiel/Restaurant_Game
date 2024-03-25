@@ -10,6 +10,7 @@ public class MoneyManager
     public void AddMoney(int amount)
     {
         money += amount;
+        SummaryController.instance.income += amount;
         moneyText.text = money + "$";
     }
 
@@ -24,6 +25,7 @@ public class MoneyManager
             return;
 
         money -= amount;
+        SummaryController.instance.expenses += amount;
         moneyText.text = money + "$";
     }
 }

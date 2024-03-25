@@ -254,8 +254,38 @@ PrefabInstance:
       objectReference: {fileID: 6702928504142983592}
     - target: {fileID: 1502933461777497383, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
         type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502933461777497383, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 970cf6a0-f5ca-4c07-81aa-38ea93e50975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502933461777497383, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player Controls/DropItem[/Keyboard/q,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502933461777497383, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: OtherClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926400687996698301, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926400687996698301, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926400687996698301, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5157869596321109608, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
         type: 3}
@@ -370,15 +400,101 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2535567961119153091, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5740424513760462350}
+    - targetCorrespondingSourceObject: {fileID: 2535567961119153091, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4461687714931203733}
   m_SourcePrefab: {fileID: 100100000, guid: e20984a7f0fcf6441b02e1c0ba8a19f4, type: 3}
+--- !u!1 &2678748852568593916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2535567961119153091, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 440497635183840831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5740424513760462350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678748852568593916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeShown: 1
+  enterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4461687714931203733}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  stayEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4461687714931203733}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4461687714931203733}
+        m_TargetAssemblyTypeName: HintEvent, Assembly-CSharp
+        m_MethodName: ChangeHint
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4461687714931203733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678748852568593916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3537812ece71aea4bbd860de53b7e8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addOne: 0
+  dontAdd: 1
 --- !u!114 &5486071218892049022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5349861802425861185, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
     type: 3}
   m_PrefabInstance: {fileID: 440497635183840831}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2678748852568593916}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2f7fead7675ae8448123194475191f5, type: 3}
@@ -402,7 +518,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 440497635183840831}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2678748852568593916}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 882505300719d984fb001ece2437c35c, type: 3}

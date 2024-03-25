@@ -26,11 +26,25 @@ public class SummaryController : MonoBehaviour
 
     public void MakeSummary()
     {
-        expencesText.text = $"-{expenses}$";
+        _summaryUI.OpenClose();
+        _summaryUI.UI.GetComponent<Animator>().SetTrigger("Show");
+
+        expencesText.text = $"{expenses}$";
         incomeText.text = $"{income}$";
         moneySummaryText.text = $"{income - expenses}$";
 
         satisfiedCostomersText.text = $"{satisfiedCostomers}";
-        satisfiedCostomersText.text = $"{unSatisfiedCostomers}";
+        unSatisfiedCostomersText.text = $"{unSatisfiedCostomers}";
+    }
+
+    public void ResetSummary()
+    {
+        if (_summaryUI.UI.activeSelf)
+            _summaryUI.UI.GetComponent<Animator>().SetTrigger("Hide");
+
+        expenses = 0;
+        income = 0;
+        satisfiedCostomers = 0;
+        unSatisfiedCostomers = 0;
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class OpenCloseUI : MonoBehaviour
 {
     [SerializeField] private bool isOpen;
-    [SerializeField] private GameObject UI;
+    public GameObject UI;
 
     public void OpenClose()
     {
