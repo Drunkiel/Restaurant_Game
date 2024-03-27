@@ -7,6 +7,7 @@ public class OrderAction : MonoBehaviour
     [HideInInspector] public PlaceItemInteraction _itemInteraction; //DONT MAKE PRIVATE | THROWS ERRORS FOR SOME REASON
     private Animator anim;
     public NPCPatience _patienceController;
+    public RatingAction _ratingAction;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].isPickable = true;
 
         ProgressMetricController.instance._ordersManager.IncreaseFinishedOrdersCounter();
+        _ratingAction.GiveRating(_patienceController.waitingTime, _patienceController.maxWaitingTime);
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
@@ -81,6 +83,7 @@ public class OrderAction : MonoBehaviour
         SummaryController.instance.unSatisfiedCostomers += 1;
         Destroy(_currentOrder._card.gameObject);
         _patienceController.waitingSlider.gameObject.SetActive(false);
+        ProgressMetricController.instance._ratingManager.currentRating = _ratingAction.GiveRating(_patienceController.waitingTime, _patienceController.maxWaitingTime);
         _actionController.SkipAction();
     }
 }

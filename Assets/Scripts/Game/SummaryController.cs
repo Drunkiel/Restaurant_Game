@@ -10,6 +10,7 @@ public class SummaryController : MonoBehaviour
     public int income;
     public int satisfiedCostomers;
     public int unSatisfiedCostomers;
+    public int rating;
 
     [SerializeField] private TMP_Text expencesText;
     [SerializeField] private TMP_Text incomeText;
@@ -35,6 +36,7 @@ public class SummaryController : MonoBehaviour
 
         satisfiedCostomersText.text = $"{satisfiedCostomers}";
         unSatisfiedCostomersText.text = $"{unSatisfiedCostomers}";
+        ratingSummaryText.text = $"{rating}";
     }
 
     public void ResetSummary()
