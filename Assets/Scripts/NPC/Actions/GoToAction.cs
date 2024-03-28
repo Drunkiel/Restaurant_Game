@@ -9,7 +9,7 @@ public class GoToAction : MonoBehaviour
     private NPCController _NPCController;
     private ActionController _actionController;
 
-    private void Start()
+    private void Awake()
     {
         _NPCController = GetComponent<NPCController>();
         _actionController = GetComponent<ActionController>();
@@ -22,7 +22,6 @@ public class GoToAction : MonoBehaviour
             GoTo(positions[randomPositionIndex]);
         else
             GoTo(positions[whichPosition]);
-
     }
 
     public void GoToPosition(Vector3 position)
@@ -53,6 +52,9 @@ public class GoToAction : MonoBehaviour
 
     private void GoTo(Vector3 position)
     {
+        if (_actionController == null)
+            return;
+
         bool isNearby = false;
 
         if (Vector3.Distance(transform.position, position) < _actionController.thingsToAchieve[_actionController.actionIndex].distance)

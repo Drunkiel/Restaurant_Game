@@ -6,7 +6,7 @@ public class RestaurantManager : MonoBehaviour
     public static RestaurantManager instance;
 
     public BuildingID _doorID;
-    public List<ItemID> allSits = new();
+    public List<SitInteraction> _allSits = new();
     public List<BuildingID> frontWalls = new();
     public List<BuildingID> backWalls = new();
     public List<BuildingID> leftWalls = new();
@@ -21,19 +21,18 @@ public class RestaurantManager : MonoBehaviour
 
     public ItemID LookForAvailableSit()
     {
-        List<ItemID> avalaibleSeats = new();
-        avalaibleSeats.Clear();
+        List<SitInteraction> availableSeats = new();
 
-        for (int i = 0; i < allSits.Count; i++)
+        foreach (var _sit in _allSits)
         {
-            if (allSits[i].GetComponent<PlacableObject>()._interactableObject.GetComponent<SitInteraction>()._objectsID == null)
-                avalaibleSeats.Add(allSits[i]);
+            if (_sit._objectsID == null)
+                availableSeats.Add(_sit);
         }
 
-        if (avalaibleSeats.Count != 0)
-            return avalaibleSeats[Random.Range(0, avalaibleSeats.Count)];
-
-        return null;
+        if (availableSeats.Count > 0)
+            return availableSeats[Random.Range(0, availableSeats.Count)].GetComponentInParent<ItemID>();
+        else
+            return null;
     }
 
     public void ChangeWallsVisibility()

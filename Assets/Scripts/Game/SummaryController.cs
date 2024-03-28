@@ -37,6 +37,8 @@ public class SummaryController : MonoBehaviour
         satisfiedCostomersText.text = $"{satisfiedCostomers}";
         unSatisfiedCostomersText.text = $"{unSatisfiedCostomers}";
         ratingSummaryText.text = $"{rating}";
+
+        ProgressMetricController.instance._ratingManager.UpdateRating();
     }
 
     public void ResetSummary()
@@ -48,5 +50,6 @@ public class SummaryController : MonoBehaviour
         income = 0;
         satisfiedCostomers = 0;
         unSatisfiedCostomers = 0;
+        rating = 0;
     }
 }

@@ -7,13 +7,17 @@ public class NPCSpawnController : MonoBehaviour
 
     [SerializeField] private List<Vector3> spawnPoints = new();
     [SerializeField] private GameObject npcPrefab;
+    private readonly List<Vector2> npcTimeSpawn = new() { new(15, 40), new(13, 40), new(10, 35), new(8, 30), new(8, 20), new(6, 18) };
 
     public void SpawnNewNPC()
     {
         int actualHour = (int)TimeController.instance.GetTime().x;
 
         if (actualHour < 15)
-            Invoke(nameof(SpawnNewNPC), Random.Range(8, 30));
+        {
+            Vector2 timeSpan = npcTimeSpawn[ProgressMetricController.instance._ratingManager.GetRating()];
+            Invoke(nameof(SpawnNewNPC), Random.Range(timeSpan.x, timeSpan.y));
+        }
         else
             return;
 

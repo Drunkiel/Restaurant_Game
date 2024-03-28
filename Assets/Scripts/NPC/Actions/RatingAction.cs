@@ -3,12 +3,11 @@ using System.Collections.Generic;
 [System.Serializable]
 public class RatingAction
 {
-    private readonly List<int> ratingPoints = new() { 8, 5, 2, 0, -5 };
-
     public int GiveRating(float waitingTime, int maxWaitingTime)
     {
+        List<int> ratingPoints = ProgressMetricController.instance._ratingManager.ratingPoints;
         float percent = (waitingTime / maxWaitingTime) * 100;
-        int points = 0;
+        int points;
 
         if (percent >= 0 && percent <= 25) //100% -> 75%
             points = ratingPoints[0];
