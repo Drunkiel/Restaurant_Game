@@ -7,17 +7,14 @@ public class FPSCounter : MonoBehaviour
     public float refresh;
     public float avgFramerate;
 
-    string display = "Client FPS: {0}";
+    string display = "FPS: {0}";
     private TMP_Text displayText;
 
-    void Start()
+    private void Start()
     {
         displayText = GetComponent<TMP_Text>();
-    }
 
-    void Update()
-    {
-        CountFPS();
+        InvokeRepeating(nameof(CountFPS), 0f, 0.5f);
     }
 
     void CountFPS()
