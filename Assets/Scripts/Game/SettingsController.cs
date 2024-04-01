@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsController : MonoBehaviour
+public class SettingsController : SaveLoadSystem
 {
     public static SettingsController instance;
 
@@ -19,6 +20,53 @@ public class SettingsController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        try
+        {
+            Load(settingsPath);
+        }
+        catch (System.Exception)
+        {
+            Save(settingsPath);
+        }
+    }
+
+    public override void Save(string path)
+    {
+        path = settingsPath;
+        
+        //Creating or open file
+        FileStream saveFile = new(path, FileMode.OpenOrCreate);
+
+        //Overrite data to save
+        //PLAYER SETTINGS
+        _settingsData.resolutionIndex = resolutionDropdown.value;
+        _settingsData.fullscreenOn = fullscreenToggle.isOn;
+        _settingsData.maxFPS = int.Parse(fpsInput.text);
+        _settingsData.vSync = vSyncToggle.isOn;
+        _settingsData.qualityIndex = qualityDropdown.value;
+        _settingsData.volume = volumeSlider.value;
+
+        //Saving data
+        string jsonData = JsonUtility.ToJson(_settingsData, true);
+
+        saveFile.Close();
+        File.WriteAllText(path, jsonData);
+    }
+
+    public override void Load(string path)
+    {
+        //Load data from file
+        string saveFile = ReadFromFile(path);
+        JsonUtility.FromJsonOverwrite(saveFile, _settingsData);
+
+        //LOAD SETTINGS
+        resolutionDropdown.value = _settingsData.resolutionIndex;
+        fullscreenToggle.isOn = _settingsData.fullscreenOn;
+        fpsInput.text = _settingsData.maxFPS.ToString();
+        vSyncToggle.isOn = _settingsData.vSync;
+        qualityDropdown.value = _settingsData.qualityIndex;
+        volumeSlider.value = _settingsData.volume;
     }
 
     public void UpdateQuality()
@@ -49,15 +97,15 @@ public class SettingsController : MonoBehaviour
 
     public void UpdateFPS()
     {
-        if (QualitySettings.vSyncCount != 0)
-            return;
-
-        int newMaxFPS = int.Parse(fpsInput.text); 
+        int newMaxFPS = int.Parse(fpsInput.text);
         if (newMaxFPS < 30)
         {
             fpsInput.text = "30";
             newMaxFPS = 30;
         }
+
+        if (QualitySettings.vSyncCount != 0)
+            return;
 
         Application.targetFrameRate = newMaxFPS;
     }

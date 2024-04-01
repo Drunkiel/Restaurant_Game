@@ -1,6 +1,7 @@
+using System.IO;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : SaveLoadSystem
 {
     public static bool isGamePaused;
     public static bool isGameStarted;
@@ -8,6 +9,42 @@ public class GameController : MonoBehaviour
     [SerializeField] private AnimationInteraction _doorsAnimation;
     [SerializeField] private TimeController _timeController;
     [SerializeField] private NPCSpawnController _spawnController;
+
+    public override void Save(string path)
+    {
+        path = savePath;
+
+        //Here open file
+        FileStream saveFile = new(path, FileMode.OpenOrCreate);
+
+        //Here collect data to save
+        ProgressMetricController _progress = ProgressMetricController.instance;
+
+        _data.money = _progress._moneyManager.GetAmount();
+        _data.currentRating = _progress._ratingManager.currentRating;
+        _data.finishedOrders = _progress._ordersManager.finishedOrders;
+
+        //Here save data to file
+        string jsonData = JsonUtility.ToJson(_data, true);
+
+        saveFile.Close();
+        File.WriteAllText(path, jsonData);
+    }
+
+    public override void Load(string path)
+    {
+        //Here load data from file
+        string saveFile = ReadFromFile(path);
+        JsonUtility.FromJsonOverwrite(saveFile, _data);
+
+        //Here override game data
+        ProgressMetricController _progress = ProgressMetricController.instance;
+
+        _progress._moneyManager.AddMoney(_data.money);
+        _progress._ratingManager.currentRating = _data.currentRating;
+        _progress._ratingManager.UpdateRating();
+        _progress._ordersManager.finishedOrders = _data.finishedOrders;
+    }
 
     public void ManageGameplay()
     {

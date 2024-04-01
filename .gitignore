@@ -47,6 +47,10 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# Save files
+/[Aa]ssets/[Ss]aves
+/[Aa]ssets/[Ss]aves.meta
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
