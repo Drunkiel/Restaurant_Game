@@ -10,6 +10,18 @@ public class GameController : SaveLoadSystem
     [SerializeField] private TimeController _timeController;
     [SerializeField] private NPCSpawnController _spawnController;
 
+    private void Awake()
+    {
+        try
+        {
+            Load(savePath);
+        }
+        catch (System.Exception)
+        {
+            Save(savePath);
+        }
+    }
+
     public override void Save(string path)
     {
         path = savePath;
@@ -33,6 +45,8 @@ public class GameController : SaveLoadSystem
 
     public override void Load(string path)
     {
+        path = savePath;
+
         //Here load data from file
         string saveFile = ReadFromFile(path);
         JsonUtility.FromJsonOverwrite(saveFile, _data);
@@ -40,6 +54,7 @@ public class GameController : SaveLoadSystem
         //Here override game data
         ProgressMetricController _progress = ProgressMetricController.instance;
 
+        _progress._moneyManager.RemoveMoney(_progress._moneyManager.GetAmount(), false);
         _progress._moneyManager.AddMoney(_data.money);
         _progress._ratingManager.currentRating = _data.currentRating;
         _progress._ratingManager.UpdateRating();

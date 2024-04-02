@@ -56,6 +56,8 @@ public class SettingsController : SaveLoadSystem
 
     public override void Load(string path)
     {
+        path = settingsPath;
+
         //Load data from file
         string saveFile = ReadFromFile(path);
         JsonUtility.FromJsonOverwrite(saveFile, _settingsData);

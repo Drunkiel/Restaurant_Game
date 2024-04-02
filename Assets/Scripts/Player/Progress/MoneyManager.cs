@@ -19,13 +19,14 @@ public class MoneyManager
         return money;
     }
 
-    public void RemoveMoney(int amount)
+    public void RemoveMoney(int amount, bool expense = true)
     {
-        if (money - amount < 0)
+        if (expense && money - amount < 0)
             return;
 
         money -= amount;
-        SummaryController.instance.expenses += amount;
+        if (expense)
+            SummaryController.instance.expenses += amount;
         moneyText.text = money + "$";
     }
 }
