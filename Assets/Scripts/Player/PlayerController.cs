@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (transform.position.y < -10f)
+            transform.position = new(0, 0, -2);
+
         if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
 
         Vector3 move = new Vector3(movement.x, 0, movement.y).normalized;
