@@ -103,9 +103,9 @@ public class GameController : SaveLoadSystem
         OrderController _orderController = OrderController.instance;
 
         //Check if all customers were served
-        if (_timeController.GetTime().x >= 15 && !_orderController.finishedOrders.Equals(_orderController.countOfOrdersToEnd))
-            return false;
+        if (_timeController.GetTime().x >= 15 && _orderController.countOfOrdersToEnd == 0)
+            return true;
 
-        return true;
+        return false;
     }
 }
