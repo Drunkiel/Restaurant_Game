@@ -548,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 0
   size: {x: 0, y: 0, z: 0}
-  objectToManipulate: {fileID: 0}
+  objectToManipulate: {fileID: 1400352398509667180}
   _interactableObject: {fileID: 0}
 --- !u!114 &1747273624100487311
 MonoBehaviour:
@@ -625,6 +625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractionController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4077627531055249725, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}

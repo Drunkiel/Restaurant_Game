@@ -6,6 +6,11 @@ public class SitInteraction : MonoBehaviour
 
     private ActionController _actionController;
 
+    private void Start()
+    {
+        RestaurantManager.instance._allSits.Add(this);
+    }
+
     public void Sit()
     {
         _actionController = _objectsID.GetComponent<ActionController>();

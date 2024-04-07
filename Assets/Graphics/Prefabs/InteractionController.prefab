@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerNearby: 0
-  hint: {fileID: 0}
   onClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
@@ -79,6 +78,8 @@ MonoBehaviour:
   onEndClickFunctionalities:
     m_PersistentCalls:
       m_Calls: []
+  inputActions: {fileID: -944628639613478452, guid: 5173a19c6fcef5a4db27bff01655cf63,
+    type: 3}
 --- !u!114 &415426520384426083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +174,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0f70fc4a-1b5a-435c-b2e6-c47498577954
     m_ActionName: Action Controls/End[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 970cf6a0-f5ca-4c07-81aa-38ea93e50975
+    m_ActionName: Player Controls/DropItem[/Keyboard/q,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Action Controls

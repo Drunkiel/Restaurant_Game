@@ -607,7 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Lana
-  isPickable: 0
+  isPickable: 1
   isStackable: 0
   heightPlacement: 0.05
   _dishItem: {fileID: 0}

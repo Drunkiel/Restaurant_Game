@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class AutoSize : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Vector3 additionalSize = new(0.02f, 0.02f, 0.02f);
+
+    private void Start()
     {
         transform.localScale = GetScale();
         transform.localPosition = GetPosition();
@@ -11,7 +12,7 @@ public class AutoSize : MonoBehaviour
 
     private Vector3 GetScale()
     {
-        return transform.parent.GetComponent<PlacableObject>().size + new Vector3(0.01f, 0.01f, 0.01f);
+        return transform.parent.GetComponent<PlacableObject>().size + additionalSize;
     }
 
     private Vector3 GetPosition()

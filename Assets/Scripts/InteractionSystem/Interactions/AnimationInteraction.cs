@@ -3,7 +3,7 @@ using UnityEngine;
 public class AnimationInteraction : MonoBehaviour
 {
     public bool isOpen;
-    public string[] animationNames;
+    public string[] animationTriggers;
 
     [SerializeField] private Animator animator;
     private HintEvent _hintEvent;
@@ -17,7 +17,7 @@ public class AnimationInteraction : MonoBehaviour
     public void ChangeAnimation()
     {
         isOpen = !isOpen;
-        animator.SetTrigger(animationNames[isOpen ? 0 : 1]);
+        animator.SetTrigger(animationTriggers[isOpen ? 0 : 1]);
 
         if (_hintEvent != null)
             _hintEvent.addOne = isOpen;

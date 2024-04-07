@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2095944428879867081}
   - component: {fileID: 7063584188672240327}
-  - component: {fileID: 699237566926988423}
   - component: {fileID: 1385514287244123285}
+  - component: {fileID: 699237566926988423}
   - component: {fileID: 7129470701929306513}
   - component: {fileID: 3520107616863638272}
   - component: {fileID: 2146261407895143704}
@@ -66,27 +66,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &699237566926988423
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8118967459780130685}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.79, y: 0.37, z: 0.36}
-  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!65 &1385514287244123285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103,6 +82,27 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79, y: 0.37, z: 0.36}
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!65 &699237566926988423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118967459780130685}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 0
   size: {x: 0.79, y: 0.37, z: 0.36}
-  objectToManipulate: {fileID: 0}
-  _interactableObject: {fileID: 5486071218892049022}
+  objectToManipulate: {fileID: 4722192787083728983}
+  _interactableObject: {fileID: 0}
 --- !u!114 &2146261407895143704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CuttingTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157869596321109608, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5210701172887544947, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
         type: 3}
@@ -405,18 +410,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addOne: 0
   dontAdd: 1
---- !u!114 &5486071218892049022 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5349861802425861185, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
+--- !u!1 &4722192787083728983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5157869596321109608, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,
     type: 3}
   m_PrefabInstance: {fileID: 440497635183840831}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678748852568593916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f7fead7675ae8448123194475191f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6067283974361242330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5922133330260694245, guid: e20984a7f0fcf6441b02e1c0ba8a19f4,

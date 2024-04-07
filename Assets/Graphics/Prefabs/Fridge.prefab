@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 1
   size: {x: 0, y: 0, z: 0}
-  objectToManipulate: {fileID: 0}
+  objectToManipulate: {fileID: 5808864572454384735}
   _interactableObject: {fileID: 4148827751528704989}
 --- !u!114 &9000868333214279135
 MonoBehaviour:
@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 1116328690585919449, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4077627531055249725, guid: 93b50f299eeaf664ca7f98ad96611839,
         type: 3}
@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e4ea5df7517b498af3444840766b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectTag: Player
   canBeShown: 1
   enterEvent:
     m_PersistentCalls:

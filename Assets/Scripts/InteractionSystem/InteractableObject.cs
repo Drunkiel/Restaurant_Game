@@ -10,10 +10,14 @@ public class InteractableObject : MonoBehaviour
     public UnityEvent onEndClickFunctionalities;
 
     private MultiTriggerController _triggerController;
+    [SerializeField] private InputActionAsset inputActions;
 
     private void Start()
     {
         _triggerController = GetComponent<MultiTriggerController>();
+
+        if (TryGetComponent(out PlayerInput _input))
+            _input.actions = inputActions;
     }
 
     private void Update()
