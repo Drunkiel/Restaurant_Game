@@ -40,9 +40,16 @@ public class GoToAction : MonoBehaviour
                 break;
 
             case 1:
-                GoTo(_manager._doorID.transform.position + new Vector3(0, 0, 0.3f));
+                GoTo(_manager._doorID.transform.position);
                 break;
         }
+    }
+
+    public void GoNearSeat()
+    {
+        Transform seatParent = GetComponent<SitAction>()._seatID.transform.parent;
+
+        GoTo(seatParent.GetChild(seatParent.childCount - 1).position);
     }
 
     public void GoToSeat()

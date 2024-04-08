@@ -5,7 +5,7 @@ public class HintController : MonoBehaviour
 {
     public static HintController instance;
     private int currentHint;
-    public string[] hints;
+    public string[] hintTexts;
 
     [SerializeField] private TMP_Text hintText;
 
@@ -19,6 +19,6 @@ public class HintController : MonoBehaviour
         if (hintIndex == currentHint) return;
 
         currentHint = hintIndex;
-        hintText.text = hints[hintIndex];
+        hintText.text = hintTexts[hintIndex];
     }
 }
