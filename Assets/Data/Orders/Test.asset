@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  price: 10
+  price: 2
+  minimalPrice: 0
+  maxPrice: 5
   sprite: {fileID: 21300000, guid: 08b4be5959a547e4ab7ca6c21a2ab381, type: 3}
   _itemID: {fileID: 195210446118789843, guid: 6567ef8abb4078645ac64f83d85dc6c9, type: 3}

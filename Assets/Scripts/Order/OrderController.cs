@@ -5,9 +5,8 @@ using UnityEngine;
 public class SingleOrder
 {
     public int orderIndex;
-    public OrderData _orderData;
     public ItemID _NPCID;
-    public BuildingCard _card;
+    public OrderCard _card;
 }
 
 public class OrderController : MonoBehaviour
@@ -34,12 +33,12 @@ public class OrderController : MonoBehaviour
         SingleOrder _newOrder = new()
         {
             orderIndex = _ordersToDo.Count,
-            _orderData = _possibleOrders[Random.Range(0, _possibleOrders.Length)],
             _NPCID = _itemID,
-            _card = newCard.GetComponent<BuildingCard>()
+            _card = newCard.GetComponent<OrderCard>()
         };
 
-        _newOrder._card.SetCardData(_newOrder._orderData.sprite, $"{_newOrder._orderData.price}$ - {_newOrder._NPCID.itemName}");
+        _newOrder._card._data = _possibleOrders[Random.Range(0, _possibleOrders.Length)];
+        _newOrder._card.SetCardData(_newOrder._card._data.sprite, $"{_newOrder._card._data.price}$ - {_newOrder._NPCID.itemName}");
         _orderAction._currentOrder = _newOrder;
         _ordersToDo.Add(_newOrder);
     }

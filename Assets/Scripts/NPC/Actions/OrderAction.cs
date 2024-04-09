@@ -42,7 +42,7 @@ public class OrderAction : MonoBehaviour
         DestroyFood();
 
         anim.SetBool("isEating", false);
-        _progressController._moneyManager.AddMoney(_currentOrder._orderData.price);
+        _progressController._moneyManager.AddMoney(_currentOrder._card._data.price);
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
         _itemInteraction.holdingItems[0].isPickable = true;
 
@@ -67,11 +67,9 @@ public class OrderAction : MonoBehaviour
         _patienceController.waitingSlider.value = Mathf.RoundToInt(_patienceController.waitingTime);
 
         if (_patienceController.waitingTime > _patienceController.maxWaitingTime)
-        {
             CancelOrder();
-        }
 
-        if (_itemID != null && _itemID.itemID.Equals(_currentOrder._orderData._itemID.itemID))
+        if (_itemID != null && _itemID.itemID.Equals(_currentOrder._card._data._itemID.itemID))
         {
             _patienceController.waitingSlider.gameObject.SetActive(false);
             _actionController.EndAction();
