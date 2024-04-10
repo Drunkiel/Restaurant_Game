@@ -7,6 +7,7 @@ public class OrderCard : MonoBehaviour
     public OrderData _data;
 
     [SerializeField] private Image image;
+    [SerializeField] private Image equippedImage;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Button button;
 

@@ -13,7 +13,8 @@ public class OrderController : MonoBehaviour
 {
     public static OrderController instance;
 
-    [SerializeField] private OrderData[] _possibleOrders;
+    public OrderData[] _possibleOrders;
+    public List<OrderData> _restaurantMenu = new();
     public List<SingleOrder> _ordersToDo = new();
     public int finishedOrders;
     public int countOfOrdersToEnd;
