@@ -4,6 +4,7 @@ public class OrderControlPanel : MonoBehaviour
 {
     public DisplayController _displayController;
     public PriceController _priceController;
+    public EquipController _equipController;
     public GameObject UI;
     [SerializeField] private GameObject orderCardPrefab;
     [SerializeField] private Transform ordersParent;
@@ -22,11 +23,16 @@ public class OrderControlPanel : MonoBehaviour
         }
     }
 
-    public void ManageData(OrderData _data)
+    public void ManageData(OrderCard _orderCard)
     {
         UI.SetActive(true);
-        _displayController.UpdateDisplay(_data.sprite, _data._itemID.itemName);
-        _priceController._data = _data;
+        _displayController.UpdateDisplay(_orderCard._data.sprite, _orderCard._data._itemID.itemName);
+
+        _priceController._data = _orderCard._data;
         _priceController.SetData();
+
+        _equipController._orderCard = _orderCard;
+        _equipController.toggle.isOn = _orderCard.equippedImage.gameObject.activeSelf;
+        _equipController.UpdateToggle();
     }
 }

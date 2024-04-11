@@ -7,7 +7,7 @@ public class OrderCard : MonoBehaviour
     public OrderData _data;
 
     [SerializeField] private Image image;
-    [SerializeField] private Image equippedImage;
+    public Image equippedImage;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Button button;
 
@@ -17,8 +17,13 @@ public class OrderCard : MonoBehaviour
         nameText.text = text;
     }
 
+    public void UpdateEquipImage(bool isActive)
+    {
+        equippedImage.gameObject.SetActive(isActive);
+    }
+
     public void Manage()
     {
-        transform.parent.parent.parent.GetComponent<OrderControlPanel>().ManageData(_data);
+        transform.parent.parent.parent.GetComponent<OrderControlPanel>().ManageData(this);
     }
 }
