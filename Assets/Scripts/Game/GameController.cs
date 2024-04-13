@@ -6,6 +6,7 @@ public class GameController : SaveLoadSystem
     public static bool isGamePaused;
     public static bool isGameStarted;
 
+    [SerializeField] private GameObject buttons;
     [SerializeField] private AnimationInteraction _doorsAnimation;
     [SerializeField] private TimeController _timeController;
     [SerializeField] private NPCSpawnController _spawnController;
@@ -31,10 +32,13 @@ public class GameController : SaveLoadSystem
 
         //Here collect data to save
         ProgressMetricController _progress = ProgressMetricController.instance;
+        OrderController _orderController = OrderController.instance;
 
         _data.money = _progress._moneyManager.GetAmount();
         _data.currentRating = _progress._ratingManager.currentRating;
         _data.finishedOrders = _progress._ordersManager.finishedOrders;
+
+        _data.restaurantMenu = _orderController._restaurantMenu;
 
         //Here save data to file
         string jsonData = JsonUtility.ToJson(_data, true);
@@ -53,12 +57,16 @@ public class GameController : SaveLoadSystem
 
         //Here override game data
         ProgressMetricController _progress = ProgressMetricController.instance;
+        OrderController _orderController = OrderController.instance;
 
         _progress._moneyManager.RemoveMoney(_progress._moneyManager.GetAmount(), false);
         _progress._moneyManager.AddMoney(_data.money);
         _progress._ratingManager.currentRating = _data.currentRating;
         _progress._ratingManager.UpdateRating();
         _progress._ordersManager.finishedOrders = _data.finishedOrders;
+
+        _orderController._restaurantMenu = _data.restaurantMenu;
+        _orderController._restaurantMenu.Sort();
     }
 
     public void ManageGameplay()
@@ -77,9 +85,13 @@ public class GameController : SaveLoadSystem
 
     private void StartNewDay()
     {
+        buttons.SetActive(false);
         _doorsAnimation.ChangeAnimation();
         _timeController.NewDay();
-        Invoke(nameof(SpawnNPC), Random.Range(2, 8));
+
+        Vector2 timeSpan = _spawnController.npcFirstSpawn[ProgressMetricController.instance._ratingManager.GetRating()];
+        Invoke(nameof(SpawnNPC), Random.Range(timeSpan.x, timeSpan.y));
+
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", false);
         _timeController.ShowDay();
         OrderController.instance.DestroyOrders();
@@ -93,6 +105,7 @@ public class GameController : SaveLoadSystem
 
     private void EndDay()
     {
+        buttons.SetActive(false);
         _doorsAnimation.ChangeAnimation();
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", true);
         SummaryController.instance.MakeSummary();

@@ -8,6 +8,7 @@ public class NPCSpawnController : MonoBehaviour
     [SerializeField] private List<Vector3> spawnPoints = new();
     [SerializeField] private GameObject npcPrefab;
     private readonly List<Vector2> npcTimeSpawn = new() { new(2, 10), new(13, 40), new(10, 35), new(8, 30), new(8, 20), new(6, 18) }; //{ new(15, 40), new(13, 40), new(10, 35), new(8, 30), new(8, 20), new(6, 18) };
+    public readonly List<Vector2> npcFirstSpawn = new() { new(4, 10), new(4, 8), new(4, 6), new(3, 6), new(2, 5), new(2, 4) }; 
 
     public void SpawnNewNPC()
     {

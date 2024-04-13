@@ -25,13 +25,14 @@ public class EquipController : MonoBehaviour
     private void Activate()
     {
         OrderController _orderController = OrderController.instance;
+        int orderIndex = _orderController._possibleOrders.IndexOf(_orderCard._data);
 
-        if (_orderController._restaurantMenu.Contains(_orderCard._data))
+        if (_orderController._restaurantMenu.Contains(orderIndex))
             return;
 
         if (_orderController._restaurantMenu.Count < maxEquipedOrders)
         {
-            _orderController._restaurantMenu.Add(_orderCard._data);
+            _orderController._restaurantMenu.Add(orderIndex);
             _orderCard.UpdateEquipImage(true);
         }
         else
@@ -41,8 +42,9 @@ public class EquipController : MonoBehaviour
     private void Deactivate()
     {
         OrderController _orderController = OrderController.instance;
-        
-        _orderController._restaurantMenu.Remove(_orderCard._data);
+        int orderIndex = _orderController._possibleOrders.IndexOf(_orderCard._data);
+
+        _orderController._restaurantMenu.Remove(orderIndex);
         _orderCard.UpdateEquipImage(false);
     }
 }

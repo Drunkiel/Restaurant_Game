@@ -13,13 +13,23 @@ public class OrderControlPanel : MonoBehaviour
     {
         OrderController _orderController = OrderController.instance;
 
-        foreach (OrderData _orderData in _orderController._possibleOrders)
+        for (int i = 0; i < _orderController._possibleOrders.Count; i++)
         {
+            OrderData _orderData = _orderController._possibleOrders[i];
             GameObject newPrefab = Instantiate(orderCardPrefab, ordersParent);
 
             OrderCard _orderCard = newPrefab.GetComponent<OrderCard>();
             _orderCard.SetCardData(_orderData.sprite, _orderData._itemID.itemName);
             _orderCard._data = _orderData;
+
+            for (int j = 0; j < _orderController._restaurantMenu.Count; j++)
+            {
+                if (_orderController._restaurantMenu[j] == i)
+                {
+                    _orderCard.UpdateEquipImage(true);
+                    break;
+                }
+            }
         }
     }
 

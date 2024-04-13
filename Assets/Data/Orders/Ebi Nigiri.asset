@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
+  m_Name: Ebi Nigiri
+  m_EditorClassIdentifier: 
+  price: 2
+  minimalPrice: 0
+  maxPrice: 5
+  sprite: {fileID: 21300000, guid: 013a30b0388e60342a011a102125ed85, type: 3}
+  _itemID: {fileID: 6529964877722260759, guid: f057824cbd6e6544aa077ca6edd7cef6, type: 3}

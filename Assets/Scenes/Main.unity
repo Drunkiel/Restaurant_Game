@@ -6029,8 +6029,7 @@ RectTransform:
   - {fileID: 313694666}
   - {fileID: 552010025}
   - {fileID: 1903130461}
-  - {fileID: 1204832333}
-  - {fileID: 310228291}
+  - {fileID: 1526615070}
   m_Father: {fileID: 1061801974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7953,7 +7952,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 231418916}
+    m_TransformParent: {fileID: 1526615070}
     m_Modifications:
     - target: {fileID: 5123347090691899469, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -7973,7 +7972,7 @@ PrefabInstance:
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -7983,7 +7982,7 @@ PrefabInstance:
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -8038,12 +8037,12 @@ PrefabInstance:
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 145
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -8089,7 +8088,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1785433253}
+      objectReference: {fileID: 1164540581}
     - target: {fileID: 8875019825620392551, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -15044,9 +15043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _possibleOrders:
-  - {fileID: 11400000, guid: 7e26ac46292950349b063feddf42338e, type: 2}
-  - {fileID: 11400000, guid: 514dee95aefb62746a370877ac436279, type: 2}
-  _restaurantMenu: []
+  - {fileID: 11400000, guid: 011256cd3a74c5142ac826a07ede1350, type: 2}
+  _restaurantMenu: 
   _ordersToDo: []
   finishedOrders: 0
   countOfOrdersToEnd: 0
@@ -15069,6 +15067,7 @@ MonoBehaviour:
     money: 0
     currentRating: 0
     finishedOrders: 0
+    restaurantMenu: 
   _settingsData:
     resolutionIndex: 2
     fullscreenOn: 1
@@ -15076,6 +15075,7 @@ MonoBehaviour:
     vSync: 1
     qualityIndex: 2
     volume: 100
+  buttons: {fileID: 1526615069}
   _doorsAnimation: {fileID: 3973724898585636795}
   _timeController: {fileID: 555202556}
   _spawnController: {fileID: 555202557}
@@ -16442,6 +16442,7 @@ MonoBehaviour:
     money: 0
     currentRating: 0
     finishedOrders: 0
+    restaurantMenu: 
   _settingsData:
     resolutionIndex: 2
     fullscreenOn: 1
@@ -21174,6 +21175,7 @@ MonoBehaviour:
     money: 0
     currentRating: 0
     finishedOrders: 0
+    restaurantMenu: 
   _settingsData:
     resolutionIndex: 2
     fullscreenOn: 1
@@ -22651,7 +22653,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914402909}
-  - component: {fileID: 914402910}
   m_Layer: 5
   m_Name: Control
   m_TagString: Untagged
@@ -22680,21 +22681,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 157.5}
   m_SizeDelta: {x: 0, y: -315}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &914402910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914402908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c77d0d65117ed48953d204ac0c88bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _orderCard: {fileID: 0}
-  toggle: {fileID: 1414679144}
-  maxEquipedOrders: 5
 --- !u!1 &919121578
 GameObject:
   m_ObjectHideFlags: 0
@@ -29676,7 +29662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1164540582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35328,7 +35314,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 231418916}
+    m_TransformParent: {fileID: 1526615070}
     m_Modifications:
     - target: {fileID: 5123347090691899469, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -35413,12 +35399,12 @@ PrefabInstance:
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231134062110089147, guid: afe49c158569b3845b1caabcb9f9e24b,
         type: 3}
@@ -39758,7 +39744,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914402910}
+      - m_Target: {fileID: 1785433256}
         m_TargetAssemblyTypeName: EquipController, Assembly-CSharp
         m_MethodName: UpdateToggle
         m_Mode: 1
@@ -42690,6 +42676,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 0.3450273, z: 0.06999996}
   m_Center: {x: 0, y: 0.17251365, z: 0.46499997}
+--- !u!1 &1526615069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526615070}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1526615070
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526615069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1204832333}
+  - {fileID: 310228291}
+  m_Father: {fileID: 231418916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -860, y: 150}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1547255353
 GameObject:
   m_ObjectHideFlags: 0
@@ -48257,6 +48280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785433254}
   - component: {fileID: 1785433255}
+  - component: {fileID: 1785433256}
   m_Layer: 5
   m_Name: OrdersControlPanel
   m_TagString: Untagged
@@ -48299,11 +48323,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayController: {fileID: 846083615}
   _priceController: {fileID: 1124956015}
-  _equipController: {fileID: 914402910}
+  _equipController: {fileID: 1785433256}
   UI: {fileID: 1638917063}
   orderCardPrefab: {fileID: 244907949679419529, guid: c146d1590404a8a4e9ee40dda6779809,
     type: 3}
   ordersParent: {fileID: 1982388339}
+--- !u!114 &1785433256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785433253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c77d0d65117ed48953d204ac0c88bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderCard: {fileID: 0}
+  toggle: {fileID: 1414679144}
+  maxEquipedOrders: 3
 --- !u!1 &1787170783
 GameObject:
   m_ObjectHideFlags: 0
@@ -59452,11 +59491,6 @@ PrefabInstance:
       value: OrderCard
       objectReference: {fileID: 0}
     - target: {fileID: 244907949679419529, guid: c146d1590404a8a4e9ee40dda6779809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3850969140180595932, guid: c146d1590404a8a4e9ee40dda6779809,
         type: 3}
       propertyPath: m_IsActive
       value: 0

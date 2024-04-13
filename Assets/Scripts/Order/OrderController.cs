@@ -13,8 +13,8 @@ public class OrderController : MonoBehaviour
 {
     public static OrderController instance;
 
-    public OrderData[] _possibleOrders;
-    public List<OrderData> _restaurantMenu = new();
+    public List<OrderData> _possibleOrders = new();
+    public List<int> _restaurantMenu = new();
     public List<SingleOrder> _ordersToDo = new();
     public int finishedOrders;
     public int countOfOrdersToEnd;
@@ -38,7 +38,7 @@ public class OrderController : MonoBehaviour
             _card = newCard.GetComponent<OrderCard>()
         };
 
-        _newOrder._card._data = _possibleOrders[Random.Range(0, _possibleOrders.Length)];
+        _newOrder._card._data = _possibleOrders[Random.Range(0, _possibleOrders.Count)];
         _newOrder._card.SetCardData(_newOrder._card._data.sprite, $"{_newOrder._card._data.price}$ - {_newOrder._NPCID.itemName}");
         _orderAction._currentOrder = _newOrder;
         _ordersToDo.Add(_newOrder);
