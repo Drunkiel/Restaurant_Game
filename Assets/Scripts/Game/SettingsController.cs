@@ -23,17 +23,17 @@ public class SettingsController : SaveLoadSystem
 
         try
         {
-            Load(settingsPath);
+            Load(savePath + "settings.json");
         }
         catch (System.Exception)
         {
-            Save(settingsPath);
+            Save(savePath + "settings.json");
         }
     }
 
     public override void Save(string path)
     {
-        path = settingsPath;
+        path = savePath + "settings.json";
         
         //Creating or open file
         FileStream saveFile = new(path, FileMode.OpenOrCreate);
@@ -56,7 +56,7 @@ public class SettingsController : SaveLoadSystem
 
     public override void Load(string path)
     {
-        path = settingsPath;
+        path = savePath + "settings.json";
 
         //Load data from file
         string saveFile = ReadFromFile(path);

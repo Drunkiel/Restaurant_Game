@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class SaveLoadSystem : MonoBehaviour
 {
-    public readonly string savePath = Application.dataPath + "/Saves/save.json";
-    public readonly string settingsPath = Application.dataPath + "/Saves/settings.json";
+    public static readonly string savePath = Application.dataPath + "/Saves/";
     public SaveData _data;
     public SettingsData _settingsData;
 
@@ -42,5 +41,14 @@ public class SaveLoadSystem : MonoBehaviour
         using StreamReader Reader = new(path);
         string saveFile = Reader.ReadToEnd();
         return saveFile;
+    }
+
+
+    public static void SaveTextureToFile(Texture2D texture, string path)
+    {
+        byte[] textureBytes = texture.EncodeToPNG();
+
+        // Saving to file
+        File.WriteAllBytes(path, textureBytes);
     }
 }

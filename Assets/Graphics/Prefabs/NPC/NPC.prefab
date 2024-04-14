@@ -607,7 +607,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentOrder:
     orderIndex: 0
-    _orderData: {fileID: 0}
     _NPCID: {fileID: 0}
     _card: {fileID: 0}
   _itemInteraction: {fileID: 0}

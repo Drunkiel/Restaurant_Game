@@ -6,7 +6,7 @@ using UnityEngine;
 public class NPCNamesData : ScriptableObject
 {
     [Header("Lists of NPC names")]
-    public List<string> names = new();
+    [SerializeField] private List<string> names = new();
 
     public string RandomName()
     {

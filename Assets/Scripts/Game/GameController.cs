@@ -15,17 +15,17 @@ public class GameController : SaveLoadSystem
     {
         try
         {
-            Load(savePath);
+            Load(savePath + "save.json");
         }
         catch (System.Exception)
         {
-            Save(savePath);
+            Save(savePath + "save.json");
         }
     }
 
     public override void Save(string path)
     {
-        path = savePath;
+        path = savePath + "save.json";
 
         //Here open file
         FileStream saveFile = new(path, FileMode.OpenOrCreate);
@@ -49,7 +49,7 @@ public class GameController : SaveLoadSystem
 
     public override void Load(string path)
     {
-        path = savePath;
+        path = savePath + "save.json";
 
         //Here load data from file
         string saveFile = ReadFromFile(path);
@@ -85,6 +85,12 @@ public class GameController : SaveLoadSystem
 
     private void StartNewDay()
     {
+        if (OrderController.instance._restaurantMenu.Count <= 0)
+        {
+            Debug.LogError("Restaurant menu is empty");
+            return;
+        }
+
         buttons.SetActive(false);
         _doorsAnimation.ChangeAnimation();
         _timeController.NewDay();
