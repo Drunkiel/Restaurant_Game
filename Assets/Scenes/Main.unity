@@ -58617,6 +58617,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2069839065201408862, guid: 75c926e4ada4dd046855cf5ac28756ec,
+        type: 3}
+      propertyPath: _NPCLookController
+      value: 
+      objectReference: {fileID: 5133103863925820115}
     - target: {fileID: 4600842325344581944, guid: 75c926e4ada4dd046855cf5ac28756ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58675,13 +58680,59 @@ PrefabInstance:
     - target: {fileID: 5013387229827404363, guid: 75c926e4ada4dd046855cf5ac28756ec,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5013387229827404363, guid: 75c926e4ada4dd046855cf5ac28756ec,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 5133103863925820115}
   m_SourcePrefab: {fileID: 100100000, guid: 75c926e4ada4dd046855cf5ac28756ec, type: 3}
+--- !u!1 &5133103863925820111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5013387229827404363, guid: 75c926e4ada4dd046855cf5ac28756ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 5133103863925820110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5133103863925820112 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 763898460297918766, guid: 75c926e4ada4dd046855cf5ac28756ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 5133103863925820110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5133103863925820113 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3920479092297757239, guid: 75c926e4ada4dd046855cf5ac28756ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 5133103863925820110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5133103863925820114 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6007230958294425108, guid: 75c926e4ada4dd046855cf5ac28756ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 5133103863925820110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5133103863925820115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133103863925820111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b202ac49d81d4543b3015e5c5f7e691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NPCLook: {fileID: 11400000, guid: 61f4a4a47df044d4d8a751501d8b9175, type: 2}
+  eyesRenderer: {fileID: 5133103863925820114}
+  hairRenderer: {fileID: 5133103863925820113}
+  bodyRenderer: {fileID: 5133103863925820112}
+  NPCMaterial: {fileID: 0}
+  NPCTexture: {fileID: 0}
 --- !u!65 &5138205823821461872
 BoxCollider:
   m_ObjectHideFlags: 0

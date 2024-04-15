@@ -18,4 +18,5 @@ MonoBehaviour:
   - {fileID: -3178576508544696699, guid: 8cc6ba95d966d98408733077ab6f3e22, type: 3}
   - {fileID: -3178576508544696699, guid: f6d6423cfcb5eb34e8ad9489af00b493, type: 3}
   - {fileID: -3178576508544696699, guid: e8be0090dfe731c47ae8070863cf5e68, type: 3}
+  NPCMaterial: {fileID: 2100000, guid: 47766f32e551efb4aa5ed14a7c830d41, type: 2}
   atlas: {fileID: 2800000, guid: 641dc34eb816ee64b84d5602c646fd49, type: 3}

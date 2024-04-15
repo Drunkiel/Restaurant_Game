@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,8 +13,8 @@ public class NPCController : MonoBehaviour
     public bool isMoving;
 
     [SerializeField] private NPCNamesData _NPCNames;
-    [SerializeField] private NPCLook _NPCLook;
-    [SerializeField] private SkinnedMeshRenderer hairMesh;
+    [SerializeField] private NPCLookController _NPCLookController;
+
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
 
@@ -24,7 +23,7 @@ public class NPCController : MonoBehaviour
         if (!isNPCNamed)
         {
             UpdateName();
-            UpdateLook();
+            _NPCLookController.UpdateLook();
             isNPCNamed = true;
         }
     }
@@ -59,26 +58,5 @@ public class NPCController : MonoBehaviour
         ItemID _itemID = GetComponent<ItemID>();
         _itemID.itemName = _NPCNames.RandomName();
         transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _itemID.itemName;
-    }
-
-    private void UpdateLook()
-    {
-        Mesh newHair = _NPCLook.RandomHair();
-
-        //Hair and shirt colors
-        List<Vector2Int> points = new() { new(6, 5), new(5, 5) };
-        _NPCLook.ChangeTexture(points, _NPCLook.GetRandomColor()); //X and Y [0 to 15]
-
-        //Eyes color
-        points = new() { new(2, 5) };
-        _NPCLook.ChangeTexture(points, _NPCLook.GetRandomColor()); //X and Y [0 to 15]
-
-        if (newHair == null)
-        {
-            hairMesh.gameObject.SetActive(false);
-            return;
-        }
-
-        hairMesh.sharedMesh = newHair; 
     }
 }
