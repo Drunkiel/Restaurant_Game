@@ -1,4 +1,5 @@
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour
@@ -13,7 +14,9 @@ public class NPCController : MonoBehaviour
     public bool isMoving;
 
     [SerializeField] private NPCNamesData _NPCNames;
-    [SerializeField] private NPCLookController _NPCLookController;
+    [SerializeField] private SkinnedMeshRenderer eyesRenderer;
+    [SerializeField] private SkinnedMeshRenderer hairRenderer;
+    [SerializeField] private SkinnedMeshRenderer bodyRenderer;
 
     [SerializeField] private Rigidbody rgBody;
     [SerializeField] private Animator anim;
@@ -23,7 +26,7 @@ public class NPCController : MonoBehaviour
         if (!isNPCNamed)
         {
             UpdateName();
-            _NPCLookController.UpdateLook();
+            UpdateLook();
             isNPCNamed = true;
         }
     }
@@ -58,5 +61,18 @@ public class NPCController : MonoBehaviour
         ItemID _itemID = GetComponent<ItemID>();
         _itemID.itemName = _NPCNames.RandomName();
         transform.GetChild(transform.childCount - 1).GetChild(0).GetComponent<TMP_Text>().text = _itemID.itemName;
+    }
+
+    private void UpdateLook()
+    {
+        NPCLookController _controller = NPCLookController.instance;
+
+        Mesh randomMesh = _controller.GetHairMesh();
+        Material randomMaterial = _controller.GetMaterial();
+
+        hairRenderer.sharedMesh = randomMesh;
+        eyesRenderer.sharedMaterial = randomMaterial;
+        hairRenderer.sharedMaterial = randomMaterial;
+        bodyRenderer.sharedMaterial = randomMaterial;
     }
 }

@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8454ddc07d718da4588d304e4f739284, type: 3}
   m_Name: NPCLook
   m_EditorClassIdentifier: 
+  eyesColors:
+  - serializedVersion: 2
+    rgba: 0
+  - serializedVersion: 2
+    rgba: 2631880
+  - serializedVersion: 2
+    rgba: 13117480
+  - serializedVersion: 2
+    rgba: 10496200
+  - serializedVersion: 2
+    rgba: 2672680
+  - serializedVersion: 2
+    rgba: 10537000
   hairMeshes:
   - {fileID: 0}
   - {fileID: -3178576508544696699, guid: 85b0b2e05394fc145a17df24c73d54b5, type: 3}

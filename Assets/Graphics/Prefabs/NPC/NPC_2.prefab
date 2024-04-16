@@ -2442,7 +2442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5013387229827404363}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.072, y: 0.026, z: -2.927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2522,8 +2522,9 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   isMoving: 0
   _NPCNames: {fileID: 11400000, guid: d9850b7118e7efc489bd85f0cbccb7b5, type: 2}
-  _NPCLook: {fileID: 11400000, guid: 61f4a4a47df044d4d8a751501d8b9175, type: 2}
-  hairMesh: {fileID: 3920479092297757239}
+  eyesRenderer: {fileID: 6007230958294425108}
+  hairRenderer: {fileID: 3920479092297757239}
+  bodyRenderer: {fileID: 763898460297918766}
   rgBody: {fileID: 2988601563080802279}
   anim: {fileID: 7966349348597997953}
 --- !u!95 &7966349348597997953
