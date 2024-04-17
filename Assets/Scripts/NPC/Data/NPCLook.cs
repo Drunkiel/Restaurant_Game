@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "NPC/Look data")]
 public class NPCLook : ScriptableObject
 {
-    [Header("Lists of NPC names")]
-    [SerializeField] private List<Color32> eyesColors = new();
+    [Header("NPC look")]
     [SerializeField] private List<Mesh> hairMeshes = new();
     public Material NPCMaterial;
     public Texture2D atlas;
@@ -29,12 +28,10 @@ public class NPCLook : ScriptableObject
         return randomColor;
     }
 
-    public Color32 AdjustBrightness(Color32 color)
+    public Color32 AdjustBrightness(Color32 color, float brightnessAdjustmentFactor = 0.5f)
     {
         // Calculating luminance L=0.299R + 0.587G + 0.114B
         float luminance = 0.299f * color.r + 0.587f * color.g + 0.114f * color.b;
-
-        float brightnessAdjustmentFactor = 0.5f;
 
         if (luminance > 128)
         {
@@ -60,6 +57,6 @@ public class NPCLook : ScriptableObject
 
     public Color32 GetEyesColor()
     {
-        return eyesColors[Random.Range(0, eyesColors.Count)];
+        return AdjustBrightness(GetRandomColor(), 0.8f);
     }
 }

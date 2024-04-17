@@ -17,7 +17,7 @@ public class OrderAction : MonoBehaviour
 
     public void MakeOrder()
     {
-        _patienceController.waitingSlider.maxValue = _patienceController.maxWaitingTime;
+        _patienceController.waitingSlider.maxValue = _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()];
         _patienceController.waitingSlider.gameObject.SetActive(true);
 
         OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
@@ -45,9 +45,14 @@ public class OrderAction : MonoBehaviour
         _progressController._moneyManager.AddMoney(_currentOrder._card._data.price);
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
         _itemInteraction.holdingItems[0].isPickable = true;
-
         _progressController._ordersManager.IncreaseFinishedOrdersCounter();
-        _progressController._ratingManager.currentRating += _ratingAction.GiveRating(_patienceController.waitingTime, _patienceController.maxWaitingTime);
+
+        _progressController._ratingManager.currentRating += 
+            _ratingAction.GiveRating(
+                _patienceController.waitingTime,
+                _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()]
+                );
+
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
@@ -66,7 +71,7 @@ public class OrderAction : MonoBehaviour
         _patienceController.waitingTime += Time.deltaTime;
         _patienceController.waitingSlider.value = Mathf.RoundToInt(_patienceController.waitingTime);
 
-        if (_patienceController.waitingTime > _patienceController.maxWaitingTime)
+        if (_patienceController.waitingTime > _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()])
             CancelOrder();
 
         if (_itemID != null && _itemID.itemID.Equals(_currentOrder._card._data._itemID.itemID))
@@ -82,7 +87,12 @@ public class OrderAction : MonoBehaviour
         SummaryController.instance.unSatisfiedCostomers += 1;
         Destroy(_currentOrder._card.gameObject);
         _patienceController.waitingSlider.gameObject.SetActive(false);
-        ProgressMetricController.instance._ratingManager.currentRating += _ratingAction.GiveRating(_patienceController.waitingTime, _patienceController.maxWaitingTime);
+
+        ProgressMetricController.instance._ratingManager.currentRating += 
+            _ratingAction.GiveRating(
+                _patienceController.waitingTime,
+                _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()]
+                );
         _actionController.SkipAction();
     }
 }

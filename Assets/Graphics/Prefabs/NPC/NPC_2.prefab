@@ -2866,7 +2866,7 @@ MonoBehaviour:
   _itemInteraction: {fileID: 0}
   _patienceController:
     waitingTime: 0
-    maxWaitingTime: 10
+    maxWaitingTime: 60
     waitingSlider: {fileID: 8658781409758142766}
 --- !u!114 &2205641634140626078
 MonoBehaviour:

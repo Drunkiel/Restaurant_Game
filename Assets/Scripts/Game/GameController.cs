@@ -93,6 +93,7 @@ public class GameController : SaveLoadSystem
 
         buttons.SetActive(false);
         _doorsAnimation.ChangeAnimation();
+        NPCLookController.instance.RandomizeTextures();
         _timeController.NewDay();
 
         Vector2 timeSpan = _spawnController.npcFirstSpawn[ProgressMetricController.instance._ratingManager.GetRating()];

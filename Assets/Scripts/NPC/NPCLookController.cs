@@ -17,15 +17,22 @@ public class NPCLookController : MonoBehaviour
 
     private void Start()
     {
+        RandomizeTextures();
+    }
+
+    public void RandomizeTextures()
+    {
         for (int i = 0; i < NPCMaterials.Count; i++)
         {
             //Hair and shirt colors
-            Color32 newColor = _NPCLook.GetRandomColor();
-            UpdateTexture(i, new() { new(6, 5) }, newColor); //X and Y [0 to 15]
-            UpdateTexture(i, new() { new(5, 5) }, _NPCLook.AdjustBrightness(newColor)); //X and Y [0 to 15]
+            Color32 hsColor = _NPCLook.GetRandomColor();
+            UpdateTexture(i, new() { new(6, 5) }, hsColor); //X and Y [0 to 15]
+            UpdateTexture(i, new() { new(5, 5) }, _NPCLook.AdjustBrightness(hsColor)); //X and Y [0 to 15]
 
-            //Eyes color
+            //Eyes and jacket color
+            Color32 jColor = _NPCLook.GetRandomColor();
             UpdateTexture(i, new() { new(2, 5) }, _NPCLook.GetEyesColor()); //X and Y [0 to 15]
+            UpdateTexture(i, new() { new(4, 5) }, _NPCLook.AdjustBrightness(jColor, 0.8f)); //X and Y [0 to 15]
         }
     }
 
