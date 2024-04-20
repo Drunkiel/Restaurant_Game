@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 10
   itemName: SeaUrchin
+  itemSprite: {fileID: 21300000, guid: c22a9394d2dfe8540ac4365af8b2f239, type: 3}
   isPickable: 1
   isStackable: 0
   heightPlacement: 0.1

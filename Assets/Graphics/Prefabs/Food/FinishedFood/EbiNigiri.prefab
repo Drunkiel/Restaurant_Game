@@ -98,11 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 25
   itemName: EbiNigiri
-  isStackable: 0
+  itemSprite: {fileID: 21300000, guid: 013a30b0388e60342a011a102125ed85, type: 3}
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.01
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &87238367852730751
 PrefabInstance:
   m_ObjectHideFlags: 0

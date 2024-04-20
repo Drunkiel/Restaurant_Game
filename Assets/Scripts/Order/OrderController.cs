@@ -39,7 +39,8 @@ public class OrderController : MonoBehaviour
         };
 
         _newOrder._card._data = _possibleOrders[Random.Range(0, _possibleOrders.Count)];
-        _newOrder._card.SetCardData(_newOrder._card._data.sprite, $"{_newOrder._card._data.price}$ - {_newOrder._NPCID.itemName}");
+        _newOrder._card.SetCardData(_newOrder._card._data._itemID.itemSprite, $"{_newOrder._card._data.price}$ - {_newOrder._NPCID.itemName}");
+        _newOrder._card.AssignButton(_newOrder._card._data._itemID);
         _orderAction._currentOrder = _newOrder;
         _ordersToDo.Add(_newOrder);
     }

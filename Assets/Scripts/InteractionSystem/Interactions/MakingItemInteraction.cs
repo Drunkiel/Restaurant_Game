@@ -63,11 +63,13 @@ public class MakingItemInteraction : MonoBehaviour
         _placeItem.holdingItems.Clear();
         _placeItem.holdingItems.Add(_neededItem);
         _placeItem.holdingItems[0]._dishItem.stackedItems.Clear();
+
         ItemHolder.instance.Pick(_itemID, _placeItem.holdingItems[0].transform, _placeItem.holdingItems.Count, false);
-        ItemID placedObject = _placeItem.holdingItems[0].transform.GetChild(_placeItem.holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
-        placedObject.transform.localPosition = new Vector3(0, _itemID.heightPlacement, 0);
-        _placeItem.holdingItems.Add(placedObject);
-        _placeItem.holdingItems[0]._dishItem.stackedItems.Add(placedObject);
+        ItemID _placedObject = _placeItem.holdingItems[0].transform.GetChild(_placeItem.holdingItems[0].transform.childCount - 1).GetComponent<ItemID>();
+        _placedObject.transform.localPosition = new Vector3(0, _itemID.heightPlacement, 0);
+
+        _placeItem.holdingItems.Add(_placedObject);
+        _placeItem.holdingItems[0]._dishItem.stackedItems.Add(_placedObject);
     }
 
     public void Check()
@@ -89,17 +91,17 @@ public class MakingItemInteraction : MonoBehaviour
             {
                 //Chopped
                 case 0:
-                    _recipeData = _recipesController._recipes.choppingRecipes[_recipe.indexOfRecipe];
+                    _recipeData = _recipesController._allRecipes.choppingRecipes[_recipe.indexOfRecipe];
                     break;
 
                 //Cooked
                 case 1:
-                    _recipeData = _recipesController._recipes.cookingRecipes[_recipe.indexOfRecipe];
+                    _recipeData = _recipesController._allRecipes.cookingRecipes[_recipe.indexOfRecipe];
                     break;
 
                 //Combined
                 case 2:
-                    _recipeData = _recipesController._recipes.combiningRecipes[_recipe.indexOfRecipe];
+                    _recipeData = _recipesController._allRecipes.combiningRecipes[_recipe.indexOfRecipe];
                     break;
             }
         }

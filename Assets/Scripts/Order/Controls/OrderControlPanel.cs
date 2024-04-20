@@ -19,8 +19,9 @@ public class OrderControlPanel : MonoBehaviour
             GameObject newPrefab = Instantiate(orderCardPrefab, ordersParent);
 
             OrderCard _orderCard = newPrefab.GetComponent<OrderCard>();
-            _orderCard.SetCardData(_orderData.sprite, _orderData._itemID.itemName);
             _orderCard._data = _orderData;
+            _orderCard.SetCardData(_orderData._itemID.itemSprite, _orderData._itemID.itemName);
+            _orderCard.AssignButton(_orderData._itemID);
 
             for (int j = 0; j < _orderController._restaurantMenu.Count; j++)
             {
@@ -36,7 +37,7 @@ public class OrderControlPanel : MonoBehaviour
     public void ManageData(OrderCard _orderCard)
     {
         UI.SetActive(true);
-        _displayController.UpdateDisplay(_orderCard._data.sprite, _orderCard._data._itemID.itemName);
+        _displayController.UpdateDisplay(_orderCard._data._itemID.itemSprite, _orderCard._data._itemID.itemName);
 
         _priceController._data = _orderCard._data;
         _priceController.SetData();

@@ -13,6 +13,9 @@ public class OrderAction : MonoBehaviour
     {
         _actionController = GetComponent<ActionController>();
         anim = GetComponent<Animator>();
+
+        //TO DELETE
+        OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
     }
 
     public void MakeOrder()

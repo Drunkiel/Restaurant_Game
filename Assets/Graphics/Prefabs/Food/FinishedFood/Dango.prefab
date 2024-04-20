@@ -98,11 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 24
   itemName: Dango
-  isStackable: 0
+  itemSprite: {fileID: 21300000, guid: d1adb89d387d9284aa68842b5e1c79e2, type: 3}
   isPickable: 1
+  isStackable: 0
   heightPlacement: 0.05
-  itemType: 0
-  stackedItems: []
+  _dishItem: {fileID: 0}
 --- !u!1001 &6469544152355599366
 PrefabInstance:
   m_ObjectHideFlags: 0

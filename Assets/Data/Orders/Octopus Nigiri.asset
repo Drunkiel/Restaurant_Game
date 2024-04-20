@@ -17,3 +17,4 @@ MonoBehaviour:
   maxPrice: 10
   sprite: {fileID: 21300000, guid: 38771b050fe609a409a4c77e9a76e559, type: 3}
   _itemID: {fileID: 4279906165597902028, guid: cce3f6c7370dcd64498a98d279bc2f89, type: 3}
+  _recipeData: {fileID: 11400000, guid: 4446a9da516adb34bb9729a9df42a07a, type: 2}
