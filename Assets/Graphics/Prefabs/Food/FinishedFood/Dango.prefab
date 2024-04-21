@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 24
   itemName: Dango
-  itemSprite: {fileID: 21300000, guid: d1adb89d387d9284aa68842b5e1c79e2, type: 3}
+  itemSprite: {fileID: 21300000, guid: 4bf16d18f0f864b4a851b2b256e172c5, type: 3}
   isPickable: 1
   isStackable: 0
   heightPlacement: 0.05

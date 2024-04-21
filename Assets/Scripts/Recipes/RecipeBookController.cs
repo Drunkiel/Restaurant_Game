@@ -6,6 +6,7 @@ public class RecipeBookController : MonoBehaviour
     public static RecipeBookController instance;
 
     public List<OrderCard> _orderCards;
+    [SerializeField] private GameObject bookUI;
 
     private void Awake()
     {
@@ -14,11 +15,12 @@ public class RecipeBookController : MonoBehaviour
 
     public void PickRecipe(ItemID _itemID)
     {
-        print(_itemID.itemName);
         RecipeData _recipeData = RecipesController.instance.FindRecipeByItem(_itemID);
 
         if (_recipeData == null)
             return;
+
+        bookUI.SetActive(true);
 
         for (int i = 0; i < _orderCards.Count - 1; i++)
         {
@@ -32,9 +34,11 @@ public class RecipeBookController : MonoBehaviour
                 ItemID _requiredItem = _recipeData.requiredItems[i];
                 _orderCards[i].SetCardData(_requiredItem.itemSprite, _requiredItem.itemName);
                 _orderCards[i].button.interactable = true;
-                _orderCards[i].AssignButton(_itemID);
+                _orderCards[i].AssignButton(_requiredItem);
             }
         }
-        //Add result item to be seen
+
+        ItemID _resultItem = _recipeData.resultItem;
+        _orderCards[^1].SetCardData(_resultItem.itemSprite, _resultItem.itemName);
     }
 }

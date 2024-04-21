@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 36
   itemName: SeaUrchinRoll
-  itemSprite: {fileID: 21300000, guid: f27ffd4f4329af746b663bd94fdaf458, type: 3}
+  itemSprite: {fileID: 21300000, guid: d625210c03ef5db4391287bc5e43d5dd, type: 3}
   isPickable: 1
   isStackable: 0
   heightPlacement: 0.05

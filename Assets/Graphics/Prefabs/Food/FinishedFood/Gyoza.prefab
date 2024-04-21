@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 26
   itemName: Gyoza
-  itemSprite: {fileID: 21300000, guid: 56bffd2e470a8b74b910ab39b7a74479, type: 3}
+  itemSprite: {fileID: 21300000, guid: aa9ddc354fbd9c540ba84d125bc3b731, type: 3}
   isPickable: 1
   isStackable: 0
   heightPlacement: 0.02

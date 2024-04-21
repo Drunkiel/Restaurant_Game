@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 9
   itemName: SalmonFish
-  itemSprite: {fileID: 21300000, guid: 404a8d80f102d4c44b89132a90c432f4, type: 3}
+  itemSprite: {fileID: 21300000, guid: 941cbf037f5600445a2c478cba9bc6d6, type: 3}
   isPickable: 1
   isStackable: 0
   heightPlacement: 0.04
