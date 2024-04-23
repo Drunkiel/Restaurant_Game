@@ -5,11 +5,13 @@ public class GameController : SaveLoadSystem
 {
     public static bool isGamePaused;
     public static bool isGameStarted;
+    [SerializeField] private bool isMenu;
 
     [SerializeField] private GameObject buttons;
     [SerializeField] private AnimationInteraction _doorsAnimation;
     [SerializeField] private TimeController _timeController;
     [SerializeField] private NPCSpawnController _spawnController;
+    public static bool isDataLoaded;
 
     private void Awake()
     {
@@ -25,6 +27,9 @@ public class GameController : SaveLoadSystem
 
     public override void Save(string path)
     {
+        if (isMenu)
+            return;
+
         path = savePath + "save.json";
 
         //Here open file
@@ -54,6 +59,10 @@ public class GameController : SaveLoadSystem
         //Here load data from file
         string saveFile = ReadFromFile(path);
         JsonUtility.FromJsonOverwrite(saveFile, _data);
+        isDataLoaded = true;
+
+        if (isMenu)
+            return;
 
         //Here override game data
         ProgressMetricController _progress = ProgressMetricController.instance;

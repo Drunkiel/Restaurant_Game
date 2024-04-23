@@ -5,6 +5,18 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject[] UIs;
+    [SerializeField] private GameObject continueBTN;
+
+    private void Start()
+    {
+        if (continueBTN == null)
+            return;
+
+        if (GameController.isDataLoaded)
+            continueBTN.SetActive(true);
+        else
+            continueBTN.SetActive(false);
+    }
 
     void Update()
     {
