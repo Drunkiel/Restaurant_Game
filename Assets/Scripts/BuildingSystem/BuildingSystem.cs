@@ -27,17 +27,31 @@ public class BuildingSystem : MonoBehaviour
         if (!_objectToPlace) return;
 
         ChangeMaterial(CanBePlaced());
-        if (Input.GetKeyDown(KeyCode.Q)) _objectToPlace.Rotate(90);
-        if (Input.GetKeyDown(KeyCode.E)) _objectToPlace.Rotate(-90);
+        if (Input.GetKeyDown(KeyCode.Q)) 
+            _objectToPlace.Rotate(90);
 
-        if (Input.GetKey(KeyCode.Space)) _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
+        if (Input.GetKeyDown(KeyCode.E)) 
+            _objectToPlace.Rotate(-90);
+
+        if (Input.GetKey(KeyCode.Space)) 
+            _objectToPlace.transform.position = SnapCoordinateToGrid(GetMouseWorldPosition());
+    }
+
+    public void BuildingManager()
+    {
+        inBuildingMode = !inBuildingMode;
+        buildingUI.SetActive(inBuildingMode);
+
+        CameraController.instance.ChangeCameraTarget(inBuildingMode ? 1 : 0);
     }
 
     public static Vector3 GetMouseWorldPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return hit.point;
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) 
+            return hit.point;
+
         return Vector3.zero;
     }
 
@@ -84,7 +98,8 @@ public class BuildingSystem : MonoBehaviour
         //Adding new listeners
         UI.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => PlaceButton());
 
-        if (destroy) UI.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { Destroy(_objectToPlace.gameObject); UI.SetActive(false); inBuildingMode = false; });
+        if (destroy) 
+            UI.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => { Destroy(_objectToPlace.gameObject); UI.SetActive(false); inBuildingMode = false; });
         else
         {
             Vector3 oldPosition = _objectToPlace.transform.position;
@@ -94,15 +109,20 @@ public class BuildingSystem : MonoBehaviour
 
     public void PlaceButton()
     {
-        if (CanBePlaced()) _objectToPlace.Place();
-        else Destroy(_objectToPlace.gameObject);
+        if (CanBePlaced()) 
+            _objectToPlace.Place();
+        else
+            Destroy(_objectToPlace.gameObject);
+
         UI.SetActive(false);
         inBuildingMode = false;
     }
 
     private bool CanBePlaced()
     {
-        if (_objectToPlace == null) return false;
+        if (_objectToPlace == null) 
+            return false;
+
         return _objectToPlace.transform.GetComponent<MultiTriggerController>().isTriggered;
     }
 

@@ -8,16 +8,15 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private Transform[] targets;
     [HideInInspector] public int currentTarget = 0;
-    public int state;
+    public int playerState;
+    public int cameraState;
     [SerializeField] private List<Vector3> cameraToPlayer = new();
     [SerializeField] private List<Vector3> cameraToMap = new();
-    private Transform player;
 
     [SerializeField] private CinemachineVirtualCamera _camera;
 
     private void Awake()
     {
-        player = ProgressMetricController.instance.transform;
         instance = this;
     }
 
@@ -25,12 +24,13 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             ChangeState(currentTarget);
+
         UpdateCameraPosition();
     }
 
     public void UpdateCameraPosition()
     {
-        _camera.transform.position = player.position + cameraToPlayer[state];
+        _camera.transform.position = targets[currentTarget].position + cameraToPlayer[currentTarget == 0 ? playerState : cameraState];
     }
 
     public void ChangeCameraTarget(int i)
@@ -42,7 +42,8 @@ public class CameraController : MonoBehaviour
         }
 
         currentTarget = i;
-        ChangeState(currentTarget);
+        ChangeState(currentTarget + 1);
+
         _camera.m_LookAt = targets[currentTarget];
     }
 
@@ -51,15 +52,15 @@ public class CameraController : MonoBehaviour
         switch (i)
         {
             case 0:
-                state += 1;
-                if (state >= cameraToPlayer.Count) state = 0;
-                UpdateCameraPosition();
+                playerState++;
+                if (playerState >= cameraToPlayer.Count)
+                    playerState = 0;
                 break;
 
             case 1:
-                state += 1;
-                if (state >= cameraToMap.Count) state = 0;
-                UpdateCameraPosition();
+                cameraState++;
+                if (cameraState >= cameraToMap.Count)
+                    cameraState = 0;
                 break;
         }
 

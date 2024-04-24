@@ -37,7 +37,7 @@ public class RestaurantManager : MonoBehaviour
 
     public void ChangeWallsVisibility()
     {
-        switch (CameraController.instance.state)
+        switch (CameraController.instance.playerState)
         {
             case 0:
                 SetWallMaterial(frontWalls, 1);

@@ -25,19 +25,15 @@ public class PlayerController : MonoBehaviour
     {
         //Movement control and animations
         anim.SetBool("isMaking", InteractionSystem.isInteracting);
-        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) return;
+        if (InteractionSystem.isInteracting || BuildingSystem.inBuildingMode) 
+            return;
 
         isMoving = movement.magnitude > 0.1f;
         anim.SetFloat("Movement", movement.magnitude);
         anim.SetBool("isHolding", _itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem);
 
         if (isMoving)
-        {
-            //Move camera
-            //CameraController.instance.UpdateCameraPosition();
-
             particle.Play();
-        }
 
         if (rgBody.velocity.magnitude > maxSpeed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, maxSpeed);
@@ -71,7 +67,7 @@ public class PlayerController : MonoBehaviour
         switch (CameraController.instance.currentTarget)
         {
             case 0:
-                switch (CameraController.instance.state)
+                switch (CameraController.instance.playerState)
                 {
                     case 0:
                         movement = inputValue;

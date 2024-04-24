@@ -33,9 +33,9 @@ public class TimeController : MonoBehaviour
         seconds += Time.fixedDeltaTime;
 
         //Minutes
-        if (seconds >= 2)
+        if (seconds >= 1.5f)
         {
-            minutes += 10;
+            minutes += 1;
             seconds = 0;
         }
 
@@ -85,8 +85,19 @@ public class TimeController : MonoBehaviour
             return (hours % 12 == 0) ? 12 : hours % 12;
         }
 
+        string GetMinute()
+        {
+            if (minutes == 0)
+                return "00";
+
+            if (minutes < 10)
+                return "0" + minutes;
+
+            return minutes.ToString();
+        }
+
         string newTime;
-        newTime = $"{GetHour()}:{(minutes == 0 ? "00" : minutes.ToString())} {GetMeridiem()}";
+        newTime = $"{GetHour()}:{GetMinute()} {GetMeridiem()}";
 
         clockText.text = newTime;
     }
