@@ -7,7 +7,7 @@ public class RatingManager
     [SerializeField] private int ratingLevel;
     public int currentRating;
 
-    private readonly List<int> ratingForLevel = new() { 20, 40, 60, 80, 100 };
+    private readonly List<int> ratingForLevel = new() { 0, 20, 40, 60, 80, 100 };
     public readonly List<int> ratingPoints = new() { 8, 5, 2, 0, -5 };
 
     public int GetRating()
@@ -23,9 +23,9 @@ public class RatingManager
         for (int i = 0; i < ratingForLevel.Count; i++)
         {
             if (currentRating >= ratingForLevel[i])
-                ratingLevel = i + 1;
+                ratingLevel = i;
             else
-                return;
+                break;
         }
     }
 }
