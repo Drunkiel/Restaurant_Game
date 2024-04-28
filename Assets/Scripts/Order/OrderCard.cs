@@ -9,6 +9,7 @@ public class OrderCard : MonoBehaviour
     [SerializeField] private Image image;
     public Image equippedImage;
     [SerializeField] private TMP_Text nameText;
+    public bool showRecipe = true;
     public Button button;
 
     public void SetCardData(Sprite sprite, string text)

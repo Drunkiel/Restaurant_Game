@@ -13,7 +13,7 @@ public class SettingsController : SaveLoadSystem
     public TMP_InputField fpsInput;
     public Toggle vSyncToggle;
     public TMP_Dropdown qualityDropdown;
-    public Slider volumeSlider;
+    public VolumeController _volumeController;
 
     private readonly List<Vector2Int> resolutions = new() { new(3840, 2160), new(2560, 1440), new(1920, 1080), new(1280, 720) };
 
@@ -39,13 +39,16 @@ public class SettingsController : SaveLoadSystem
         FileStream saveFile = new(path, FileMode.OpenOrCreate);
 
         //Overrite data to save
-        //PLAYER SETTINGS
+        //Save graphics data
         _settingsData.resolutionIndex = resolutionDropdown.value;
         _settingsData.fullscreenOn = fullscreenToggle.isOn;
         _settingsData.maxFPS = int.Parse(fpsInput.text);
         _settingsData.vSync = vSyncToggle.isOn;
         _settingsData.qualityIndex = qualityDropdown.value;
-        _settingsData.volume = volumeSlider.value;
+
+        //Save volume data
+        _settingsData.backgroundVolume = _volumeController.backgroundVolumeSlider.value;
+        _settingsData.effectsVolume = _volumeController.effectsVolumeSlider.value;
 
         //Saving data
         string jsonData = JsonUtility.ToJson(_settingsData, true);
@@ -62,13 +65,17 @@ public class SettingsController : SaveLoadSystem
         string saveFile = ReadFromFile(path);
         JsonUtility.FromJsonOverwrite(saveFile, _settingsData);
 
-        //LOAD SETTINGS
+        //Load graphics data
         resolutionDropdown.value = _settingsData.resolutionIndex;
         fullscreenToggle.isOn = _settingsData.fullscreenOn;
         fpsInput.text = _settingsData.maxFPS.ToString();
         vSyncToggle.isOn = _settingsData.vSync;
         qualityDropdown.value = _settingsData.qualityIndex;
-        volumeSlider.value = _settingsData.volume;
+
+        //Load volume data
+        _volumeController.backgroundVolumeSlider.value = _settingsData.backgroundVolume;
+        _volumeController.UpdateBackgroundVolume();
+        _volumeController.effectsVolumeSlider.value = _settingsData.effectsVolume;
     }
 
     public void UpdateQuality()

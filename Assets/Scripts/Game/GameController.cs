@@ -67,13 +67,17 @@ public class GameController : SaveLoadSystem
         //Here override game data
         ProgressMetricController _progress = ProgressMetricController.instance;
         OrderController _orderController = OrderController.instance;
-
+        
+        //Load money
         _progress._moneyManager.RemoveMoney(_progress._moneyManager.GetAmount(), false);
-        _progress._moneyManager.AddMoney(_data.money);
+        _progress._moneyManager.AddMoney(_data.money, false);
+
+        //Load restaurant rating
         _progress._ratingManager.currentRating = _data.currentRating;
         _progress._ratingManager.UpdateRating();
-        _progress._ordersManager.finishedOrders = _data.finishedOrders;
 
+        //Load other informations
+        _progress._ordersManager.finishedOrders = _data.finishedOrders;
         _orderController._restaurantMenu = _data.restaurantMenu;
         _orderController._restaurantMenu.Sort();
     }

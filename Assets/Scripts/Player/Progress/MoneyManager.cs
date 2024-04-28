@@ -34,16 +34,28 @@ public class MoneyManager
         money += amount;
         moneyText.text = money + "$";
 
-        int a()
+        if (!show)
+            return;
+
+        int GetValue()
         {
             if (amount > 0) return 0;
             else return 1;
         }
 
-        if (!show)
-            return;
+        int value = GetValue();
 
-        popUps[a()].text = amount + "$";
-        popUps[a()].GetComponent<Animator>().Play("MoneyText");
+        string GetSign()
+        {
+            return value switch
+            {
+                0 => "+",
+                1 => "-",
+                _ => "",
+            };
+        }
+
+        popUps[value].text = GetSign() + amount + "$";
+        popUps[value].GetComponent<Animator>().Play("MoneyText");
     }
 }

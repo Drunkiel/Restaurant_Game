@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem particle;
 
+    private AudioSource moveSoundSource;
     private ItemHolder _itemHolder;
 
     private void Start()
     {
         _itemHolder = ItemHolder.instance;
+        moveSoundSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,7 +35,12 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isHolding", _itemHolder.isHoldingItem || _itemHolder.isHoldingStackableItem);
 
         if (isMoving)
+        {
             particle.Play();
+            //moveSoundSource.enabled = true;
+        }
+/*        else
+            moveSoundSource.enabled = false;*/
 
         if (rgBody.velocity.magnitude > maxSpeed)
             rgBody.velocity = Vector3.ClampMagnitude(rgBody.velocity, maxSpeed);

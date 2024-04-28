@@ -57,6 +57,7 @@ MonoBehaviour:
   image: {fileID: 5297692511893395163}
   equippedImage: {fileID: 9137401597261342796}
   nameText: {fileID: 2386158767548241693}
+  showRecipe: 0
   button: {fileID: 1564998534448276474}
 --- !u!1 &3850969140180595932
 GameObject:

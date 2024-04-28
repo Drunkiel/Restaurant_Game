@@ -6,5 +6,6 @@ public class SettingsData
     public int maxFPS = 60;
     public bool vSync = true;
     public int qualityIndex = 2;
-    public float volume = 100;
+    public float backgroundVolume = 100;
+    public float effectsVolume = 100;
 }

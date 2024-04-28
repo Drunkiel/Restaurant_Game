@@ -21,7 +21,9 @@ public class OrderControlPanel : MonoBehaviour
             OrderCard _orderCard = newPrefab.GetComponent<OrderCard>();
             _orderCard._data = _orderData;
             _orderCard.SetCardData(_orderData._itemID.itemSprite, _orderData._itemID.itemName);
-            _orderCard.AssignButton(_orderData._itemID);
+
+            if (_orderCard.showRecipe)
+                _orderCard.AssignButton(_orderData._itemID);
 
             for (int j = 0; j < _orderController._restaurantMenu.Count; j++)
             {

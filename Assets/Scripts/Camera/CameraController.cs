@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
 
     [SerializeField] private Transform[] targets;
-    [HideInInspector] public int currentTarget = 0;
+    public int currentTarget = 0;
     public int playerState;
     public int cameraState;
     [SerializeField] private List<Vector3> cameraToPlayer = new();
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
 
     public void UpdateCameraPosition()
     {
-        _camera.transform.position = targets[currentTarget].position + cameraToPlayer[currentTarget == 0 ? playerState : cameraState];
+        _camera.transform.position = targets[currentTarget].position + (currentTarget == 0 ? cameraToPlayer[playerState] : cameraToMap[cameraState]);
     }
 
     public void ChangeCameraTarget(int i)
