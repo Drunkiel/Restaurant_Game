@@ -53,13 +53,14 @@ public class OrderAction : MonoBehaviour
                 _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()]
                 );
 
+        _itemInteraction.holdingItems[0]._dishItem.ChangeDirtyState(true);
         Destroy(_currentOrder._card.gameObject);
         _actionController.EndAction();
     }
 
     private void DestroyFood()
     {
-        ItemID _itemID = _itemInteraction.HoldingItem();
+        ItemID _itemID = _itemInteraction.GetHoldingItem();
         _itemInteraction.holdingItems.RemoveAt(_itemInteraction.holdingItems.Count - 1);
         _itemInteraction.holdingItems[0].GetComponent<DishItem>().stackedItems.Clear();
         Destroy(_itemID.gameObject);
@@ -67,14 +68,15 @@ public class OrderAction : MonoBehaviour
 
     public void CheckForOrder()
     {
-        ItemID _itemID = _itemInteraction.HoldingItem();
+        ItemID _itemID = _itemInteraction.GetHoldingItem();
+        ItemID _dishItemID = _itemInteraction.GetDishItem();
         _patienceController.waitingTime += Time.deltaTime;
         _patienceController.waitingSlider.value = Mathf.RoundToInt(_patienceController.waitingTime);
 
         if (_patienceController.waitingTime > _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()])
             CancelOrder();
 
-        if (_itemID != null && _itemID.itemID.Equals(_currentOrder._card._data._itemID.itemID))
+        if (_itemID != null && !_dishItemID._dishItem.isDirty && _itemID.itemID.Equals(_currentOrder._card._data._itemID.itemID))
         {
             _patienceController.waitingSlider.gameObject.SetActive(false);
             _actionController.EndAction();

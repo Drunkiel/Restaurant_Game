@@ -55,7 +55,7 @@ public class MoneyManager
             };
         }
 
-        popUps[value].text = GetSign() + amount + "$";
+        popUps[value].text = GetSign() + Mathf.Abs(amount) + "$";
         popUps[value].GetComponent<Animator>().Play("MoneyText");
     }
 }

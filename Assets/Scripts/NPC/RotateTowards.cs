@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class RotateTowards : MonoBehaviour
 {
-    private void Update()
+    private void FixedUpdate()
     {
-        RotateTowardsPlayer();
+        RotateTowardsCamera();
     }
 
-    private void RotateTowardsPlayer()
+    private void RotateTowardsCamera()
     {
-        Vector3 directionToPlayer = Vector3.RotateTowards(transform.localPosition, Camera.main.transform.position, 360, 0);
+        Vector3 directionToCamera = Camera.main.transform.position - transform.position;
 
-        Quaternion rotationToPlayer = Quaternion.LookRotation(-directionToPlayer, Vector3.up);
-        transform.rotation = rotationToPlayer;
+        Quaternion rotationToCamera = Quaternion.LookRotation(-directionToCamera);
+        transform.rotation = rotationToCamera;
     }
 }

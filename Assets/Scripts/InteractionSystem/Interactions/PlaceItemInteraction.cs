@@ -121,11 +121,19 @@ public class PlaceItemInteraction : MonoBehaviour
         isHoldingStackableItem = false;
     }
 
-    public ItemID HoldingItem()
+    public ItemID GetHoldingItem()
     {
         if (holdingItems.Count < 2) 
             return null;
 
         return holdingItems[1];
+    }
+
+    public ItemID GetDishItem()
+    {
+        if (holdingItems.Count < 1)
+            return null;
+
+        return holdingItems[0];
     }
 }

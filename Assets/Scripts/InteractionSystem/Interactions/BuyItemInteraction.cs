@@ -16,6 +16,11 @@ public class BuyItemInteraction : MonoBehaviour
     {
         MoneyManager _moneyManager = ProgressMetricController.instance._moneyManager;
 
+        //Checks if player can buy more
+        if (!_itemInteraction.CanPickItem())
+            return;
+
+        //Checks if player has enough money
         if (_moneyManager.GetAmount() >= price)
         {
             _itemInteraction.PickItem();

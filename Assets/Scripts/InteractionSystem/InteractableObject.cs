@@ -11,6 +11,7 @@ public class InteractableObject : MonoBehaviour
 
     private MultiTriggerController _triggerController;
     [SerializeField] private InputActionAsset inputActions;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -18,6 +19,9 @@ public class InteractableObject : MonoBehaviour
 
         if (TryGetComponent(out PlayerInput _input))
             _input.actions = inputActions;
+
+        if (TryGetComponent(out AudioSource _audio))
+            audioSource = _audio;
     }
 
     private void Update()
@@ -29,17 +33,27 @@ public class InteractableObject : MonoBehaviour
 
     public void Click(InputAction.CallbackContext context)
     {
-        if (isPlayerNearby && context.performed) StartOnClickInteraction();
+        if (onClickFunctionalities.GetPersistentEventCount() > 0 && isPlayerNearby && context.performed)
+        {
+            StartOnClickInteraction();
+
+            if (audioSource != null)
+                audioSource.Play();
+            else
+                Debug.LogError(transform.parent.name + ": does not have Audio Source");
+        }
     }
 
     public void Hold(InputAction.CallbackContext context)
     {
-        if (isPlayerNearby && context.performed) StartOnHoldInteraction();
+        if (isPlayerNearby && context.performed) 
+            StartOnHoldInteraction();
     }
 
     public void End(InputAction.CallbackContext context)
     {
-        if (isPlayerNearby && context.canceled) StartOnEndInteraction();
+        if (isPlayerNearby && context.canceled) 
+            StartOnEndInteraction();
     }
 
     private void StartOnClickInteraction()

@@ -26,7 +26,8 @@ public class MakingItemInteraction : MonoBehaviour
 
     private void MakeManually(bool startInteraction)
     {
-        if (startInteraction) InteractionSystem.isInteracting = true;
+        if (startInteraction) 
+            InteractionSystem.isInteracting = true;
 
         progressSlider.maxValue = _recipeData.timeToMake;
         StartCoroutine(nameof(Wait));
@@ -49,7 +50,8 @@ public class MakingItemInteraction : MonoBehaviour
 
     private void FinishProcess()
     {
-        if (InteractionSystem.isInteracting) InteractionSystem.isInteracting = false;
+        if (InteractionSystem.isInteracting) 
+            InteractionSystem.isInteracting = false;
 
         ReplaceHoldingItem(_recipeData.resultItem);
     }

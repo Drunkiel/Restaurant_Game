@@ -8,7 +8,7 @@ public class ItemHolder : MonoBehaviour
 
     public bool isHoldingItem;
     public bool isHoldingStackableItem;
-    private static readonly int maxItemsStack = 5;
+    public static readonly int maxItemsStack = 5;
 
     public ItemID holdingItem;
     public List<ItemID> holdingStackableItems = new();
@@ -26,42 +26,23 @@ public class ItemHolder : MonoBehaviour
 
     public void PickItem(ItemID _itemID, bool destroy = true)
     {
-        if (holdingStackableItems.Count >= maxItemsStack) return;
-        if (!_itemID.isPickable) return;
-        if (!_itemID.isStackable)
-        {
-            //Holding single item
-            if (!isHoldingItem)
-            {
-                //Checks if is holding stackable item like plate to add it to it
-                if (isHoldingStackableItem)
-                {
-                    //Checks if stacking the same type
-                    if (!CheckIfTheSameItem(_itemID)) return;
+        //Check if can be picked
+        if (!_itemID.isPickable)
+            return;
 
-                    Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
-                    holdingStackableItems.Add(lastPickedObject);
-                    holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
-                    if (destroy) Destroy(_itemID.gameObject);
-                    return;
-                }
-                else if (holdingStackableItems.Count <= 1) //if not just pick it
-                {
-                    Pick(_itemID, itemPlaceTransform, holdingStackableItems.Count);
-                    holdingItem = lastPickedObject;
-                    isHoldingItem = true;
-                    if (destroy) Destroy(_itemID.gameObject);
-                    return;
-                }
-            }
-        }
-        else
+        //Check if reached max capacity
+        if (holdingStackableItems.Count >= maxItemsStack)
+            return;
+
+        //Check if item is stackable
+        if (_itemID.isStackable)
         {
-            //Checks if holding stackable item to add it to it
+            //Checking if is holding stackable item
             if (isHoldingStackableItem)
             {
                 //Checks if stacking the same item type
-                if (!CheckIfTheSameItem(_itemID)) return;
+                if (!CheckIfTheSameItem(_itemID))
+                    return;
 
                 Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                 holdingStackableItems.Add(lastPickedObject);
@@ -75,44 +56,75 @@ public class ItemHolder : MonoBehaviour
                 }
 
                 isHoldingStackableItem = true;
-                if (destroy) Destroy(_itemID.gameObject);
+                if (destroy)
+                    Destroy(_itemID.gameObject);
                 return;
             }
-            else
+
+            //Checking if is holding a non stacking item
+            if (isHoldingItem)
             {
-                //Checking if is holding no stackable item then recreates it 
-                if (isHoldingItem)
-                {
-                    if (_itemID._dishItem.stackedItems.Count >= maxItemsStack - 1) return;
-
-                    //Spawn stackable item
-                    Pick(_itemID, holderTransform, holdingStackableItems.Count);
-                    holdingStackableItems.Add(lastPickedObject);
-                    if (destroy) Destroy(_itemID.gameObject);
-                    isHoldingStackableItem = true;
-
-                    //Then recreate holding item and reset position
-                    holdingItem.transform.localScale = Vector3.one;
-                    Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
-                    holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
-                    holdingStackableItems.AddRange(holdingStackableItems[0]._dishItem.stackedItems);
-                    lastPickedObject.transform.localPosition = new Vector3(
-                        0,
-                        holdingStackableItems[^1].transform.localPosition.y,
-                        0);
-                    Destroy(holdingItem.gameObject);
-                    isHoldingItem = false;
+                if (_itemID._dishItem.stackedItems.Count >= maxItemsStack - 1)
                     return;
-                }
-                else //if not just pick item
-                {
-                    Pick(_itemID, holderTransform, holdingStackableItems.Count);
-                    holdingStackableItems.Add(lastPickedObject);
-                    holdingStackableItems.AddRange(lastPickedObject._dishItem.stackedItems);
-                    isHoldingStackableItem = true;
-                    if (destroy) Destroy(_itemID.gameObject);
+
+                //Spawn stackable item
+                Pick(_itemID, holderTransform, holdingStackableItems.Count);
+                holdingStackableItems.Add(lastPickedObject);
+                if (destroy)
+                    Destroy(_itemID.gameObject);
+                isHoldingStackableItem = true;
+
+                //Then recreate holding item and reset position
+                holdingItem.transform.localScale = Vector3.one;
+                Pick(holdingItem, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
+                holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
+                holdingStackableItems.AddRange(holdingStackableItems[0]._dishItem.stackedItems);
+                lastPickedObject.transform.localPosition = new Vector3(
+                    0,
+                    holdingStackableItems[^1].transform.localPosition.y,
+                    0);
+                Destroy(holdingItem.gameObject);
+                isHoldingItem = false;
+                return;
+            }
+
+            //If dont hold anything, pick it
+            Pick(_itemID, holderTransform, holdingStackableItems.Count);
+            holdingStackableItems.Add(lastPickedObject);
+            holdingStackableItems.AddRange(lastPickedObject._dishItem.stackedItems);
+            isHoldingStackableItem = true;
+            if (destroy)
+                Destroy(_itemID.gameObject);
+            return;
+        }
+        else //If item is not stackable
+        {
+            //If holds a not stackable item: stop script
+            if (isHoldingItem)
+                return;
+
+            //Checks if is holding stackable item like plate to add it to it
+            if (isHoldingStackableItem)
+            {
+                //Checks if stacking the same type
+                if (!CheckIfTheSameItem(_itemID))
                     return;
-                }
+
+                Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
+                holdingStackableItems.Add(lastPickedObject);
+                holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
+                if (destroy)
+                    Destroy(_itemID.gameObject);
+                return;
+            }
+            else if (holdingStackableItems.Count <= 1) //if not just pick it
+            {
+                Pick(_itemID, itemPlaceTransform, holdingStackableItems.Count);
+                holdingItem = lastPickedObject;
+                isHoldingItem = true;
+                if (destroy)
+                    Destroy(_itemID.gameObject);
+                return;
             }
         }
     }
@@ -124,7 +136,8 @@ public class ItemHolder : MonoBehaviour
         newItem.transform.SetLocalPositionAndRotation(new Vector3(0, _itemID.heightPlacement * multiplier, 0), _itemID.transform.rotation);
         newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newItem.name = _itemID.gameObject.name;
-        if (deactivateInteractions) newItem.transform.GetChild(1).gameObject.SetActive(false);
+        if (deactivateInteractions)
+            newItem.transform.GetChild(1).gameObject.SetActive(false);
         lastPickedObject = newItem.GetComponent<ItemID>();
     }
 
@@ -146,7 +159,8 @@ public class ItemHolder : MonoBehaviour
 
             //Unfreezing position
             newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            if (freezeRotation) newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            if (freezeRotation)
+                newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
             canDrop = false;
             Invoke(nameof(ResetDrop), 1f);
