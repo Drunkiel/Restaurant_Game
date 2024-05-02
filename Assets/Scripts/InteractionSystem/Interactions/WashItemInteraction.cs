@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WashItemInteraction : MonoBehaviour
 {
     public GameObject hint;
+    public GameObject foamParticle;
     private Slider progressSlider;
     public PlaceItemInteraction _placeItem;
 
@@ -15,6 +16,8 @@ public class WashItemInteraction : MonoBehaviour
 
     public void Check()
     {
+        progressSlider.value = 0;
+
         //Checks if there is more than one item
         if (_placeItem.holdingItems.Count <= 0)
             return;
@@ -41,7 +44,7 @@ public class WashItemInteraction : MonoBehaviour
         InteractionSystem.isInteracting = true;
 
         progressSlider.maxValue = 8;
-        progressSlider.value = 0;
+        foamParticle.SetActive(true);
         StartCoroutine(nameof(Wait));
     }
 
@@ -55,6 +58,7 @@ public class WashItemInteraction : MonoBehaviour
             if (progressSlider.value >= progressSlider.maxValue)
             {
                 _placeItem.holdingItems[0]._dishItem.ChangeDirtyState(false);
+                foamParticle.SetActive(false);
                 InteractionSystem.isInteracting = false;
                 Check();
             }

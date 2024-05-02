@@ -6,6 +6,7 @@ public class MakingItemInteraction : MonoBehaviour
 {
     public MakingProcess makingProcess;
     public GameObject hint;
+    public GameObject dustParticle;
     private Slider progressSlider;
     public PlaceItemInteraction _placeItem;
     private Recipe _recipe;
@@ -30,6 +31,7 @@ public class MakingItemInteraction : MonoBehaviour
             InteractionSystem.isInteracting = true;
 
         progressSlider.maxValue = _recipeData.timeToMake;
+        dustParticle.SetActive(true);
         StartCoroutine(nameof(Wait));
     }
 
@@ -53,6 +55,7 @@ public class MakingItemInteraction : MonoBehaviour
         if (InteractionSystem.isInteracting) 
             InteractionSystem.isInteracting = false;
 
+        dustParticle.SetActive(false);
         ReplaceHoldingItem(_recipeData.resultItem);
     }
 

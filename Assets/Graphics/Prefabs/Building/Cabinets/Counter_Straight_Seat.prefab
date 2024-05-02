@@ -163,7 +163,6 @@ GameObject:
   - component: {fileID: 6230684618213516573}
   - component: {fileID: 8851453976804990900}
   - component: {fileID: 692631656927172240}
-  - component: {fileID: 1675688450679057599}
   m_Layer: 6
   m_Name: Counter_Straight_Seat
   m_TagString: Furniture
@@ -284,27 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754714887ef82594d8434562ab96644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaced: 0
+  isPlaced: 1
   size: {x: 0.79, y: 0.37, z: 0.5}
   objectToManipulate: {fileID: 2695659886524082920}
   _interactableObject: {fileID: 0}
---- !u!114 &1675688450679057599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323232589137150085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68da2b500d5e3af479c6932db1ff4ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTriggered: 1
-  reverseReturn: 1
-  objectsTag:
-  - Furniture
-  - Wall
 --- !u!1 &4531502388581072992
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 5562477116921114328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.021, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
