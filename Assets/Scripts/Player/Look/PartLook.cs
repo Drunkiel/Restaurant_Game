@@ -13,6 +13,18 @@ public class PartLook : MonoBehaviour
         UpdatePreviewImage();
     }
 
+    public void SetApplyChanges()
+    {
+        PlayerLookController _lookController = PlayerLookController.instance;
+        _lookController._colorPicker.applyBTN.onClick.RemoveAllListeners();
+        _lookController._colorPicker.applyBTN.onClick.AddListener(() =>
+        {
+            _lookController.UpdateTexture(new() { new(pixelTexturePosition.x, pixelTexturePosition.y) }, _lookController._colorPicker.color);
+            color = GetColor();
+            UpdatePreviewImage();
+        });
+    }
+
     public void UpdatePreviewImage()
     {
         previewImage.color = color;

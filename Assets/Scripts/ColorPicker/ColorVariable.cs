@@ -18,6 +18,13 @@ public class ColorVariable : MonoBehaviour
         return colorValue;
     }
 
+    public void SetValue(byte value)
+    {
+        colorSlider.SetValueWithoutNotify(value);
+        valueInput.text = value.ToString();
+        colorValue = value;
+    }
+
     public void UpdateColorBySlider()
     {
         valueInput.SetTextWithoutNotify(colorSlider.value.ToString());
@@ -32,10 +39,6 @@ public class ColorVariable : MonoBehaviour
             colorValue = byte.Parse(colorSlider.value.ToString()); ;
         }
         else
-        {
-            colorSlider.SetValueWithoutNotify(0);
-            valueInput.text = "0";
-            colorValue = 0;
-        }
+            SetValue(0);
     }
 }

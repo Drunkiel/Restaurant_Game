@@ -7,7 +7,8 @@ public class ColorPickerController : MonoBehaviour
     [SerializeField] private byte rColor;
     [SerializeField] private byte gColor;
     [SerializeField] private byte bColor;
-    [SerializeField] private Image previewImage; 
+    [SerializeField] private Image previewImage;
+    public Button applyBTN;
     [SerializeField] private ColorVariable[] colorVariables;
 
     public void UpdatePreview()
@@ -20,16 +21,27 @@ public class ColorPickerController : MonoBehaviour
         previewImage.color = color;
     }
 
-/*    public Color32 GetRandomColor()
+    public void UpdateVariables(Image image)
     {
-        // Randomize colors
-        Color32 randomColor = new(
-            (byte)Random.Range(0, 256),
-            (byte)Random.Range(0, 256),
-            (byte)Random.Range(0, 256),
-            255
-        );
+        Color32 color = image.color;
 
-        return randomColor;
-    }*/
+        colorVariables[0].SetValue(color.r);
+        colorVariables[1].SetValue(color.g);
+        colorVariables[2].SetValue(color.b);
+
+        UpdatePreview();
+    }
+
+    /*    public Color32 GetRandomColor()
+        {
+            // Randomize colors
+            Color32 randomColor = new(
+                (byte)Random.Range(0, 256),
+                (byte)Random.Range(0, 256),
+                (byte)Random.Range(0, 256),
+                255
+            );
+
+            return randomColor;
+        }*/
 }
