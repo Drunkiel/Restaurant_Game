@@ -9,6 +9,7 @@ public class ColorPickerController : MonoBehaviour
     [SerializeField] private byte bColor;
     [SerializeField] private Image previewImage;
     public Button applyBTN;
+    public Button resetBTN;
     [SerializeField] private ColorVariable[] colorVariables;
 
     public void UpdatePreview()

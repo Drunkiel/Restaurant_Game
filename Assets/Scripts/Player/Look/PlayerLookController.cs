@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PlayerLookController : MonoBehaviour
 {
     public static PlayerLookController instance;
 
+    public Texture2D mainPlayerTexture;
     public Texture2D playerTexture;
     public ColorPickerController _colorPicker;
 
@@ -32,7 +34,15 @@ public class PlayerLookController : MonoBehaviour
                 }
             }
         }
+
         //Applying changes
         playerTexture.Apply();
+    }
+
+    public void SaveTexture()
+    {
+        byte[] _bytes = playerTexture.EncodeToPNG();
+        string path = SaveLoadSystem.savePath + "Custom_Player_Look.png";
+        File.WriteAllBytes(path, _bytes);
     }
 }
