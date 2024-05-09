@@ -12,7 +12,7 @@ public class PartLook : MonoBehaviour
         color = GetColorByTexture(PlayerLookController.instance.playerTexture);
         UpdatePreviewImage();
 
-        PlayerLookController.instance._colorPicker.resetBTN.onClick.AddListener(() => ResetChanges());
+        PlayerLookController.instance._colorPicker.resetAllBTN.onClick.AddListener(() => ResetChanges());
     }
 
     public void SetApplyChanges()

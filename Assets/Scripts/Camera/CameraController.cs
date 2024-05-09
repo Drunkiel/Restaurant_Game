@@ -64,6 +64,13 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        RestaurantManager.instance.ChangeWallsVisibility();
+        try
+        {
+            RestaurantManager.instance.ChangeWallsVisibility();
+        }
+        catch(System.Exception) 
+        {
+            //Do nothing 
+        }
     }
 }

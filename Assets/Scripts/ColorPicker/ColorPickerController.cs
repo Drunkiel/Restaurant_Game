@@ -10,6 +10,7 @@ public class ColorPickerController : MonoBehaviour
     [SerializeField] private Image previewImage;
     public Button applyBTN;
     public Button resetBTN;
+    public Button resetAllBTN;
     [SerializeField] private ColorVariable[] colorVariables;
 
     public void UpdatePreview()
@@ -32,17 +33,4 @@ public class ColorPickerController : MonoBehaviour
 
         UpdatePreview();
     }
-
-    /*    public Color32 GetRandomColor()
-        {
-            // Randomize colors
-            Color32 randomColor = new(
-                (byte)Random.Range(0, 256),
-                (byte)Random.Range(0, 256),
-                (byte)Random.Range(0, 256),
-                255
-            );
-
-            return randomColor;
-        }*/
 }
