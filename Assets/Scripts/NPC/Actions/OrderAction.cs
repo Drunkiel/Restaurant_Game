@@ -27,34 +27,40 @@ public class OrderAction : MonoBehaviour
 
     public void EatMeal()
     {
-        if (!anim.GetBool("isEating"))
-        {
-            Invoke(nameof(FinishMeal), 5f);
-            _itemInteraction.holdingItems[0].isPickable = false;
-            _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
-            anim.SetBool("isEating", true);
-        }
+        if (anim.GetBool("isEating"))
+            return;
+
+        Invoke(nameof(FinishMeal), 5f);
+        _itemInteraction.holdingItems[0].isPickable = false;
+        _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
+        anim.SetBool("isEating", true);
     }
 
     private void FinishMeal()
     {
         ProgressMetricController _progressController = ProgressMetricController.instance;
-        DestroyFood();
 
+        //Making changes to dish and NPC
+        DestroyFood();
         anim.SetBool("isEating", false);
-        _progressController._moneyManager.AddMoney(_currentOrder._card._data.price);
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
         _itemInteraction.holdingItems[0].isPickable = true;
         _progressController._ordersManager.IncreaseFinishedOrdersCounter();
 
+        //Setting statistics
+        OrderController.instance.countOfOrdersToEnd -= 1;
+        _progressController._moneyManager.AddMoney(_currentOrder._card._data.price);
         _progressController._ratingManager.currentRating += 
             _ratingAction.GiveRating(
                 _patienceController.waitingTime,
-                _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()]
+                _patienceController.maxWaitingTime[_progressController._ratingManager.GetRating()]
                 );
 
+        //Making changes to objects
         _itemInteraction.holdingItems[0]._dishItem.ChangeDirtyState(true);
         Destroy(_currentOrder._card.gameObject);
+
+        //Ending action
         _actionController.EndAction();
     }
 
@@ -70,12 +76,15 @@ public class OrderAction : MonoBehaviour
     {
         ItemID _itemID = _itemInteraction.GetHoldingItem();
         ItemID _dishItemID = _itemInteraction.GetDishItem();
+
+        //Assigning patience data
         _patienceController.waitingTime += Time.deltaTime;
         _patienceController.waitingSlider.value = Mathf.RoundToInt(_patienceController.waitingTime);
 
         if (_patienceController.waitingTime > _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()])
             CancelOrder();
 
+        //Check if order is served
         if (_itemID != null && !_dishItemID._dishItem.isDirty && _itemID.itemID.Equals(_currentOrder._card._data._itemID.itemID))
         {
             _patienceController.waitingSlider.gameObject.SetActive(false);
@@ -85,16 +94,22 @@ public class OrderAction : MonoBehaviour
 
     public void CancelOrder()
     {
-        OrderController.instance.countOfOrdersToEnd -= 1;
-        SummaryController.instance.unSatisfiedCostomers += 1;
+        ProgressMetricController _progressController = ProgressMetricController.instance;
+
+        //Reseting state
         Destroy(_currentOrder._card.gameObject);
         _patienceController.waitingSlider.gameObject.SetActive(false);
 
-        ProgressMetricController.instance._ratingManager.currentRating += 
+        //Setting statistics
+        OrderController.instance.countOfOrdersToEnd -= 1;
+        SummaryController.instance.unSatisfiedCostomers += 1;
+        _progressController._ratingManager.currentRating += 
             _ratingAction.GiveRating(
                 _patienceController.waitingTime,
-                _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()]
+                _patienceController.maxWaitingTime[_progressController._ratingManager.GetRating()]
                 );
+
+        //Skiping actions
         _actionController.SkipAction();
     }
 }

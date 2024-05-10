@@ -79,6 +79,10 @@ public class MakingItemInteraction : MonoBehaviour
 
     public void Check()
     {
+        //Checking if player is interacting
+        if (InteractionSystem.isInteracting)
+            return;
+
         RecipesController _recipesController = RecipesController.instance;
         _recipe = _recipesController.FindRecipe(makingProcess, _placeItem.holdingItems);
 

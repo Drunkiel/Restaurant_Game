@@ -39,6 +39,10 @@ public class PlaceItemInteraction : MonoBehaviour
 
     public void PlaceItem()
     {
+        //Checking if player is interacting
+        if (InteractionSystem.isInteracting)
+            return;
+
         if (_itemHolder.isHoldingItem)
         {
             if (isHoldingStackableItem) 
