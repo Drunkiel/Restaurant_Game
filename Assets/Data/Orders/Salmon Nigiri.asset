@@ -15,6 +15,7 @@ MonoBehaviour:
   price: 5
   minimalPrice: 0
   maxPrice: 10
-  sprite: {fileID: 21300000, guid: 5f7598d40e648424f8444886a8267d41, type: 3}
+  minTimeToFinish: 4
+  maxTimeToFinish: 12
   _itemID: {fileID: 68427438661750581, guid: f3473a2f3fc133b48a6b01f720b7e939, type: 3}
   _recipeData: {fileID: 11400000, guid: 920db57473b22054a87f502989dfde18, type: 2}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   process: 0
   requiredItems:
-  - {fileID: 2944658058185954334, guid: 5e0f570726cdab3438070148682fa250, type: 3}
+  - {fileID: 3932802654374722919, guid: aa003ffd272781747bb65cf3563f5685, type: 3}
   resultItem: {fileID: 6775986253534759541, guid: f7b3586dc1746244abd64c99ed6df574,
     type: 3}
-  timeToMake: 2
+  timeToMake: 5
   needInteraction: 1

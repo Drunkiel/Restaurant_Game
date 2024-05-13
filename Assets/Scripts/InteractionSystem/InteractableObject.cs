@@ -26,7 +26,8 @@ public class InteractableObject : MonoBehaviour
 
     private void Update()
     {
-        if (InteractionSystem.isInteracting) return;
+        if (InteractionSystem.isInteracting) 
+            return;
 
         isPlayerNearby = _triggerController.isTriggered;
     }
@@ -34,14 +35,7 @@ public class InteractableObject : MonoBehaviour
     public void Click(InputAction.CallbackContext context)
     {
         if (onClickFunctionalities.GetPersistentEventCount() > 0 && isPlayerNearby && context.performed)
-        {
             StartOnClickInteraction();
-
-            if (audioSource != null)
-                audioSource.Play();
-            else
-                Debug.LogError(transform.parent.name + ": does not have Audio Source");
-        }
     }
 
     public void Hold(InputAction.CallbackContext context)
@@ -58,6 +52,12 @@ public class InteractableObject : MonoBehaviour
 
     private void StartOnClickInteraction()
     {
+        if (audioSource != null)
+            audioSource.Play();
+        else
+            Debug.LogError(transform.parent.name + ": does not have Audio Source");
+
+
         onClickFunctionalities.Invoke();
     }
 

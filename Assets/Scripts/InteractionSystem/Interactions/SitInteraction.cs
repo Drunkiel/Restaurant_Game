@@ -23,7 +23,7 @@ public class SitInteraction : MonoBehaviour
         newItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         //Setting NPC on new position
-        newItem.transform.SetLocalPositionAndRotation(new Vector3(0, 0.002f, 0.1f), Quaternion.identity);
+        newItem.transform.SetLocalPositionAndRotation(new Vector3(0, 0.02f, 0.1f), Quaternion.identity);
 
         //Setting old name 
         newItem.name = _objectsID.gameObject.name;

@@ -8,6 +8,8 @@ public class MakingItemInteraction : MonoBehaviour
     public GameObject hint;
     public GameObject dustParticle;
     private Slider progressSlider;
+    private bool isMaking;
+
     public PlaceItemInteraction _placeItem;
     private Recipe _recipe;
     private RecipeData _recipeData;
@@ -30,6 +32,8 @@ public class MakingItemInteraction : MonoBehaviour
         if (startInteraction) 
             InteractionSystem.isInteracting = true;
 
+        isMaking = true;
+        _placeItem.isMaking = isMaking;
         progressSlider.maxValue = _recipeData.timeToMake;
         dustParticle.SetActive(true);
         StartCoroutine(nameof(Wait));
@@ -55,6 +59,8 @@ public class MakingItemInteraction : MonoBehaviour
         if (InteractionSystem.isInteracting) 
             InteractionSystem.isInteracting = false;
 
+        isMaking = false;
+        _placeItem.isMaking = isMaking;
         dustParticle.SetActive(false);
         ReplaceHoldingItem(_recipeData.resultItem);
     }
@@ -80,7 +86,7 @@ public class MakingItemInteraction : MonoBehaviour
     public void Check()
     {
         //Checking if player is interacting
-        if (InteractionSystem.isInteracting)
+        if (InteractionSystem.isInteracting || isMaking)
             return;
 
         RecipesController _recipesController = RecipesController.instance;

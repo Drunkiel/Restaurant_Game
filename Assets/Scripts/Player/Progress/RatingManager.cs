@@ -7,8 +7,8 @@ public class RatingManager
     [SerializeField] private int ratingLevel;
     public int currentRating;
 
-    private readonly List<int> ratingForLevel = new() { 0, 20, 40, 60, 80, 100 };
-    public readonly List<int> ratingPoints = new() { 8, 5, 2, 0, -5 };
+    private readonly List<int> ratingForLevel = new() { 0, 100, 400, 1200, 2000, 8000 };
+    public readonly List<int> ratingPoints = new() { 10, 5, 2, 0, -5 };
 
     public int GetRating()
     {

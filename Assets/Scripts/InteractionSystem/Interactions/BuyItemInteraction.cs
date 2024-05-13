@@ -4,11 +4,13 @@ using UnityEngine;
 public class BuyItemInteraction : MonoBehaviour
 {
     [SerializeField] private int price;
+    [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text priceTagText;
     [SerializeField] private PickItemInteraction _itemInteraction;
 
     private void Awake()
     {
+        nameText.text = _itemInteraction._objectsID.itemName;
         priceTagText.text = price + "$";
     }
 

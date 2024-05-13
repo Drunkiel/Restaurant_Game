@@ -30,7 +30,8 @@ public class OrderAction : MonoBehaviour
         if (anim.GetBool("isEating"))
             return;
 
-        Invoke(nameof(FinishMeal), 5f);
+        OrderData _data = _currentOrder._card._data;
+        Invoke(nameof(FinishMeal), Random.Range(_data.minTimeToFinish, _data.maxTimeToFinish));
         _itemInteraction.holdingItems[0].isPickable = false;
         _itemInteraction.holdingItems[0].transform.localPosition = new Vector3(0, -0.014f, 0.265f);
         anim.SetBool("isEating", true);

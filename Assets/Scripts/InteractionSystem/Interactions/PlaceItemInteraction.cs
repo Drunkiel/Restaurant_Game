@@ -7,6 +7,7 @@ public class PlaceItemInteraction : MonoBehaviour
     [SerializeField] private bool isHoldingStackableItem;
     [SerializeField] private bool pickAll;
     [SerializeField] private Transform itemHolder;
+    [HideInInspector] public bool isMaking;
     public List<ItemID> holdingItems = new();
 
     private InteractableObject _interactableObject;
@@ -40,7 +41,7 @@ public class PlaceItemInteraction : MonoBehaviour
     public void PlaceItem()
     {
         //Checking if player is interacting
-        if (InteractionSystem.isInteracting)
+        if (InteractionSystem.isInteracting || isMaking)
             return;
 
         if (_itemHolder.isHoldingItem)
