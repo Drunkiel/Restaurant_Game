@@ -16,5 +16,5 @@ MonoBehaviour:
   requiredItems: []
   resultItem: {fileID: 3046625352732157159, guid: a8e9be5f8bc7e89449dd1ccf2c2d140a,
     type: 3}
-  timeToMake: 4
+  timeToMake: 0
   needInteraction: 1

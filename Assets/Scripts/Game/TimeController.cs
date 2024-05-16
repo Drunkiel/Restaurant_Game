@@ -1,5 +1,14 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
+[System.Serializable]
+public class SkyColor
+{
+    public Color layer0;
+    public Color layer1;
+    public Color layer2;
+}
 
 public class TimeController : MonoBehaviour
 {
@@ -9,6 +18,10 @@ public class TimeController : MonoBehaviour
     [SerializeField] private int hours;
     [SerializeField] private int minutes;
     [SerializeField] private float seconds;
+
+    [SerializeField] private Light skyLight;
+    [SerializeField] private Material skyMaterial;
+    [SerializeField] private List<SkyColor> skyColors = new();
 
     public TMP_Text clockText;
     [SerializeField] private TMP_Text dayText;
@@ -33,10 +46,10 @@ public class TimeController : MonoBehaviour
         seconds += Time.fixedDeltaTime;
 
         //Minutes
-        if (seconds >= 1.5f)
+        if (seconds >= 1)
         {
             minutes += 1;
-            seconds = 0;
+            seconds -= 1;
         }
 
         //Hours
@@ -44,6 +57,12 @@ public class TimeController : MonoBehaviour
         {
             minutes -= 60;
             hours++;
+
+            if (hours == GameController.endWorkHour)
+            {
+                clockText.GetComponent<Animator>().SetBool("isBlinking", true);
+                ShowText("Closing time!");
+            }
         }
 
         //Days
@@ -54,14 +73,19 @@ public class TimeController : MonoBehaviour
         }
     }
 
+    public int GetDay()
+    {
+        return days;
+    }
+
     public Vector3 GetTime()
     {
         return new Vector3(hours, minutes, seconds);
     }
 
-    public void ShowDay()
+    public void ShowText(string newText)
     {
-        dayText.text = $"Day {days}";
+        dayText.text = newText;
         dayTextAnimator.SetTrigger("Trigger");
     }
 

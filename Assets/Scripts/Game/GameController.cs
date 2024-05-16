@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : SaveLoadSystem
 {
@@ -7,11 +8,12 @@ public class GameController : SaveLoadSystem
     public static bool isGameStarted;
     [SerializeField] private bool isMenu;
 
-    [SerializeField] private GameObject buttons;
+    [SerializeField] private Button[] buttons; //To change later
     [SerializeField] private AnimationInteraction _doorsAnimation;
     [SerializeField] private TimeController _timeController;
     [SerializeField] private NPCSpawnController _spawnController;
     public static bool isDataLoaded;
+    public readonly static int endWorkHour = 16;
 
     private void Awake()
     {
@@ -104,7 +106,9 @@ public class GameController : SaveLoadSystem
             return;
         }
 
-        buttons.SetActive(false);
+        foreach (Button button in buttons)
+            button.interactable = false;
+
         _doorsAnimation.ChangeAnimation();
         NPCLookController.instance.RandomizeTextures();
         _timeController.NewDay();
@@ -113,7 +117,7 @@ public class GameController : SaveLoadSystem
         Invoke(nameof(SpawnNPC), Random.Range(timeSpan.x, timeSpan.y));
 
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", false);
-        _timeController.ShowDay();
+        _timeController.ShowText($"Day {_timeController.GetDay()}");
         OrderController.instance.DestroyOrders();
         SummaryController.instance.ResetSummary();
     }
@@ -125,7 +129,9 @@ public class GameController : SaveLoadSystem
 
     private void EndDay()
     {
-        buttons.SetActive(false);
+        foreach (Button button in buttons)
+            button.interactable = true;
+
         _doorsAnimation.ChangeAnimation();
         _timeController.clockText.GetComponent<Animator>().SetBool("isBlinking", true);
         SummaryController.instance.MakeSummary();
@@ -136,7 +142,7 @@ public class GameController : SaveLoadSystem
         OrderController _orderController = OrderController.instance;
 
         //Check if all customers were served
-        if (_timeController.GetTime().x >= 15 && _orderController.countOfOrdersToEnd == 0)
+        if (_timeController.GetTime().x >= endWorkHour && _orderController.countOfOrdersToEnd == 0)
             return true;
 
         return false;

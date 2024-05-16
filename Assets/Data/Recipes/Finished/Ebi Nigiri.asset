@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: 4279906165597902028, guid: cce3f6c7370dcd64498a98d279bc2f89, type: 3}
   resultItem: {fileID: 6529964877722260759, guid: f057824cbd6e6544aa077ca6edd7cef6,
     type: 3}
-  timeToMake: 4
+  timeToMake: 5
   needInteraction: 1

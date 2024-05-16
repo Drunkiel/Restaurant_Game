@@ -12,6 +12,8 @@ public class SummaryController : MonoBehaviour
     public int unSatisfiedCostomers;
     public int rating;
 
+    [SerializeField] private TMP_Text dayText;
+
     [SerializeField] private TMP_Text expencesText;
     [SerializeField] private TMP_Text incomeText;
     [SerializeField] private TMP_Text moneySummaryText;
@@ -29,6 +31,8 @@ public class SummaryController : MonoBehaviour
     {
         _summaryUI.OpenClose();
         _summaryUI.UI.GetComponent<Animator>().SetTrigger("Show");
+
+        dayText.text = $"Day: {TimeController.instance.GetDay()}";
 
         expencesText.text = $"{expenses}$";
         incomeText.text = $"{income}$";

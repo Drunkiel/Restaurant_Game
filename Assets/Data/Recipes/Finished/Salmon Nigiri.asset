@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 8281379175096785120, guid: c0d2b40c1a56cbf41a9a1c05523d8f0c, type: 3}
   resultItem: {fileID: 68427438661750581, guid: f3473a2f3fc133b48a6b01f720b7e939,
     type: 3}
-  timeToMake: 4
+  timeToMake: 5
   needInteraction: 1
