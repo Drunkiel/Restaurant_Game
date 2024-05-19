@@ -58,10 +58,24 @@ public class TimeController : MonoBehaviour
             minutes -= 60;
             hours++;
 
+            if (hours == 8)
+                skyLight.GetComponent<Animator>().Play($"Light_State{0}");
+
+            if (hours == 12)
+                skyLight.GetComponent<Animator>().Play($"Camera_State{2}");
+
             if (hours == GameController.endWorkHour)
             {
+                skyLight.GetComponent<Animator>().Play($"Light_State{1}");
+                skyLight.GetComponent<Animator>().Play($"Camera_State{1}");
                 clockText.GetComponent<Animator>().SetBool("isBlinking", true);
                 ShowText("Closing time!");
+            }
+
+            if (hours == 20)
+            {
+                skyLight.GetComponent<Animator>().Play($"Light_State{2}");
+                skyLight.GetComponent<Animator>().Play($"Camera_State{0}");
             }
         }
 
