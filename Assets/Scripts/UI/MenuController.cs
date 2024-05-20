@@ -35,8 +35,10 @@ public class MenuController : MonoBehaviour
     public void ChangePauseState()
     {
         GameController.isGamePaused = !GameController.isGamePaused;
-        pauseMenuUI.SetActive(GameController.isGamePaused);
         Time.timeScale = GameController.isGamePaused ? 0f : 1f;
+        
+        if (pauseMenuUI != null)
+            pauseMenuUI.SetActive(GameController.isGamePaused);
     }
 
     public void OpenCloseMenu(int i)

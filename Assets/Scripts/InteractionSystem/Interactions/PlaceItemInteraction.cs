@@ -46,7 +46,7 @@ public class PlaceItemInteraction : MonoBehaviour
 
         if (_itemHolder.isHoldingItem)
         {
-            if (isHoldingStackableItem) 
+            if (isHoldingStackableItem)
                 AddToHolder();
             return;
         }
@@ -102,11 +102,15 @@ public class PlaceItemInteraction : MonoBehaviour
 
     private void PlaceOnPlayer()
     {
-        if (holdingItems.Count > 1 && !pickAll)
+        if (holdingItems.Count >= 1 && !pickAll)
         {
             _itemHolder.PickItem(holdingItems[^1]);
-            holdingItems[0]._dishItem.stackedItems.RemoveAt(holdingItems[0]._dishItem.stackedItems.Count - 1);
+            if (holdingItems.Count > 1)
+                holdingItems[0]._dishItem.stackedItems.RemoveAt(holdingItems[0]._dishItem.stackedItems.Count - 1);
             holdingItems.RemoveAt(holdingItems.Count - 1);
+
+            if (holdingItems.Count == 0)
+                isHoldingStackableItem = false;
         }
         else if (_itemHolder.holdingStackableItems.Count <= 1)
         {

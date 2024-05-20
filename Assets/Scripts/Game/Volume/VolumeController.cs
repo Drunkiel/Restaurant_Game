@@ -6,10 +6,9 @@ public class VolumeController : MonoBehaviour
     public static VolumeController instance;
 
     public Slider backgroundVolumeSlider;
+    public Slider effectsVolumeSlider;
     [SerializeField] private AudioSource backgroundAudio;
     [SerializeField] private AudioClip[] backgroundClips;
-
-    public Slider effectsVolumeSlider;
 
     private void Awake()
     {
