@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: TEST
   m_EditorClassIdentifier: 
-  price: 2
+  price: 6
   minimalPrice: 0
-  maxPrice: 5
+  maxPrice: 8
+  minTimeToFinish: 5
+  maxTimeToFinish: 8
   _itemID: {fileID: 965618203600971403, guid: b64245b4779c8264c81a74b2aea627b9, type: 3}
   _recipeData: {fileID: 11400000, guid: 2df6f70fb0afb434c97586a89d948fe1, type: 2}

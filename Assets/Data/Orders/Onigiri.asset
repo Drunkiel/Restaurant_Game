@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Onigiri
   m_EditorClassIdentifier: 
-  price: 5
+  price: 6
   minimalPrice: 0
   maxPrice: 10
   minTimeToFinish: 6

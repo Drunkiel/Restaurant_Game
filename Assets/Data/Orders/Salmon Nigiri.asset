@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Salmon Nigiri
   m_EditorClassIdentifier: 
-  price: 5
+  price: 10
   minimalPrice: 0
-  maxPrice: 10
+  maxPrice: 15
   minTimeToFinish: 4
   maxTimeToFinish: 12
   _itemID: {fileID: 68427438661750581, guid: f3473a2f3fc133b48a6b01f720b7e939, type: 3}

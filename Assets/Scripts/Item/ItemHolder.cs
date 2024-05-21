@@ -24,15 +24,15 @@ public class ItemHolder : MonoBehaviour
         instance = this;
     }
 
-    public void PickItem(ItemID _itemID, bool destroy = true)
+    public bool PickItem(ItemID _itemID, bool destroy = true)
     {
         //Check if can be picked
         if (!_itemID.isPickable)
-            return;
+            return false;
 
         //Check if reached max capacity
         if (holdingStackableItems.Count >= maxItemsStack)
-            return;
+            return false;
 
         //Check if item is stackable
         if (_itemID.isStackable)
@@ -42,7 +42,7 @@ public class ItemHolder : MonoBehaviour
             {
                 //Checks if stacking the same item type
                 if (!CheckIfTheSameItem(_itemID))
-                    return;
+                    return false;
 
                 Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                 holdingStackableItems.Add(lastPickedObject);
@@ -51,6 +51,9 @@ public class ItemHolder : MonoBehaviour
                 //Adding items from the picked item
                 for (int i = 1; i < holdingStackableItems.Count; i++)
                 {
+                    if (holdingStackableItems[i]._dishItem == null)
+                        break;
+
                     if (holdingStackableItems[i]._dishItem.stackedItems.Count > 0)
                         holdingStackableItems.AddRange(holdingStackableItems[i]._dishItem.stackedItems);
                 }
@@ -58,14 +61,14 @@ public class ItemHolder : MonoBehaviour
                 isHoldingStackableItem = true;
                 if (destroy)
                     Destroy(_itemID.gameObject);
-                return;
+                return true;
             }
 
             //Checking if is holding a non stacking item
             if (isHoldingItem)
             {
                 if (_itemID._dishItem.stackedItems.Count >= maxItemsStack - 1)
-                    return;
+                    return false;
 
                 //Spawn stackable item
                 Pick(_itemID, holderTransform, holdingStackableItems.Count);
@@ -85,7 +88,7 @@ public class ItemHolder : MonoBehaviour
                     0);
                 Destroy(holdingItem.gameObject);
                 isHoldingItem = false;
-                return;
+                return true;
             }
 
             //If dont hold anything, pick it
@@ -95,27 +98,27 @@ public class ItemHolder : MonoBehaviour
             isHoldingStackableItem = true;
             if (destroy)
                 Destroy(_itemID.gameObject);
-            return;
+            return true;
         }
         else //If item is not stackable
         {
             //If holds a not stackable item: stop script
             if (isHoldingItem)
-                return;
+                return false;
 
             //Checks if is holding stackable item like plate to add it to it
             if (isHoldingStackableItem)
             {
                 //Checks if stacking the same type
                 if (!CheckIfTheSameItem(_itemID))
-                    return;
+                    return false;
 
                 Pick(_itemID, holdingStackableItems[0].transform, holdingStackableItems.Count, false);
                 holdingStackableItems.Add(lastPickedObject);
                 holdingStackableItems[0]._dishItem.stackedItems.Add(lastPickedObject);
                 if (destroy)
                     Destroy(_itemID.gameObject);
-                return;
+                return true;
             }
             else if (holdingStackableItems.Count <= 1) //if not just pick it
             {
@@ -124,9 +127,11 @@ public class ItemHolder : MonoBehaviour
                 isHoldingItem = true;
                 if (destroy)
                     Destroy(_itemID.gameObject);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
     public void Pick(ItemID _itemID, Transform transform, int multiplier, bool shrinkObject = true, bool deactivateInteractions = true)

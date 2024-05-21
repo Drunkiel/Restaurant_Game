@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Gyoza
   m_EditorClassIdentifier: 
-  price: 5
+  price: 16
   minimalPrice: 0
-  maxPrice: 10
+  maxPrice: 20
   minTimeToFinish: 6
   maxTimeToFinish: 9
   _itemID: {fileID: 4541870512642755985, guid: f00a09a18ef0f7c4ca6a253b2e5904aa, type: 3}

@@ -17,9 +17,6 @@ public class PickItemInteraction : MonoBehaviour
     {
         ItemHolder _itemHolder = ItemHolder.instance;
 
-        if (_itemHolder.holdingItem != null)
-            return false;
-
         if (_itemHolder.holdingStackableItems.Count >= ItemHolder.maxItemsStack)
             return false;
 

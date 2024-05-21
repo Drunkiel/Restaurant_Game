@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Salmon Roll
   m_EditorClassIdentifier: 
-  price: 5
+  price: 20
   minimalPrice: 0
-  maxPrice: 10
-  sprite: {fileID: 21300000, guid: a29cc10cca26a2941b1847a8d85bbcaf, type: 3}
+  maxPrice: 30
+  minTimeToFinish: 5
+  maxTimeToFinish: 8
   _itemID: {fileID: 4910331946155299156, guid: 5bb9ebea2d2f92f4fa12ff1e0e2fa729, type: 3}
   _recipeData: {fileID: 11400000, guid: fcd0e365d89d9304981ca14d80d57ca6, type: 2}

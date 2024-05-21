@@ -104,7 +104,9 @@ public class PlaceItemInteraction : MonoBehaviour
     {
         if (holdingItems.Count >= 1 && !pickAll)
         {
-            _itemHolder.PickItem(holdingItems[^1]);
+            if (!_itemHolder.PickItem(holdingItems[^1]))
+                return;
+
             if (holdingItems.Count > 1)
                 holdingItems[0]._dishItem.stackedItems.RemoveAt(holdingItems[0]._dishItem.stackedItems.Count - 1);
             holdingItems.RemoveAt(holdingItems.Count - 1);

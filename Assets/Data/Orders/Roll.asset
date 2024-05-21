@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Roll
   m_EditorClassIdentifier: 
-  price: 5
+  price: 10
   minimalPrice: 0
-  maxPrice: 10
-  sprite: {fileID: 21300000, guid: 24679dce8f686764d8dac1e90775e913, type: 3}
+  maxPrice: 15
+  minTimeToFinish: 5
+  maxTimeToFinish: 8
   _itemID: {fileID: 638743876218406509, guid: d3f53a5ed467de543b33069160581622, type: 3}
   _recipeData: {fileID: 11400000, guid: cae863989edc96e4aa852596508d3e9d, type: 2}

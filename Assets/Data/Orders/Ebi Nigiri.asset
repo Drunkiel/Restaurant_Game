@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0dba03e5a2f34e9330a887cc55165, type: 3}
   m_Name: Ebi Nigiri
   m_EditorClassIdentifier: 
-  price: 2
+  price: 16
   minimalPrice: 0
-  maxPrice: 5
+  maxPrice: 20
   minTimeToFinish: 4
   maxTimeToFinish: 12
   _itemID: {fileID: 6529964877722260759, guid: f057824cbd6e6544aa077ca6edd7cef6, type: 3}
