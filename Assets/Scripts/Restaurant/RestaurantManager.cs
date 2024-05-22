@@ -6,6 +6,9 @@ public class RestaurantManager : MonoBehaviour
     public static RestaurantManager instance;
 
     public BuildingID _doorID;
+    public BuildingID _fridgeID;
+    public BuildingID _shelvesID;
+
     public List<SitInteraction> _allSits = new();
     public List<BuildingID> frontWalls = new();
     public List<BuildingID> backWalls = new();

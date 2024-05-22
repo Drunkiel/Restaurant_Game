@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class BuyItemInteraction : MonoBehaviour
 {
-    [SerializeField] private int price;
+    public ShopItemData _itemData;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text priceTagText;
     [SerializeField] private PickItemInteraction _itemInteraction;
 
-    private void Awake()
+    private void Start()
     {
+        _itemInteraction._objectsID = _itemData._itemID;
         nameText.text = _itemInteraction._objectsID.itemName;
-        priceTagText.text = price + "$";
+        priceTagText.text = _itemData.price + "$";
     }
 
     public void BuyItem()
@@ -23,12 +24,12 @@ public class BuyItemInteraction : MonoBehaviour
             return;
 
         //Checks if player has enough money
-        if (_moneyManager.GetAmount() >= price)
+        if (_moneyManager.GetAmount() >= _itemData.price)
         {
             _itemInteraction.PickItem();
-            _moneyManager.RemoveMoney(price);
+            _moneyManager.RemoveMoney(_itemData.price);
         }
         else
-            print($"Not enough money: {_moneyManager.GetAmount() - price}");
+            print($"Not enough money: {_moneyManager.GetAmount() - _itemData.price}");
     }
 }
