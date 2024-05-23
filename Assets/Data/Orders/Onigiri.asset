@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Onigiri
   m_EditorClassIdentifier: 
   price: 6
-  minimalPrice: 0
-  maxPrice: 10
+  defaultPrice: 6
   minTimeToFinish: 6
   maxTimeToFinish: 9
   _itemID: {fileID: 9085687404045897294, guid: e54052789a6326b4d8a3862f4f922a11, type: 3}

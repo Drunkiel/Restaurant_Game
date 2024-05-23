@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Salmon Roll
   m_EditorClassIdentifier: 
   price: 20
-  minimalPrice: 0
-  maxPrice: 30
+  defaultPrice: 20
   minTimeToFinish: 5
   maxTimeToFinish: 8
   _itemID: {fileID: 4910331946155299156, guid: 5bb9ebea2d2f92f4fa12ff1e0e2fa729, type: 3}

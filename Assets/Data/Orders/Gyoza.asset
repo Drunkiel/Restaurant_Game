@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Gyoza
   m_EditorClassIdentifier: 
   price: 16
-  minimalPrice: 0
-  maxPrice: 20
+  defaultPrice: 16
   minTimeToFinish: 6
   maxTimeToFinish: 9
   _itemID: {fileID: 4541870512642755985, guid: f00a09a18ef0f7c4ca6a253b2e5904aa, type: 3}

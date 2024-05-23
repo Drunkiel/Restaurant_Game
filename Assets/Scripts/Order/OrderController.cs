@@ -27,7 +27,7 @@ public class OrderController : MonoBehaviour
         instance = this;
     }
 
-    public void NewOrder(ItemID _itemID, OrderAction _orderAction)
+    public void NewOrder(ItemID _itemID, OrderAction _orderAction, int orderIndex)
     {
         GameObject newCard = Instantiate(cardPrefab, parent);
 
@@ -38,7 +38,7 @@ public class OrderController : MonoBehaviour
             _card = newCard.GetComponent<OrderCard>()
         };
 
-        _newOrder._card._data = _possibleOrders[Random.Range(0, _possibleOrders.Count)];
+        _newOrder._card._data = _possibleOrders[orderIndex];
         _newOrder._card.SetCardData(_newOrder._card._data._itemID.itemSprite, $"{_newOrder._card._data.price}$ - {_newOrder._NPCID.itemName}");
         _newOrder._card.AssignButton(_newOrder._card._data._itemID);
         _orderAction._currentOrder = _newOrder;

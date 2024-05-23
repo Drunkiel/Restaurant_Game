@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Roll
   m_EditorClassIdentifier: 
   price: 10
-  minimalPrice: 0
-  maxPrice: 15
+  defaultPrice: 10
   minTimeToFinish: 5
   maxTimeToFinish: 8
   _itemID: {fileID: 638743876218406509, guid: d3f53a5ed467de543b33069160581622, type: 3}

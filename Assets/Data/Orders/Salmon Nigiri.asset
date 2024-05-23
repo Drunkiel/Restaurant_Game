@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Salmon Nigiri
   m_EditorClassIdentifier: 
   price: 10
-  minimalPrice: 0
-  maxPrice: 15
+  defaultPrice: 10
   minTimeToFinish: 4
   maxTimeToFinish: 12
   _itemID: {fileID: 68427438661750581, guid: f3473a2f3fc133b48a6b01f720b7e939, type: 3}

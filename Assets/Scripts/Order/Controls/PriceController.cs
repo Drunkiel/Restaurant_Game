@@ -13,8 +13,8 @@ public class PriceController : MonoBehaviour
     public void SetData()
     {
         currentPrice = _data.price;
-        minimalPrice = _data.minimalPrice;
-        maxPrice = _data.maxPrice;
+        minimalPrice = 0;
+        maxPrice = Mathf.RoundToInt(_data.GetDefaultPrice() * 1.5f);
         UpdatePrice(0);
     }
 

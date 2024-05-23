@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class OrderAction : MonoBehaviour
@@ -15,12 +16,65 @@ public class OrderAction : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    private List<int> CheckPrices()
+    {
+        OrderController _orderController = OrderController.instance;
+        int ratingLevel = ProgressMetricController.instance._ratingManager.GetRating();
+        List<int> pickableOrders = new();
+
+        for (int i = 0; i < _orderController._restaurantMenu.Count; i++)
+        {
+            int currentPrice = _orderController._possibleOrders[_orderController._restaurantMenu[0]].price;
+            int defaultPrice = _orderController._possibleOrders[_orderController._restaurantMenu[0]].GetDefaultPrice();
+
+            float ratio = currentPrice / defaultPrice;
+
+            if (ratio <= 1)
+                pickableOrders.Add(_orderController._restaurantMenu[i]);
+
+            switch (ratingLevel)
+            {
+                case 1:
+                    if (ratio <= 1.1f)
+                        pickableOrders.Add(_orderController._restaurantMenu[i]);
+                    break;
+
+                case 2:
+                    if (ratio <= 1.2f)
+                        pickableOrders.Add(_orderController._restaurantMenu[i]);
+                    break;
+
+                case 3:
+                    if (ratio <= 1.3f)
+                        pickableOrders.Add(_orderController._restaurantMenu[i]);
+                    break;
+
+                case 4:
+                    if (ratio <= 1.4f)
+                        pickableOrders.Add(_orderController._restaurantMenu[i]);
+                    break;
+
+                case 5:
+                    if (ratio <= 1.5f)
+                        pickableOrders.Add(_orderController._restaurantMenu[i]);
+                    break;
+            }
+        }
+
+        return pickableOrders;
+    }
+
     public void MakeOrder()
     {
+        List<int> pickableOrders = CheckPrices();
+        if (pickableOrders.Count == 0)
+            _actionController.SkipAction(3);
+
         _patienceController.waitingSlider.maxValue = _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()];
         _patienceController.waitingSlider.gameObject.SetActive(true);
 
-        OrderController.instance.NewOrder(GetComponent<ItemID>(), this);
+        OrderController _orderController = OrderController.instance;
+        _orderController.NewOrder(GetComponent<ItemID>(), this, _orderController._restaurantMenu[pickableOrders[Random.Range(0, pickableOrders.Count)]]);
         _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
         _actionController.EndAction();
     }
@@ -111,6 +165,6 @@ public class OrderAction : MonoBehaviour
                 );
 
         //Skiping actions
-        _actionController.SkipAction();
+        _actionController.SkipAction(2);
     }
 }

@@ -39,12 +39,13 @@ public class ActionController : MonoBehaviour
             thingsToAchieve[actionIndex].actions.Invoke();
     }
 
-    public void SkipAction()
+    public void SkipAction(int amount = 1)
     {
-        thingsToAchieve[actionIndex].isActionDone = true;
-        thingsToAchieve[actionIndex + 1].isActionDone = true;
+        //This is only for esthetics reasons
+        for (int i = 0; i < amount; i++)
+            thingsToAchieve[actionIndex + i].isActionDone = true;
 
-        NextAction(2);
+        NextAction(amount);
     }
 
     public void EndAction()

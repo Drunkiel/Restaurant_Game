@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Octopus Nigiri
   m_EditorClassIdentifier: 
   price: 18
-  minimalPrice: 0
-  maxPrice: 25
+  defaultPrice: 18
   minTimeToFinish: 10
   maxTimeToFinish: 20
   _itemID: {fileID: 4279906165597902028, guid: cce3f6c7370dcd64498a98d279bc2f89, type: 3}

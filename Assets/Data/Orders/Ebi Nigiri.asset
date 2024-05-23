@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Ebi Nigiri
   m_EditorClassIdentifier: 
   price: 16
-  minimalPrice: 0
-  maxPrice: 20
+  defaultPrice: 16
   minTimeToFinish: 4
   maxTimeToFinish: 12
   _itemID: {fileID: 6529964877722260759, guid: f057824cbd6e6544aa077ca6edd7cef6, type: 3}

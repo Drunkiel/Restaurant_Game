@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: TEST
   m_EditorClassIdentifier: 
   price: 6
-  minimalPrice: 0
-  maxPrice: 8
+  defaultPrice: 6
   minTimeToFinish: 5
   maxTimeToFinish: 8
   _itemID: {fileID: 965618203600971403, guid: b64245b4779c8264c81a74b2aea627b9, type: 3}
