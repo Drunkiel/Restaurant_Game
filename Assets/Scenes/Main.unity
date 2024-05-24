@@ -52374,6 +52374,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderCard 1
       objectReference: {fileID: 0}
+    - target: {fileID: 244907949679419529, guid: c146d1590404a8a4e9ee40dda6779809,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7580894099821803380, guid: c146d1590404a8a4e9ee40dda6779809,
         type: 3}
       propertyPath: m_Pivot.x

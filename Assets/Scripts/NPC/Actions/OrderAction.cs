@@ -24,10 +24,10 @@ public class OrderAction : MonoBehaviour
 
         for (int i = 0; i < _orderController._restaurantMenu.Count; i++)
         {
-            int currentPrice = _orderController._possibleOrders[_orderController._restaurantMenu[0]].price;
-            int defaultPrice = _orderController._possibleOrders[_orderController._restaurantMenu[0]].GetDefaultPrice();
+            int currentPrice = _orderController._possibleOrders[_orderController._restaurantMenu[i]].price;
+            int defaultPrice = _orderController._possibleOrders[_orderController._restaurantMenu[i]].GetDefaultPrice();
 
-            float ratio = currentPrice / defaultPrice;
+            float ratio = (float)currentPrice / defaultPrice;
 
             if (ratio <= 1)
                 pickableOrders.Add(_orderController._restaurantMenu[i]);
@@ -67,15 +67,24 @@ public class OrderAction : MonoBehaviour
     public void MakeOrder()
     {
         List<int> pickableOrders = CheckPrices();
+        //Skipping actions if not found orders
         if (pickableOrders.Count == 0)
+        {
             _actionController.SkipAction(3);
+            GetComponent<SitAction>()._sitInteraction._objectsID = null;
+            return;
+        }
 
+        //Setting patience
         _patienceController.waitingSlider.maxValue = _patienceController.maxWaitingTime[ProgressMetricController.instance._ratingManager.GetRating()];
         _patienceController.waitingSlider.gameObject.SetActive(true);
 
+        //Setting order
         OrderController _orderController = OrderController.instance;
         _orderController.NewOrder(GetComponent<ItemID>(), this, _orderController._restaurantMenu[pickableOrders[Random.Range(0, pickableOrders.Count)]]);
         _itemInteraction = GetComponent<SitAction>()._seatID.transform.parent.GetChild(0).GetComponent<PlaceItemInteraction>();
+
+        //Ending action
         _actionController.EndAction();
     }
 

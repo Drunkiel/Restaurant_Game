@@ -16,6 +16,9 @@ public class SitInteraction : MonoBehaviour
         _actionController = _objectsID.GetComponent<ActionController>();
         _actionController.EndAction();
 
+        if (_objectsID == null)
+            return;
+
         //Recreating NPC
         GameObject newItem = Instantiate(_objectsID.gameObject, transform);
 
