@@ -22,4 +22,9 @@ public class AnimationInteraction : MonoBehaviour
         if (_hintEvent != null)
             _hintEvent.addOne = isOpen;
     }
+
+    public void PlayAnimationIndex(int index)
+    {
+        animator.SetTrigger(animationTriggers[index]);
+    }
 }

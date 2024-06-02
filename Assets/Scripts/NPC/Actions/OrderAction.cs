@@ -70,7 +70,13 @@ public class OrderAction : MonoBehaviour
         //Skipping actions if not found orders
         if (pickableOrders.Count == 0)
         {
+            _patienceController.review.GetComponent<AnimationInteraction>().PlayAnimationIndex(1);
             _actionController.SkipAction(3);
+
+            //Unsatisfie customer
+            SummaryController.instance.unSatisfiedCostomers += 1;
+            ProgressMetricController.instance._ratingManager.currentRating += _ratingAction.GiveRating(1, 1);
+
             GetComponent<SitAction>()._sitInteraction._objectsID = null;
             return;
         }
@@ -110,6 +116,7 @@ public class OrderAction : MonoBehaviour
         _itemInteraction.holdingItems[0].transform.localPosition = Vector3.zero;
         _itemInteraction.holdingItems[0].isPickable = true;
         _progressController._ordersManager.IncreaseFinishedOrdersCounter();
+        _patienceController.review.GetComponent<AnimationInteraction>().PlayAnimationIndex(0);
 
         //Setting statistics
         OrderController.instance.countOfOrdersToEnd -= 1;
@@ -172,6 +179,7 @@ public class OrderAction : MonoBehaviour
                 _patienceController.waitingTime,
                 _patienceController.maxWaitingTime[_progressController._ratingManager.GetRating()]
                 );
+        _patienceController.review.GetComponent<AnimationInteraction>().PlayAnimationIndex(1);
 
         //Skiping actions
         _actionController.SkipAction(2);

@@ -16044,6 +16044,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 712656269}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &712656272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5157630992441683882, guid: 571015fe52d3de44e86115da21f63918,
+    type: 3}
+  m_PrefabInstance: {fileID: 712656269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74bada2d5508a841ad91a5c70ff7340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &714849512
 GameObject:
   m_ObjectHideFlags: 3
@@ -43469,7 +43481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doorID: {fileID: 2740627458653824822}
   _fridgeID: {fileID: 2049254682}
-  _shelvesID: {fileID: 0}
+  _shelvesID: {fileID: 712656272}
   _allSits: []
   frontWalls:
   - {fileID: 2740627458653824822}
@@ -55896,11 +55908,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6103120563915140093, guid: 75c926e4ada4dd046855cf5ac28756ec,
-        type: 3}
-      propertyPath: _currentOrder._NPCID
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
