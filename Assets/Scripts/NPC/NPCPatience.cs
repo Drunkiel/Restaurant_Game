@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NPCPatience
 {
     public float waitingTime;
-    public readonly List<int> maxWaitingTime = new() { 15, 20, 25, 35, 50, 60 };
+    public readonly List<int> maxWaitingTime = new() { 45, 60, 75, 105, 150, 180 };
     public Slider waitingSlider;
     public GameObject review;
 }

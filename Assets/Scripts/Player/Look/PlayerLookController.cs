@@ -13,6 +13,7 @@ public class PlayerLookController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        LoadTexture();
     }
 
     public void UpdateTexture(List<Vector2Int> points, Color32 newColor)
@@ -37,12 +38,20 @@ public class PlayerLookController : MonoBehaviour
 
         //Applying changes
         playerTexture.Apply();
+        SaveTexture();
     }
 
     public void SaveTexture()
     {
-        byte[] _bytes = playerTexture.EncodeToPNG();
+        byte[] bytes = playerTexture.EncodeToPNG();
         string path = SaveLoadSystem.savePath + "Custom_Player_Look.png";
-        File.WriteAllBytes(path, _bytes);
+        File.WriteAllBytes(path, bytes);
+    }
+
+    public void LoadTexture()
+    {
+        string path = SaveLoadSystem.savePath + "Custom_Player_Look.png";
+        byte[] bytes = File.ReadAllBytes(path);
+        ImageConversion.LoadImage(playerTexture, bytes);
     }
 }

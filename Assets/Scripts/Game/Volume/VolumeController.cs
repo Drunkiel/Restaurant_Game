@@ -17,6 +17,15 @@ public class VolumeController : MonoBehaviour
         backgroundAudio.Play();
     }
 
+    private void FixedUpdate()
+    {
+        if (!backgroundAudio.isPlaying)
+        {
+            backgroundAudio.clip = GetRandomClip();
+            backgroundAudio.Play();
+        }    
+    }
+
     public void UpdateBackgroundVolume()
     {
         backgroundAudio.volume = backgroundVolumeSlider.value / 100;

@@ -15490,11 +15490,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 5786299708296918947, guid: 643b5944f75b8074c917fcba47ca8830,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6836645451695708420, guid: 643b5944f75b8074c917fcba47ca8830,
         type: 3}
       propertyPath: m_Pivot.x
@@ -18618,7 +18613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPlayerTexture: {fileID: 2800000, guid: 0d0a7a402043fc94daeddfe217c60718, type: 3}
-  playerTexture: {fileID: 2800000, guid: b50d375511a21e04cb6a6f7d080b06cd, type: 3}
+  playerTexture: {fileID: 2800000, guid: eb4a9a6b7ef50c949bb69a82d2cf6221, type: 3}
   _colorPicker: {fileID: 706373567}
 --- !u!95 &919132149204849709
 Animator:

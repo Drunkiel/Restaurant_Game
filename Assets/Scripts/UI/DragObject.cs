@@ -3,8 +3,15 @@ using UnityEngine.EventSystems;
 
 public class DragObject : MonoBehaviour, IDragHandler
 {
+    private RectTransform rectTransform;
+
+    private void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        rectTransform.anchoredPosition += eventData.delta;
     }
 }
